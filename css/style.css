@@ -106,6 +106,10 @@ main #art6 {
   background: url("../img/proyects.png") no-repeat;
   background-size: cover;
 }
+main #art7 {
+  background: url("../img/db.png") no-repeat;
+  background-size: cover;
+}
 
 footer {
   color: #2d8b85;
