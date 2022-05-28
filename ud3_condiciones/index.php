@@ -31,10 +31,6 @@ $ejercicios = array(
 <body>
     <main>
         <?php
-        // foreach ($ejercicios as $key => $value) {
-        //     echo '<a target="_blank" href="' . $value['enlace'] . '">' . $value['id'] . '.' . $value['titulo'] .'</a>' . '<br>' . $value['descripcion'] . '<br>';
-        //     echo '<a target="_blank" href="' . $value['github'] . '">Enlace Github</a><br><br>';
-        // }
         foreach ($ejercicios as $key => $value) {
             echo '<article id="art' . $value['id'] . '">
         <div class="titulo">' . $value['titulo'] . '</div>
