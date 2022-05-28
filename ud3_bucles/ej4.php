@@ -1,13 +1,17 @@
-<!--Ejercicio 4.  Notas académicas.
-A partir de un array que almacene los datos de la primera y segunda evaluación de los alumnos de 2o DAW, 
-mostrar un menú de navegación que muestre la siguiente información. 
-• Listados de alumnos con las notas de la primera y segunda evaluación, junto con su nota media. 
-Asignatura con mayor número de aprobados. Asignatura con mayor número de suspensos. 
-Número de aprobados en cada asignatura. 
-Generación de boletines de notas en función de la evaluación seleccionada en una lista desplegable.
-Virginia Ordoño Bernier
--->
 <?php
+/**
+ * Notas académicas.
+ * A partir de un array que almacene los datos de la primera y segunda evaluación de los alumnos de 2o DAW, 
+ * mostrar un menú de navegación que muestre la siguiente información. 
+ * Listados de alumnos con las notas de la primera y segunda evaluación, junto con su nota media. 
+ * Asignatura con mayor número de aprobados. Asignatura con mayor número de suspensos. 
+ * Número de aprobados en cada asignatura. 
+ * Generación de boletines de notas en función de la evaluación seleccionada en una lista desplegable.
+ * @author Virginia Ordoño Bernier
+ */
+require("../require/view_bucles_header.php");
+require("../require/view_footer.php");
+
 //array que contiene los alumnos y sus notas
 $modules = array(
     "DWES" => array(
@@ -351,10 +355,18 @@ if (isset($_POST['refresh'])) {
 }
 
 ?>
+<!DOCTYPE HTML>
+<html lang='es'>
+
+<head>
+    <link rel='stylesheet' type='text/css' href='../css/style_exercises.css' />
+</head>
+
+<body>
+    <main>
 <!--Menú navegación-->
 <form action="" method="post">
-    <h1>Ejercicio 4</h1>
-    <h2>Pulsa cualquier botón para ver la diferente información. </h2><br>
+    <h4>Pulsa cualquier botón para ver la diferente información. </h4><br>
     <ol>
         <li>Listados de alumnos con las notas de la primera y segunda evaluación, junto con su nota media. <button type="submit" name="submit1"> Mostrar</button></li><br>
         <li>Asignatura con mayor número de aprobados. <button type="submit" name="submit2"> Mostrar</button></li><br>
@@ -548,7 +560,9 @@ if ($boletinNotas) {
         
                 echo ("</table>");
 ?>
-</form>   
+</form> 
+</main>
+</body>  
 <?php
 
 }

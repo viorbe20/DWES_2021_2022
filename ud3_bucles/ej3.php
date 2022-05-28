@@ -1,14 +1,18 @@
-<!--Ejercicio 3.  Comunidades Autónomas.
-A partir de un array que almacena comunidades autónomas y provincias, 
-escribe un programa que muestre aleatoriamente una comunidad autónoma y 
-presente un formulario con un checkbox que permita seleccionar las provincias 
-que pertenecen a la comunidad. 
-En respuesta al formulario, la aplicación mostrará número de aciertos y fallos. 
-Incluye una opción que permita visualizar las opciones correctas.
-Virginia Ordoño Bernier
--->
-
 <?php
+
+/**
+ * Comunidades Autónomas.
+ * A partir de un array que almacena comunidades autónomas y provincias, 
+ * escribe un programa que muestre aleatoriamente una comunidad autónoma y 
+ * presente un formulario con un checkbox que permita seleccionar las provincias 
+ * que pertenecen a la comunidad. 
+ * En respuesta al formulario, la aplicación mostrará número de aciertos y fallos. 
+ * Incluye una opción que permita visualizar las opciones correctas.
+ * @author Virginia Ordoño Bernier
+ */
+require("../require/view_bucles_header.php");
+require("../require/view_footer.php");
+
 $comunidadesArray = array(
     'Andalucía' => array("Almería", "Cádiz", "Córdoba", "Granada", "Huelva", "Jaén", "Málaga", "Sevilla"),
     'Aragón' => array("Zaragoza", "Huesca", "Teruel"),
@@ -74,75 +78,84 @@ if (isset($_POST['submit2'])) {
     $randomCA = $_POST['selectedComunidad'];
     $aciertos = $_POST['aciertos'];
     $fallos = $_POST['fallos'];
-
 }
 
 
 ?>
-<!--Primer formulario-->
-<form action="" method="post">
-    <h1>Ejercicio 3</h1>
-    <h2>Selecciona las provincias que pertenecen a la comunidad mostrada.</h2>
+<!DOCTYPE HTML>
+<html lang='es'>
 
-    <h3><?php echo $randomCA ?> </h3>
-    <input type="hidden" name="selectedComunidad" value=<?php echo $randomCA ?>>
+<head>
+    <link rel='stylesheet' type='text/css' href='../css/style_exercises.css' />
+</head>
 
-    <?php
-    foreach ($comunidadesArray as $comunidades => $value) {
+<body>
+    <main>
+        <!--Primer formulario-->
+        <form action="" method="post">
+            <h4>Selecciona las provincias que pertenecen a la comunidad mostrada.</h4>
 
-        foreach ($value as $provincia) {
-            //array_push($provinciasArray, $provincias);
-            echo $provincia;
-            //Si se ha seleccionado, lo marcamos para que se mantenga tras el submit
-            $selected = (in_array($provincia, $selectedProvinces)) ? 'checked' : '';
-            echo "<input type ='checkbox' name='provinces[]' value = \"" . $provincia . "\" $selected>";
+            <h4><?php echo $randomCA ?> </h4>
+            <input type="hidden" name="selectedComunidad" value=<?php echo $randomCA ?>>
+
+            <?php
+            foreach ($comunidadesArray as $comunidades => $value) {
+
+                foreach ($value as $provincia) {
+                    //array_push($provinciasArray, $provincias);
+                    echo $provincia;
+                    //Si se ha seleccionado, lo marcamos para que se mantenga tras el submit
+                    $selected = (in_array($provincia, $selectedProvinces)) ? 'checked' : '';
+                    echo "<input type ='checkbox' name='provinces[]' value = \"" . $provincia . "\" $selected>";
+                }
+            }
+            ?>
+            <br><br>
+            <input type="submit" value="Comprobar" name="submit">
+            <br><br>
+            <span class='error'><?php echo $errorMsg ?></span>
+            <style>
+                .error {
+                    color: red;
+                    font-weight: bold;
+                }
+            </style>
+        </form>
+
+        <!--Tras submit, muestra aciertos y fallos-->
+        <?php
+        if ($procesaFormulario) {
+        ?>
+            <form action="" method="post">
+                <label>Aciertos</label>
+                <input type="text" name="aciertos" value=<?php echo $aciertos ?> style="width : 30px;" readonly>
+                <br><br>
+                <label>Fallos</label>
+                <input type="text" name="fallos" value=<?php echo $fallos ?> style="width : 30px;" readonly>
+
+                <br><br>
+                <input type="submit" value="Mostrar solución" name="submit2">
+                <!--Conservamos la comundiad autónoma ya que se mostrará en el siguiente submit-->
+                <input type="hidden" name="selectedComunidad" value=<?php echo $randomCA ?>>
+            </form>
+        <?php
         }
-    }
-    ?>
-    <br><br>
-    <input type="submit" value="Comprobar" name="submit">
-    <br><br>
-    <span class='error'><?php echo $errorMsg ?></span>
-    <style>
-        .error {
-            color: red;
-            font-weight: bold;
+
+        //Muestra solución
+        if ($showSolution) {
+        ?>
+
+            <h4><?php echo $randomCA ?></h4>
+        <?php
+            foreach ($comunidadesArray[$randomCA] as $key => $value) {
+                echo $value . ', ';
+            }
         }
-    </style>
-</form>
-
-<!--Tras submit, muestra aciertos y fallos-->
-<?php
-if ($procesaFormulario) {
-?>
-    <form action="" method="post">
-        <label>Aciertos</label>
-        <input type="text" name="aciertos" value=<?php echo $aciertos ?> style="width : 30px;" readonly>
-        <br><br>
-        <label>Fallos</label>
-        <input type="text" name="fallos" value=<?php echo $fallos ?> style="width : 30px;" readonly>
-    
-        <br><br>
-        <input type="submit" value="Mostrar solución" name="submit2">
-        <!--Conservamos la comundiad autónoma ya que se mostrará en el siguiente submit-->
-        <input type="hidden" name="selectedComunidad" value=<?php echo $randomCA ?>>
-    </form>
-<?php
-}
-
-//Muestra solución
-if ($showSolution) {
-?>
-
-    <h3><?php echo $randomCA ?></h3>
-<?php
-    foreach ($comunidadesArray[$randomCA] as $key => $value) {
-        echo $value . ', ';
-    }
-}
-?>
-<style>
-    h3{
-        color: blue;
-    }
-</style>
+        ?>
+        <style>
+            h3 {
+                color: blue;
+            }
+        </style>
+    </main>
+</body>

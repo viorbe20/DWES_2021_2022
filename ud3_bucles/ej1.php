@@ -1,9 +1,13 @@
-<!--Ejercicio 1.  Encuesta.
-Modifica el ejercicio 4 de Actividades 1 
-para almacenar las opciones de la encuesta en un array.
-Virginia Ordoño Bernier
--->
 <?php
+
+/**Encuesta.
+ * Modifica el ejercicio 4 de Actividades 1 
+ * para almacenar las opciones de la encuesta en un array.
+ * @author Virginia Ordoño Bernier
+ */
+require("../require/view_bucles_header.php");
+require("../require/view_footer.php");
+
 $procesaFormulario = false;
 $msg = "";
 $errorMsg = "";
@@ -58,44 +62,53 @@ if ($procesaFormulario) {
     $msg = "Mayor puntuación: " . $points  . "<br>";
 }
 ?>
+<!DOCTYPE HTML>
+<html lang='es'>
 
-<form action="" method="post">
-    <h1>Ejercicio 4</h1>
-    <h2>Valora cada ítem de 1 a 5 y comprueba cuál es el más valorado. </h2>
-    <?php
-    for ($i = 1; $i < 7; $i++) {
+<head>
+    <link rel='stylesheet' type='text/css' href='../css/style_exercises.css' />
+</head>
 
-        echo "<label>Ítem $i: </label>";
+<body>
+    <main>
+        <form action="" method="post">
+            <h4>Valora cada ítem de 1 a 5 y comprueba cuál es el más valorado. </h4>
+            <?php
+            for ($i = 1; $i < 7; $i++) {
 
-        for ($j = 1; $j < 6; $j++) {
-            //Si procesa formulario, mantenemos la puntuación establecida por el usuario
-            if ($procesaFormulario) {
-                if ($_POST['Item' . $i] == $j) {
-                    $checked = "checked";
-                } else {
-                    $checked = "";
+                echo "<label>Ítem $i: </label>";
+
+                for ($j = 1; $j < 6; $j++) {
+                    //Si procesa formulario, mantenemos la puntuación establecida por el usuario
+                    if ($procesaFormulario) {
+                        if ($_POST['Item' . $i] == $j) {
+                            $checked = "checked";
+                        } else {
+                            $checked = "";
+                        }
+                    }
+                    echo "<input type='radio' name='Item" . $i . "' value='$j' $checked>$j";
                 }
+                echo ('<br>');
             }
-            echo "<input type='radio' name='Item" . $i . "' value='$j' $checked>$j";
-        }
-        echo ('<br>');
-    }
-    ?>
-    <br>
-    <button type="reset" name="">Limpiar</button>
-    <button type="submit" name="submit">Comprobar</button>
-    <br><br>
-    <span><?php echo $errorMsg ?></span><br>
-    <span><?php echo $msg ?></span><br>
-    <?php
- 
-    //Recorremos el array con los ítems que tienen máxima puntuación
-    foreach ($itemsArray as $key => $value) {
-        echo $value . ", ";
-    }
+            ?>
+            <br>
+            <button type="reset" name="">Limpiar</button>
+            <button type="submit" name="submit">Comprobar</button>
+            <br><br>
+            <span><?php echo $errorMsg ?></span><br>
+            <span><?php echo $msg ?></span><br>
+            <?php
 
-    if ($procesaFormulario) {
-        echo "<br><br><button type='submit' name='refresh'>Volver a votar</button>";
-    }
-    ?>
-</form>
+            //Recorremos el array con los ítems que tienen máxima puntuación
+            foreach ($itemsArray as $key => $value) {
+                echo $value . ", ";
+            }
+
+            if ($procesaFormulario) {
+                echo "<br><br><button type='submit' name='refresh'>Volver a votar</button>";
+            }
+            ?>
+        </form>
+    </main>
+</body>
