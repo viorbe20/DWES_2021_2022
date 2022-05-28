@@ -20,12 +20,12 @@ sort($aNumbers);
 <html lang='es'>
 
 <head>
-    <link rel='stylesheet' type='text/css' href='../css/style.css' />
+    <link rel='stylesheet' type='text/css' href='../css/style_exercises.css' />
 </head>
 
 <body>
-    <h3>Almacena tres números en variables y escribirlos en pantalla de manera ordenada (F5).</h3>
     <main>
+        <h4>Almacena tres números en variables y escribirlos en pantalla de manera ordenada (F5).</h4>
         <div id="result1">
             <?php
             foreach ($aNumbers as $key => $value) {

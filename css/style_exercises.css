@@ -6,9 +6,12 @@
   --color5: #3f3e52;
 }
 
-h1 {
-  text-align: center;
-  color: var(--color1);
+h3 {
+  background-color: var(--color4);
+  color: var(--color2);
+  margin-left: 3%;
+  margin-right: 3%;
+  padding: 1%;
 }
 
 body {
@@ -18,14 +21,9 @@ body {
   background-color: #dfdce3;
   font-family: Arial, Helvetica, sans-serif;
 }
-body h3 {
-  background-color: var(--color4);
-  color: var(--color2);
-  margin-left: 3%;
-  margin-right: 3%;
-  padding: 1%;
-}
 body main {
+  display: flex;
+  flex-direction: column;
   margin-left: 3%;
   margin-right: 3%;
   display: flex;

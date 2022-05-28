@@ -1,9 +1,13 @@
-<!--Ejercicio 4. Encuesta.
-Escribe un script que muestre un formulario que permita la votación de 10 items (item1, item2, …)
-mediante un radio button de 1 a 5. La respuesta al formulario mostrará el item mejor valorado.
-Virginia Ordoño Bernier
--->
 <?php
+/**
+ * Encuesta.
+ * Escribe un script que muestre un formulario que permita la votación de 10 items (item1, item2, …)
+ * mediante un radio button de 1 a 5. La respuesta al formulario mostrará el item mejor valorado.
+ * @author Virginia Ordoño Bernier
+ */
+require("../require/view_condiciones_header.php");
+require("../require/view_footer.php");
+
 $procesaFormulario = false;
 $msg = "";
 $errorMsg = "";
@@ -58,10 +62,17 @@ if ($procesaFormulario) {
     $msg = "Mayor puntuación: " . $points  . "<br>";
 }
 ?>
+<!DOCTYPE HTML>
+<html lang='es'>
 
+<head>
+    <link rel='stylesheet' type='text/css' href='../css/style_exercises.css' />
+</head>
+
+<body>
+    <main>
 <form action="" method="post">
-    <h1>Ejercicio 4</h1>
-    <h2>Valora cada ítem de 1 a 5 y comprueba cuál es el más valorado. </h2>
+    <h4>Valora cada ítem de 1 a 5 y comprueba cuál es el más valorado. </h4>
     <?php
     for ($i = 1; $i < 7; $i++) {
 
@@ -99,3 +110,5 @@ if ($procesaFormulario) {
     }
     ?>
 </form>
+</main>
+</body>

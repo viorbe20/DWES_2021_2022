@@ -21,12 +21,12 @@ if (isset($_POST['show'])) {
 <html lang='es'>
 
 <head>
-    <link rel='stylesheet' type='text/css' href='../css/style.css' />
+    <link rel='stylesheet' type='text/css' href='../css/style_exercises.css' />
 </head>
 
 <body>
-    <h3>Carga fecha de nacimiento en variables y calcula la edad.</h3>
     <main>
+        <h4>Carga fecha de nacimiento en variables y calcula la edad.</h4>
         <div id="result3">
             <form action="" method="post">
                 <input type="date" name="calendar">

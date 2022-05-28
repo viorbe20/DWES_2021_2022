@@ -1,10 +1,14 @@
-<!--Ejercicio 3. Operaciones aritméticas.
-Escribe un script que muestre al usuario un formulario con una operación aritmética básica,
-generada aleatoriamente. Una vez completado el formulario, el script indicará si la operación se
-realizó correctamente.
-Virginia Ordoño Bernier
--->
 <?php
+/**
+ * Operaciones aritméticas.
+ * Escribe un script que muestre al usuario un formulario con una operación aritmética básica,
+ * generada aleatoriamente. Una vez completado el formulario, el script indicará si la operación se
+ * realizó correctamente.
+ * @author Virginia Ordoño Bernier
+ */
+require("../require/view_condiciones_header.php");
+require("../require/view_footer.php");
+
 $n1 = rand(0, 10);
 $n2 = rand(0, 10);
 $index = rand(0, 3);
@@ -68,11 +72,19 @@ if ($procesaFormulario) {
 
 
 ?>
+<!DOCTYPE HTML>
+<html lang='es'>
+
+<head>
+    <link rel='stylesheet' type='text/css' href='../css/style_exercises.css' />
+</head>
+
+<body>
+    <main>
 <!--Mostramos formulario inicial-->
 <!--Utilizamos hidden para guardar valores seleccionados y que se mantengan tras el submit-->
 <form action="" method="post">
-    <h1>Ejercicio 3</h1>
-    <h2>Escribe el resultado de la operación y comprueba.</h2>
+    <h4>Escribe el resultado de la operación y comprueba.</h4>
     <?php echo "$n1 $operaciones[$index] $n2 = " ?>
     <input type="number" name="userInput" value="<?php echo $userInput?>"><span><?php
                                                 echo $message ?></span>
@@ -86,3 +98,5 @@ if ($procesaFormulario) {
     <input type="hidden" name="oldN2" value="<?php echo $n2?>">
     <input type="hidden" name="oldSign" value="<?php echo $operaciones[$index]?>">
 </form>
+</main>
+</body>

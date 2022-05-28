@@ -1,12 +1,16 @@
-<!--Ejercicio 5. Figuras geométricas.
-Escribe un script que muestre una figura geométrica utilizando el formato svg. Para ello el script
-mostrará formulario con un radio button con las figuras disponibles: círculo, rectángulo, cuadrado y
-un cuadro de texto para seleccionar el color. En función de la figura elegida, el script solicitará los
-datos necesarios para su visualización.
-Virginia Ordoño Bernier
--->
-
 <?php
+
+/**
+ * Figuras geométricas.
+ * Escribe un script que muestre una figura geométrica utilizando el formato svg. Para ello el script
+ * mostrará formulario con un radio button con las figuras disponibles: círculo, rectángulo, cuadrado y
+ * un cuadro de texto para seleccionar el color. En función de la figura elegida, el script solicitará los
+ * datos necesarios para su visualización.
+ * @author Virginia Ordoño Bernier
+ */
+require("../require/view_condiciones_header.php");
+require("../require/view_footer.php");
+
 $procesaFormulario = false;
 $procesaFormulario2 = false;
 $errorMsg = "";
@@ -52,76 +56,85 @@ if (isset($_POST["submit2"])) {
     }
 }
 ?>
+<!DOCTYPE HTML>
+<html lang='es'>
 
-<!--Formulario inicial-->
-<form action="" method="post">
-    <h1>Ejercicio 5</h1>
-    <h2>Elige una figura y su color y pulsa mostrar.</h2>
-    <label>Círculo <input type="radio" name="figure" value="circle"></label><br><br>
-    <label>Rectángulo <input type="radio" name="figure" value="rectangle"></label><br><br>
-    <label>Cuadrado <input type="radio" name="figure" value="square"></label><br><br>
+<head>
+    <link rel='stylesheet' type='text/css' href='../css/style_exercises.css' />
+</head>
 
-    Color
-    <select name="color">
-        <option value="yellow">Amarillo</option>
-        <option value="blue">Azul</option>
-        <option value="green">Verde</option>
-    </select>
+<body>
+    <main>
+        <!--Formulario inicial-->
+        <form action="" method="post">
+            <h4>Elige una figura y su color y pulsa mostrar.</h4>
+            <label>Círculo <input type="radio" name="figure" value="circle"></label><br><br>
+            <label>Rectángulo <input type="radio" name="figure" value="rectangle"></label><br><br>
+            <label>Cuadrado <input type="radio" name="figure" value="square"></label><br><br>
 
-    <br><br>
-    <button type="submit" name="submit">Seleccionar</button><br><br><span>
-        <span class="error"><?php echo $errorMsg; ?></span><br />
+            Color
+            <select name="color">
+                <option value="yellow">Amarillo</option>
+                <option value="blue">Azul</option>
+                <option value="green">Verde</option>
+            </select>
 
-</form>
+            <br><br>
+            <button type="submit" name="submit">Seleccionar</button><br><br><span>
+                <span class="error"><?php echo $errorMsg; ?></span><br />
 
-<!--Parte 2: muestra opciones para seleccionar alto y ancho-->
-<form action="" method="post">
-    <?php
+        </form>
 
-    if ($procesaFormulario) {
-        switch ($_POST["figure"]) {
-            case 'circle':
-                echo 'Introduce el radio <input type="number" name="radio" value="50"> <input type="hidden" name="figure" value=' . $_POST["figure"] . '> <input type="hidden" name="color" value=' . $_POST["color"] . ' > <span class="error"> ' . $dataError . ' </span><br/><br/>';
-                break;
+        <!--Parte 2: muestra opciones para seleccionar alto y ancho-->
+        <form action="" method="post">
+            <?php
 
-            case 'rectangle':
-                echo 'Introduce el alto <input type="number" name="height" value="70"> <br><br> Introduce el ancho <input type="number" name="width" value="100"> <input type="hidden" name="figure" value=' . $_POST["figure"] . '> <input type="hidden" name="color" value=' . $_POST["color"] . '> <span class="error"> ' . $dataError . ' </span><br/><br/>';
-                break;
+            if ($procesaFormulario) {
+                switch ($_POST["figure"]) {
+                    case 'circle':
+                        echo 'Introduce el radio <input type="number" name="radio" value="50"> <input type="hidden" name="figure" value=' . $_POST["figure"] . '> <input type="hidden" name="color" value=' . $_POST["color"] . ' > <span class="error"> ' . $dataError . ' </span><br/><br/>';
+                        break;
 
-            case 'square':
-                echo 'Introduce el lado <input type="number" name="side" value="100"> <input type="hidden" name="figure" value=' . $_POST["figure"] . '> <input type="hidden" name="color" value=' . $_POST["color"] . '> <span class="error"> ' . $dataError . ' </span><br/><br/>';
-                break;
+                    case 'rectangle':
+                        echo 'Introduce el alto <input type="number" name="height" value="70"> <br><br> Introduce el ancho <input type="number" name="width" value="100"> <input type="hidden" name="figure" value=' . $_POST["figure"] . '> <input type="hidden" name="color" value=' . $_POST["color"] . '> <span class="error"> ' . $dataError . ' </span><br/><br/>';
+                        break;
+
+                    case 'square':
+                        echo 'Introduce el lado <input type="number" name="side" value="100"> <input type="hidden" name="figure" value=' . $_POST["figure"] . '> <input type="hidden" name="color" value=' . $_POST["color"] . '> <span class="error"> ' . $dataError . ' </span><br/><br/>';
+                        break;
+                }
+
+                echo '<input type="submit" value="Mostrar" name="submit2">';
+            }
+            ?>
+        </form>
+
+        <!--Parte 3: muestra la figura-->
+        <?php
+        if ($procesaFormulario2) {
+
+            echo '<svg width="200" height="200">';
+            switch ($_POST["figure"]) {
+                case 'circle':
+                    echo '<circle cx="50" cy="50" r="' . $_POST["radio"] . '" fill="' . $_POST["color"] . '"/>';
+                    break;
+
+                case 'rectangle':
+                    echo '<rect x="' . $_POST["width"] / 2 . '" y="' . $_POST["height"] / 2 . '" width="' . $_POST["width"] . '" height="' . $_POST["height"] . '" fill="' . $_POST["color"] . '"/>';
+                    break;
+
+                case 'square':
+                    echo '<rect x="' . $_POST["side"] / 2 . '" y="' . $_POST["side"] / 2 . '" width="' . $_POST["side"] . '" height="' . $_POST["side"] . '" fill="' . $_POST["color"] . '"/>';
+                    break;
+            }
+            echo '</svg>';
         }
+        ?>
 
-        echo '<input type="submit" value="Mostrar" name="submit2">';
-    }
-    ?>
-</form>
-
-<!--Parte 3: muestra la figura-->
-<?php
-if ($procesaFormulario2) {
-
-    echo '<svg width="200" height="200">';
-    switch ($_POST["figure"]) {
-        case 'circle':
-            echo '<circle cx="50" cy="50" r="' . $_POST["radio"] . '" fill="' . $_POST["color"] . '"/>';
-            break;
-
-        case 'rectangle':
-            echo '<rect x="' . $_POST["width"] / 2 . '" y="' . $_POST["height"] / 2 . '" width="' . $_POST["width"] . '" height="' . $_POST["height"] . '" fill="' . $_POST["color"] . '"/>';
-            break;
-
-        case 'square':
-            echo '<rect x="' . $_POST["side"] / 2 . '" y="' . $_POST["side"] / 2 . '" width="' . $_POST["side"] . '" height="' . $_POST["side"] . '" fill="' . $_POST["color"] . '"/>';
-            break;
-    }
-    echo '</svg>';
-}
-?>
-
-<style>
-    .error {
-        color: #FF0000;
-    }
-</style>
+        <style>
+            .error {
+                color: #FF0000;
+            }
+        </style>
+    </main>
+</body>

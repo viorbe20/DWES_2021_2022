@@ -27,12 +27,12 @@ if (isset($_POST['show'])) {
 <html lang='es'>
 
 <head>
-    <link rel='stylesheet' type='text/css' href='../css/style.css' />
+    <link rel='stylesheet' type='text/css' href='../css/style_exercises.css' />
 </head>
 
 <body>
-    <h3>Carga en variables mes y año e indica el número de días del mes.</h3>
     <main>
+        <h4>Carga en variables mes y año e indica el número de días del mes.</h4>
         <div id="result2">
             <form action="" method="post">
                 <label for="month">Mes <input type="number" name="month" min=1 max=12 value=<?php echo $month
