@@ -1,0 +1,31 @@
+Enunciado: implementar aplicación venta online pizzas.
+
+1. Sesiones:
+    - Administrador. Añade pizzas a la carta (otro formulario)
+    - Cliente. Se le aplica descuento de 10% al pedido.
+    - Invitado. No se aplica descuento.
+
+2. Formulario.
+    - Tipo de pizza (3).
+    - Cantidad.
+    - Cada tipo de pizza una foto.
+    - Al enviar formulario aparece un mensaje con:
+        -> Pedido realizado.
+        -> Total.
+        -> Fecha y hora.
+Ejemplo:
+Nombre _________________________________
+Teléfono _________________________________
+
+Cuatro quesos:         Foto
+Cantidad: _____
+Precio: _____
+
+Enviar
+
+3. Pizzas almacenadas en una array.
+aPizzas = array(
+    array(tipo=>'nombre', precio=>8),
+);
+
+4. Al mostrar el formulario aparecen las pizzas seleccioandas de la última compra (cookies).
