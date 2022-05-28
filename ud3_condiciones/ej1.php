@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Ejercicio 1. Número aletorio.
  * Escribe un script que muestre al usuario un número aleatorio comprendido entre dos números que

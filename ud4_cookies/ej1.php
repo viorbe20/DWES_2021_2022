@@ -6,6 +6,8 @@
  * Debe contener un checkbox 'Recordar'. 
  * Si se marca, cuando volvamos a entrar debe ofrecer ese usuario y contraseña.
  */
+require("../require/view_cookies_header.php");
+require("../require/view_footer.php");
 
 $username = "";
 $password = "";
@@ -79,27 +81,37 @@ if (isset($_POST['login'])) {
 
 if ($processForm) {
 ?>
-    <form action="" method="post">
-        <h1>Ejercicio 1. Cookies </h1>
-        <p>Introduce un usuario y una contraseña.</p>
-        <p>Haz click en "Recordar" si quieres que esos datos aparezcan la próxima vez que quieras entrar.</p>
+    <!DOCTYPE HTML>
+    <html lang='es'>
 
-        <input type="username" name="username" placeholder="Nombre usuario" value='<?php echo $username ?>'>
-        <span class='error'><?php echo $usernameError ?></span>
-        <br><br>
+    <head>
+        <link rel='stylesheet' type='text/css' href='../css/style_exercises.css' />
+    </head>
 
-        <input type="password" name="password" placeholder="Contraseña" value='<?php echo $password ?>'>
-        <span class='error'><?php echo $passwordError ?></span>
-        <br><br>
+    <body>
+        <main>
+            <form action="" method="post">
+                <h4>Introduce un usuario y una contraseña.</h4>
+                <p>Haz click en "Recordar" si quieres que esos datos aparezcan la próxima vez que quieras entrar.</p>
 
-        <label for="">
-            <input type="checkbox" name="saveData" id="">
-            Recordar
-        </label>
-        <br><br>
+                <input type="username" name="username" placeholder="Nombre usuario" value='<?php echo $username ?>'>
+                <span class='error'><?php echo $usernameError ?></span>
+                <br><br>
 
-        <input type="submit" name="login" value="Entrar">
-    </form>
+                <input type="password" name="password" placeholder="Contraseña" value='<?php echo $password ?>'>
+                <span class='error'><?php echo $passwordError ?></span>
+                <br><br>
+
+                <label for="">
+                    <input type="checkbox" name="saveData" id="">
+                    Recordar
+                </label>
+                <br><br>
+
+                <input type="submit" name="login" value="Entrar">
+            </form>
+        </main>
+    </body>
 <?php
 }
 ?>
