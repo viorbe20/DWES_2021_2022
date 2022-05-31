@@ -11,9 +11,6 @@ class UsuarioController extends BaseController
 {
     public function signupAction()
     {
-        $data = array();
-        $userData = array();
-        $bmData = array();
         $user = Usuario::getInstancia();
         $bm = Bookmark::getInstancia();
     
