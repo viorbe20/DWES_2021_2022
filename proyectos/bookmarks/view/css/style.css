@@ -2,6 +2,7 @@
   --color1: #3c3c3c;
   --title: #056571;
   --negro: #192231;
+  --color-form: #a9b7c0;
   --color3: #945d60;
   --color4: #b56357;
   --color5: #af473c;
@@ -12,7 +13,6 @@
   --color10: #cdcdcd;
   --color11: #fff7c0;
   --color12: #66ab8c;
-  --color14: #a9b7c0;
   --color15: #c7d8c6;
   --color16: #e9e7da;
   --color17: #cda34f;
@@ -93,7 +93,7 @@ header #auth div:nth-child(2) {
 }
 
 #loginForm {
-  background-color: var(--color14);
+  background-color: var(--color-form);
 }
 #loginForm form {
   display: flex;

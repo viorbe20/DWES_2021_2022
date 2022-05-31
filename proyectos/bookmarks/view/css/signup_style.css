@@ -1,0 +1,91 @@
+* {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#signupForm {
+  background: var(--color8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#signupForm form {
+  width: 70%;
+  margin-top: 2%;
+  display: flex;
+  *flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  *border: 1px solid #ccc;
+  background: #a9b7c0;
+  /* Full-width input fields */
+  /* Set a style for all buttons */
+  /* Extra styles for the cancel button */
+  /* Float cancel and signup buttons and add an equal width */
+  /* Add padding to container elements */
+  /* Change styles for cancel button and signup button on extra small screens */
+}
+#signupForm form h2 {
+  margin: 0%;
+}
+#signupForm form input[type=text],
+#signupForm form input[type=password], #signupForm form input[type=url], #signupForm form textarea {
+  width: 100%;
+  padding: 5px;
+  margin: 2px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+#signupForm form input[type=text]:focus,
+#signupForm form input[type=password]:focus, #signupForm form input[type=url]:focus, #signupForm form textarea:focus {
+  background-color: #b4dbc0;
+  outline: none;
+}
+#signupForm form hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+#signupForm form button {
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  *width: 80%;
+  opacity: 0.9;
+}
+#signupForm form button:hover {
+  opacity: 1;
+}
+#signupForm form .btn_cancel {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+#signupForm form .btn_cancel,
+#signupForm form .btn_signup {
+  float: left;
+  width: 40%;
+}
+#signupForm form .container {
+  padding: 16px;
+}
+#signupForm form .clearfix {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@media screen and (max-width: 300px) {
+  #signupForm form .btn_cancel,
+#signupForm form .btn_signup {
+    width: 100%;
+  }
+}
+#signupForm form textarea {
+  height: 100px;
+}
+#signupForm form #btn_addBookmark {
+  background-color: rgb(66, 66, 238);
+}/*# sourceMappingURL=signup_style.css.map */
