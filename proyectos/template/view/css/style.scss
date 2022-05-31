@@ -1,6 +1,7 @@
 :root {
   --color1: #3c3c3c;
-  --color2: #192231;
+  --title: #056571;
+  --negro: #192231;
 
   --color3: #945d60;
   --color4: #b56357;
@@ -13,7 +14,6 @@
   --color10: #cdcdcd;
   --color11: #fff7c0;
   --color12: #66ab8c;
-  --color13: #056571;
 
   --color14: #a9b7c0;
   --color15: #c7d8c6;
@@ -28,7 +28,7 @@
 body {
   margin: 0px;
   padding: 0px;
-  background-color: #dfdce3;
+  background-color: var(--color8);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -38,7 +38,7 @@ header {
   align-items: center;
 
   h2 {
-    color: var(--color13);
+    color: var(--title);
     padding-left: 4%;
   }
 
@@ -77,12 +77,12 @@ header {
           align-items: center;
 
           &:hover {
-            color: var(--color13);
+            color: var(--title);
             font-weight: bold;
 
             span,
             label {
-              color: var(--color13);
+              color: var(--title);
               font-weight: bold;
             }
           }
@@ -104,6 +104,33 @@ header {
       align-items: center;
       color: var(--color1);
       font-size: 12px;
+    }
+  }
+}
+
+#loginForm {
+  background-color: var(--color14);
+
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1% 0%;
+
+    div:nth-child(1) {
+      padding-right: 15%;
+    }
+
+    div:nth-child(2) {
+      a {
+        text-decoration: none;
+        color: white;
+        background-color: var(--title);
+        padding: 10%;
+        position: relative; //SIEMPRE
+
+
+      }
     }
   }
 }
