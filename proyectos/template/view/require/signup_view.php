@@ -1,5 +1,5 @@
 <?php
-$css = file_get_contents('../view/css/style.css');
+$css = file_get_contents('../view/css/signup_style.css');
 echo "<style>. $css . </style>";
 ?>
 
