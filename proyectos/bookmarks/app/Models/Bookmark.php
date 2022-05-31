@@ -34,18 +34,18 @@ class Bookmark extends DBAbstractModel
     {
         $this->id = $id;
     }
-    
+
     public function getId()
     {
         return $this->id;
     }
 
-    public function setBmurl($bm_url)
+    public function setUrl($bm_url)
     {
         $this->bm_url = $bm_url;
     }
 
-    public function getBmurl()
+    public function getUrl()
     {
         return $this->bm_url;
     }
@@ -54,23 +54,24 @@ class Bookmark extends DBAbstractModel
     {
         $this->descripcion = $descripcion;
     }
-    
+
     public function getDescripcion()
     {
         return $this->descripcion;
     }
 
-    public function setIdusuario($id_usuario)
+    public function setIdUsuario($id_usuario)
     {
         $this->id_usuario = $id_usuario;
     }
-    
+
     public function getIdusuario()
     {
         return $this->id_usuario;
     }
 
-    public function getByUserId(){
+    public function getByUserId()
+    {
         $this->query = "SELECT * FROM bookmarks WHERE id_usuario=:id_usuario";
         $this->parametros['id_usuario'] = $this->id_usuario;
         $this->get_results_from_query();
@@ -85,6 +86,12 @@ class Bookmark extends DBAbstractModel
     }
     public function setEntity()
     {
+        $this->query = "INSERT INTO bookmarks(bm_url, descripcion, id_usuario)
+        VALUES(:bm_url, :descripcion, :id_usuario)";
+        $this->parametros['bm_url'] = $this->bm_url;
+        $this->parametros['descripcion'] = $this->descripcion;
+        $this->parametros['id_usuario'] = $this->id_usuario;
+        $this->get_results_from_query();
     }
     public function deleteEntity($id)
     {
@@ -98,8 +105,8 @@ class Bookmark extends DBAbstractModel
     public function get()
     {
     }
-    public function delete($user_data = array()){
-
+    public function delete($user_data = array())
+    {
     }
     public function edit()
     {

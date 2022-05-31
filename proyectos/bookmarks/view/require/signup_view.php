@@ -1,6 +1,7 @@
 <?php
 $css = file_get_contents('../view/css/signup_style.css');
 echo "<style>. $css . </style>";
+$name = "";
 ?>
 
 <div id="signupForm">
@@ -12,13 +13,13 @@ echo "<style>. $css . </style>";
             <hr>
 
             <label for="name"><b>Nombre</b></label>
-            <input type="text" value="Virginia" name="input_email" required>
+            <input type="text" value="<?php echo $name?>" name="name" required>
 
             <label for="lastname"><b>Apellido</b></label>
-            <input type="text" value="Ordoño" name="input_lastname" required>
+            <input type="text" value="Ordoño" name="lastname" required>
 
             <label for="name"><b>Nombre de usuario</b></label>
-            <input type="text" value="orbevi" name="input_username" required>
+            <input type="text" value="orbevi" name="username" required>
 
             <label for="email"><b>Email</b></label>
             <input type="text" value="vir@virginia.com" name="email" required>
@@ -33,12 +34,12 @@ echo "<style>. $css . </style>";
             <hr>
 
             <label for="name"><b>Url</b></label>
-            <input type="url" value="https://www.iesgrancapitan.org" name="input_url" required>
+            <input type="text" value="" name="url" required>
 
             <label for="description"><b>Descripción</b></label>
-            <textarea type="text"  placeholder="Página web del instituto" name="input_description" required></textarea>
+            <textarea type="text"  placeholder="Página web del instituto" name="description" required></textarea>
             <div class="clearfix">
-                <button type="submit" name="btn_addBookmark" id="btn_addBookmark">Añadir bookmark</button>
+                <button type="submit" name="btn_addBookmark" id="btn_addBookmark">Añadir bookmark</butt>
             </div>
             <p>Con la creación del usuario acepto los <a href="#" style="color:dodgerblue">Términos y Condiciones</a>.</p>
 
@@ -48,10 +49,10 @@ echo "<style>. $css . </style>";
             </div>
         </div>
         
-        <div class="container">
-
-
-            
+        <div class="container"> 
         </div>
     </form>
+
+    
+</form>
 </div>

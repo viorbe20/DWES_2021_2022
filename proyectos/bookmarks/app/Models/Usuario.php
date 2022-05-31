@@ -134,6 +134,16 @@ class Usuario extends DBAbstractModel
     }
     public function setEntity()
     {
+        $this->query = "INSERT INTO usuarios(nombre, user, psw, email, perfil, bloqueado)
+            VALUES(:nombre, :user, :psw, :email, :perfil, :bloqueado)";
+        $this->parametros['nombre'] = $this->nombre;
+        $this->parametros['user'] = $this->user;
+        $this->parametros['psw'] = $this->psw;
+        $this->parametros['email'] = $this->email;
+        $this->parametros['perfil'] = $this->perfil;
+        $this->parametros['bloqueado'] = $this->bloqueado;
+
+        $this->get_results_from_query();
     }
     public function deleteEntity($id)
     {
@@ -147,8 +157,8 @@ class Usuario extends DBAbstractModel
     public function get()
     {
     }
-    public function delete($user_data = array()){
-
+    public function delete($user_data = array())
+    {
     }
     public function edit()
     {

@@ -30,7 +30,9 @@
   margin: 0%;
 }
 #signupForm form input[type=text],
-#signupForm form input[type=password], #signupForm form input[type=url], #signupForm form textarea {
+#signupForm form input[type=password],
+#signupForm form input[type=url],
+#signupForm form textarea {
   width: 100%;
   padding: 5px;
   margin: 2px 0 22px 0;
@@ -39,7 +41,9 @@
   background: #f1f1f1;
 }
 #signupForm form input[type=text]:focus,
-#signupForm form input[type=password]:focus, #signupForm form input[type=url]:focus, #signupForm form textarea:focus {
+#signupForm form input[type=password]:focus,
+#signupForm form input[type=url]:focus,
+#signupForm form textarea:focus {
   background-color: #b4dbc0;
   outline: none;
 }
@@ -48,7 +52,6 @@
   margin-bottom: 25px;
 }
 #signupForm form button {
-  background-color: #04aa6d;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -60,9 +63,19 @@
 #signupForm form button:hover {
   opacity: 1;
 }
+#signupForm form .btn_signup {
+  padding: 14px 20px;
+  background: linear-gradient(#77b55a, #72b352);
+}
+#signupForm form .btn_signup:hover {
+  background: linear-gradient(#72b352, #77b55a);
+}
 #signupForm form .btn_cancel {
   padding: 14px 20px;
-  background-color: #f44336;
+  background: linear-gradient(#e4685d, #d0451b);
+}
+#signupForm form .btn_cancel:hover {
+  background: linear-gradient(#d0451b #e4685d);
 }
 #signupForm form .btn_cancel,
 #signupForm form .btn_signup {
@@ -87,5 +100,11 @@
   height: 100px;
 }
 #signupForm form #btn_addBookmark {
-  background-color: rgb(66, 66, 238);
+  background: linear-gradient(#33bdef, #019ad2);
+  color: white;
+  *border: none;
+  *padding: 10px;
+}
+#signupForm form #btn_addBookmark:hover {
+  background: linear-gradient(#019ad2, #33bdef);
 }/*# sourceMappingURL=signup_style.css.map */
