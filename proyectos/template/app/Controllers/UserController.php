@@ -8,7 +8,14 @@ class UserController extends BaseController
 {
     public function signupAction()
     {
-        $this->renderHTML('../view/require/signup_view.php');
+        if (isset($_POST['btn_signup'])) {
+            //Hacer lo que proceda
+            header('Location:' . DIRBASEURL . '/index');
+        } else if (isset($_POST['btn_cancel'])) {
+            header('Location:' . DIRBASEURL . '/index');
+        } else {
+            $this->renderHTML('../view/require/signup_view.php');
+        }
     }
 
     public function logoutAction()
