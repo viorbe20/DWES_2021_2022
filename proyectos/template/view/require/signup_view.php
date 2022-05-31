@@ -1,9 +1,7 @@
-<div id="loginForm">
+<div id="signupForm">
     <?php
-    //Fomulario login se muestra mientras se está de invitado
-    if ($_SESSION['user']['profile'] == "guest") {
     ?>
-        <form id="form-login" action="" method="post">
+        <form action="" method="post">
             <div>
                 <label>Iniciar sesión
                     <input class="myInput" type="text" name="username" id="inputWord" placeholder="Nombre de usuario" value="admin">
@@ -12,12 +10,9 @@
                 <input class="myButton" type="submit" name="login" value="Entrar">
             </div>
             <div>
-                <a href='<?php echo DIRBASEURL ?>/index/signup'>Registrarse</a>
+                <a href='<?php echo DIRBASEURL?>/index/signup_view.php'>Registrarse</a>
             </div>
 
 
         </form>
-    <?php
-    }
-    ?>
 </div>

@@ -5,6 +5,7 @@ require "../app/Config/constantes.php";
 //Enrutador
 use App\Core\Router;
 use App\Controllers\DefaultController;
+use App\Controllers\UserController;
 
 session_start();
 
@@ -30,13 +31,13 @@ $router->add(array(
     'auth'=>["admin"]
 ));
 
-// //Enrutamiento a página para añadir palabra
-// $router->add(array(
-//     'name'=>'addWord',
-//     'path'=>'/^\/wordsearch\/add$/',
-//     'action'=>[WordController::class, 'addWordAction'],
-//     'auth'=>["admin"]
-// ));
+//Enrutamiento a la página de registro de usuario
+$router->add(array(
+    'name'=>'signup',
+    'path'=>'/^\/index\/signup$/',
+    'action'=>[UserController::class, 'signupAction'],
+    'auth'=>["admin", "guest"]
+));
 
 // //Enrutamiento a página para editar palabra
 // $router->add(array(
@@ -70,5 +71,6 @@ if ($route) {
         $controller->$actionName($request);
     }
 }else{
+    var_dump($route);
     echo "No route";
 }
