@@ -10,7 +10,8 @@ class DefaultController extends BaseController
 {
 
     public function indexAction(){
-        
+        $data = array();
+        $this->renderHTML('../view/index_view.php', $data);
     }
     // public function indexAction()
     // {

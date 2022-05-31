@@ -25,7 +25,7 @@ $router->add(array(
 // //Enrutamiento logout
 $router->add(array(
     'name'=>'logout',
-    'path'=>'/^\/wordsearch\/logout$/',
+    'path'=>'/^\/index\/logout$/',
     'action'=>[UserController::class, 'logoutAction'],
     'auth'=>["admin"]
 ));
