@@ -5,6 +5,8 @@ require "../app/Config/constantes.php";
 //Enrutador
 use App\Core\Router;
 use App\Controllers\DefaultController;
+use App\Controllers\UsuarioController;
+use App\Controllers\BookmarkController;
 
 session_start();
 
@@ -22,14 +24,21 @@ $router->add(array(
     'auth'=>["admin", "guest"]
 ));
 
-// //Enrutamiento logout
+//Enrutamiento logout
 $router->add(array(
     'name'=>'logout',
     'path'=>'/^\/bookmarks\/logout$/',
-    'action'=>[UserController::class, 'logoutAction'],
+    'action'=>[UsuarioController::class, 'logoutAction'],
     'auth'=>["admin"]
 ));
 
+//Enrutamiento a la página de registro de usuario
+$router->add(array(
+    'name'=>'signup',
+    'path'=>'/^\/bookmarks\/signup$/',
+    'action'=>[UsuarioController::class, 'signupAction'],
+    'auth'=>["admin", "guest"]
+));
 
 //Petición y respuesta
 $request = str_replace(DIRBASEURL,'',$_SERVER['REQUEST_URI']);
