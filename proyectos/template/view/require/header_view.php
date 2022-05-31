@@ -17,23 +17,24 @@
             Si lo has deshabilitado intencionadamente, por favor vuelve a activarlo.</p>
     </noscript>
     <header>
-        <h1>Ejercicio Php</h1>
+        <h2>Ejercicio Php</h2>
         <!--Muestra la información del perfil que está conectado-->
         <div id="auth">
-            <div id="auth1">
-                <section id="s1">
+            <div>
+                <!--Icono usuario y nombre-->
+                <section>
                     <span id="img" class="material-symbols-outlined">
                         account_circle_full
                     </span>
-                    <div>User</div>
                     <div><?php echo strtoupper($_SESSION['user']['profile']) ?></div>
                 </section>
 
+                <!--Icono de salir-->
                 <?php
                 //if ($_SESSION['user']['profile'] != "guest") {
                 ?>
-                    <section id="s2">
-                        <a id="icon-logout" href="<?php echo DIRBASEURL . '/wordsearch/logout' ?>"><span class="material-symbols-outlined">logout</span><label>Salir</label></a>
+                    <section> 
+                        <a id="icon-logout" href="<?php echo DIRBASEURL . '/index/logout' ?>"><span class="material-symbols-outlined">logout</span><label>Salir</label></a>
                     </section>
                 <?php
 
@@ -41,7 +42,7 @@
                 ?>
             </div>
             <div>
-                <p>Hoy es <?php echo date('d-m-Y, h:i', time()) ?></p>
+                <p>Hoy es <?php echo date('d-m-Y, h:i a', time()) ?></p>
             </div>
         </div>
     </header>
