@@ -1,0 +1,39 @@
+:root{
+    --color1: #3C3C3C;
+    --color2:#192231;
+
+    --color3:#945D60;
+    --color4: #B56357;
+    --color5:#Af473C;
+    --color6:#F53240;
+
+    --color7: #B4DBC0;
+    --color8: #EAE3EA;
+    --color9: #A7B3A5;
+    --color10: #CDCDCD;
+    --color11: #FFF7C0;
+    --color12: #66AB8C;
+    --color13:#056571;
+
+    --color14:#A9B7C0;
+    --color15:#C7D8C6;
+    --color16:#E9E7DA;
+    --color17:#CDA34F;
+}
+
+* {
+box-sizing: border-box;
+}
+
+body {
+margin: 0px;
+padding: 0px;
+background-color: #dfdce3;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    h1{
+        color: var(--color13);
+    }
+}
