@@ -66,26 +66,6 @@ class User extends DBAbstractModel
         return $result;
     }
 
-    // public function getByName($filtro = '')
-    // {
-    //     if ($filtro != '') {
-    //         $username = "%" . $filtro . "%";
-    //         $this->query = "SELECT * FROM users WHERE (username LIKE :username)";
-    //         // Cargamos los parámetros
-    //         $this->parametros['username'] = $username;
-
-    //         // Ejecutamos consulta que devuelve registros
-    //         $this->get_results_from_query();
-    //     }
-    //     // if (count($this->rows) == 1) {
-    //     //     foreach ($this->rows[0] as $propiedad => $valor) {
-    //     //         $this->$propiedad = $valor;
-    //     //     }
-    //     // }
-    //     return $this->rows;
-    // }
-
-
     public function getEntity($id)
     {
     }

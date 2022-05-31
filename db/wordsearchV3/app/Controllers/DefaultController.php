@@ -49,9 +49,6 @@ class DefaultController extends BaseController
 
             //Añade una palabra
         } else if (isset($_POST['add'])) {
-            //header('location:' . DIRBASEURL . '/wordsearch/add');
-            //array_push($data, $user_data, $word->getAll());
-            //$this->renderHTML('../view/add_view.php');
             header('location:' . DIRBASEURL . '/wordsearch/add');
 
             //Renderizado por defecto

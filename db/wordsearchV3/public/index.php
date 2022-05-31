@@ -6,11 +6,12 @@ use App\Controllers\WordController;
 use App\Controllers\UserController;
 use App\Core\Router;
 
+
 session_start();
 
 if (!isset($_SESSION['user']['profile'] )) {
-    $_SESSION['user']['profile'] = "guest";
-    $_SESSION['user']['username'] = "guest";
+    $_SESSION['user']['profile'] = "guest"; 
+    $_SESSION['user']['username'] = "guest"; 
 }
 
 $router = new Router();
