@@ -21,7 +21,7 @@ $router->add(array(
     'name'=>'index',
     'path'=>'/^\/bookmarks$/',
     'action'=>[DefaultController::class, 'indexAction'],  
-    'auth'=>["admin", "guest"]
+    'auth'=>["guest"]
 ));
 
 //Enrutamiento logout
@@ -29,7 +29,7 @@ $router->add(array(
     'name'=>'logout',
     'path'=>'/^\/bookmarks\/logout$/',
     'action'=>[UsuarioController::class, 'logoutAction'],
-    'auth'=>["admin"]
+    'auth'=>["admin", "user"]
 ));
 
 //Enrutamiento a la página de registro de usuario
