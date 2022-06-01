@@ -12,15 +12,23 @@ class UsuarioController extends BaseController
 {
     public function deleteBookmarkAction($request)
     {
-        // $data = array();
-        // $bm = Bookmark::getInstancia();
-        // $user = Usuario::getInstancia();
-        // $user->setId($_SESSION['user']['id']);
-        // $bm->setIdUsuario($_SESSION['user']['id']);
-        // $userBookmarks = array();
-        // $userBookmarks = $user->getUserAndBookmarks();
-        // $data = $userBookmarks;
-        // $this->renderHTML('../view/bookmarks_view.php', $data);
+        if (isset($_POST['btn_delete'])) {
+            $rest = explode("/", $request);
+            $id = end($rest);
+            $bm = Bookmark::getInstancia();
+            $bm->setId($id);
+            $bm->deletebyId();
+            header('Location:' . DIRBASEURL . '/home/bookmarks');
+        } else {
+            $rest = explode("/", $request);
+            $id = end($rest);
+            $bm = Bookmark::getInstancia();
+            $bm->setId($id);
+            $result = $bm->getById();
+            $data = array();
+            array_push($data, $result);
+            $this->renderHTML('../view/delete_bm_view.php', $data);
+        }
     }
 
     public function editBookmarkAction($request)

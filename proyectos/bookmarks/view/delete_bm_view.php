@@ -5,47 +5,41 @@
 
 require('../view/require/header_view.php');
 
-$css1 = file_get_contents('../view/css/bookmarks_style.css');
+$css1 = file_get_contents('../view/css/delete_bm_style.css');
 $css2 = file_get_contents('../view/css/header_style.css');
 $css = $css1 . $css2;
 
 echo "<style>. $css .</style>";
-if ($_SESSION['user']['profile'] == "user") {
-?>
-    <div class="table_container">
 
-        <h2>Mis Bookmarks</h2>
-
-        <table>
-            <tr>
-                <th>Url</th>
-                <th>Descripcióm</th>
-                <th>Editar</th>
-                <th>Contraseña</th>
-            </tr>
-
-
+?>   
+<div id="deleteForm">
+    <?php
+    ?>
+    <form action="" method="post">
+        <div class="container">
+        <h2>¿Quieres eliminar este marcador?</h2>
+            <hr>
             <?php
-            if (!empty($data[1])) {
-                echo "<form action=\"\" method=\"post\">";
-                foreach ($data[1] as $key => $value) {
-                    echo '<tr>';
-                    echo '<td>' . $value["bm_url"] . '</td>';
-                    echo '<td>' . $value["descripcion"] . '</td>';
-                    echo '<td><a href="' . DIRBASEURL . '/home/bookmarks/edit">Editar</td>';
-                    echo '<td> Editar </td>';
-                    echo '</tr>';
-                }
-            }
+    foreach ($data[0] as $key => $value) {
+        ?>
+        <label><b>Url</b></label>
+        <input type="url" name="url" value="<?php echo urldecode($value['bm_url'])?>" readonly>
+        <label><b>Descripción</b></label>
+        <textarea type="text" name="description" readonly><?php echo urldecode($value['descripcion'])?></textarea>
+        <?php
+    }
+    ?>
 
-            ?>
-        </table>
-        
-        <div id="buttons_admin">
-            <button type="submit" name="btn_uncheckAll">>Añadir un Bookmarks</button>
+            <div class="clearfix">
+                <a href="<?php echo DIRBASEURL . '/home/bookmarks' ?>"><input type="button" name="btn_cancel" class="btn_cancel" value="Cancelar"></a>
+                <button type="submit" name="btn_delete" class="btn_signup">Eliminar</button>
+            </div>
         </div>
-    </div>
+        
+        <div class="container"> 
+        </div>
     </form>
-<?php
-}
-?>
+
+    
+</form>
+</div>     

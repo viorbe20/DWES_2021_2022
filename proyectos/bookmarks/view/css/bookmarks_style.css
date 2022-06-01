@@ -4,6 +4,16 @@
   --color1: #3c3c3c;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .table_container {
   display: flex;
   flex-direction: column;

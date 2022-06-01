@@ -111,6 +111,14 @@ class Bookmark extends DBAbstractModel
         $this->parametros['id_usuario'] = $this->id_usuario;
         $this->get_results_from_query();
     }
+
+    public function deleteById()
+    {
+        $this->query = "DELETE FROM bookmarks WHERE id=:id";
+        $this->parametros['id'] = $this->id;
+        $this->get_results_from_query();
+    }
+
     public function deleteEntity($id)
     {
     }
