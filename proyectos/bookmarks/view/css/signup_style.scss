@@ -1,3 +1,4 @@
+
 * {
   display: flex;
   justify-content: center;
@@ -18,10 +19,12 @@
     justify-content: center;
     align-items: center;
     *border: 1px solid #ccc;
-    background: #a9b7c0;
+    background-color: #cfdfd4;
+    color: #3c3c3c;
 
     h2 {
       margin: 0%;
+      color: #056571;
     }
     /* Full-width input fields */
     input[type="text"],
@@ -106,13 +109,11 @@
     }
 
     #btn_addBookmark {
-      background: linear-gradient(#33bdef, #019ad2);
       color: white;
-      *border: none;
-      *padding: 10px;
+      background: linear-gradient(#056571, #677e81);
 
       &:hover {
-        background: linear-gradient(#019ad2, #33bdef);
+        background: linear-gradient(#677e81, #056571);
       }
     }
   }

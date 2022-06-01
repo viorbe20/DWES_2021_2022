@@ -10,14 +10,6 @@ require_once('..\app\Config\constantes.php');
 
 class UsuarioController extends BaseController
 {
-    // public function blockedUsersAction()
-    // {
-    //     $user = Usuario::getInstancia();
-    //     $blockedUsers = array();
-    //     $user->setBloqueado(1);
-    //     $blockedUsers = $user->getBlockedUsers();
-    //     return $blockedUsers;
-    // }
 
     public function signupAction()
     {

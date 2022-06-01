@@ -21,15 +21,19 @@ if ($_SESSION['user']['profile'] == "admin") {
 
 
             <?php
-            foreach ($data[0] as $key => $value) {
-                echo '<tr>';
-                echo '<td>' . $value["nombre"] . '</td>';
-                echo '<td>' . $value["user"] . '</td>';
-                echo '<td>' . $value["psw"] . '</td>';
-                echo '<td>' . $value["email"] . '</td>';
-                echo '<td><input type="checkbox" id="' . $value["id"] . '" name="' . $value["id"] . '" value="blockedUsers"></td>';
-                echo '</tr>';
+            if (!empty($data[0])) {
+                
+                foreach ($data[0] as $key => $value) {
+                    echo '<tr>';
+                    echo '<td>' . $value["nombre"] . '</td>';
+                    echo '<td>' . $value["user"] . '</td>';
+                    echo '<td>' . $value["psw"] . '</td>';
+                    echo '<td>' . $value["email"] . '</td>';
+                    echo '<td><input type="checkbox" id="' . $value["id"] . '" name="' . $value["id"] . '" value="blockedUsers"></td>';
+                    echo '</tr>';
+                }
             }
+
             ?>
         </table>
         <div id="buttons_admin">

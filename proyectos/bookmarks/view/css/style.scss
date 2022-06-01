@@ -28,11 +28,11 @@
 body {
   margin: 0px;
   padding: 0px;
-  background-color: var(--color8);
   font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
+  background-color: var(--color8);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -126,10 +126,12 @@ header {
         text-decoration: none;
         color: white;
         background-color: var(--title);
+        background: linear-gradient(#056571, #677e81);
         padding: 10%;
-        position: relative; //SIEMPRE
 
-
+        &:hover {
+          background: linear-gradient(#677e81, #056571);
+        }
       }
     }
   }

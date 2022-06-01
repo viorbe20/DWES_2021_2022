@@ -17,6 +17,7 @@
             Si lo has deshabilitado intencionadamente, por favor vuelve a activarlo.</p>
     </noscript>
     <header>
+        
         <h2>Bookmarks</h2>
         <!--Muestra la información del perfil que está conectado-->
         <div id="auth">
