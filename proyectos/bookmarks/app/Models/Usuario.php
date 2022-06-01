@@ -119,6 +119,15 @@ class Usuario extends DBAbstractModel
         return $result;
     }
 
+    public function unblockUser()
+    {
+        $this->query = "UPDATE usuarios SET bloqueado=:bloqueado WHERE id=:id";
+        $this->parametros['bloqueado'] = $this->bloqueado;
+        $this->parametros['id'] = $this->id;
+        $this->get_results_from_query();
+    }
+
+
 
     public function getByLogin()
     {

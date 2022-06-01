@@ -33,7 +33,7 @@ if ($_SESSION['user']['profile'] == "admin") {
                     echo '<td>' . $value["email"] . '</td>';
                     //Desmarca todos los checkbox
                     isset($_POST['btn_uncheckAll']) ? $checked = "": $checked = "checked";
-                    echo '<td><input type="checkbox" id="' . $value["id"] . '" name="' . $value["id"] . '" value="blockedUsers"'. $checked .'></td>';
+                    echo '<td><input type="checkbox" id="' . $value["id"] . '" name="selected[]" value="' . $value["id"] . '"'. $checked .'></td>';
                     echo '</tr>';
                 }
             }

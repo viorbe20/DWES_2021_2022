@@ -17,6 +17,17 @@ class AdminController extends BaseController
         $blockedUsers = $user->getBlockedUsers();
         array_push($data, $blockedUsers);
         //var_dump($blockedUsers);
-        $this->renderHTML('../view/users_view.php', $data);
+        if (isset($_POST['btn_unlock'])) {
+            if (!empty($_POST["selected"])) {
+                foreach ($_POST["selected"] as $key => $value) {
+                    $user->setId($value);
+                    $user->setBloqueado(0);
+                    $user->unblockUser();
+                }
+                header('location:' . DIRBASEURL . '/home/users');
+            }
+        } else {
+            $this->renderHTML('../view/users_view.php', $data);
+        }
     }
 }
