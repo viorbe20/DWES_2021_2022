@@ -5,12 +5,11 @@ use App\Models\Usuario;
 use App\Models\Bookmark;
 
 $bm = Bookmark::getInstancia();
-$user = Usuario::getInstancia();
-$user->setId(1);
-$bm->setIdUsuario(1);
-$result = array();
-$userBookmarks = $user-> getUserAndBookmarks();
-var_dump($userBookmarks);
+$bm->setUrl("url");
+$bm->setDescripcion('des');
+$bm->setIdUsuario(3);
+$bm->setEntity();
+var_dump($bm);
 
 
 

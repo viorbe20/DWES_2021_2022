@@ -1,51 +1,35 @@
 <?php
-/**
- * $data [datosUsuario, array(tantos bookmarks como tenga)]
- */
-
 require('../view/require/header_view.php');
 
-$css1 = file_get_contents('../view/css/bookmarks_style.css');
+$css1 = file_get_contents('../view/css/add_bm_style.css');
 $css2 = file_get_contents('../view/css/header_style.css');
 $css = $css1 . $css2;
 
 echo "<style>. $css .</style>";
-if ($_SESSION['user']['profile'] == "user") {
 ?>
-    <div class="table_container">
+<div id="addBmForm">
 
-        <h2>Mis Bookmarks</h2>
+    <form action="" method="post">
+        <div class="container">
+            <h2>Nuevo Bookmark</h2>
+            <hr>
 
-        <table>
-            <tr>
-                <th>Url</th>
-                <th>Descripcióm</th>
-                <th>Editar</th>
-                <th>Contraseña</th>
-            </tr>
+            <label for="url"><b>Url</b></label>
+            <input type="url" value="https://moodle.iesgrancapitan.org/" name="url" required>
 
+            <label for="description"><b>Descripción</b></label>
+            <textarea type="text" name="description" placeholder="Plataforma Moodle" required></textarea>
 
-            <?php
-            if (!empty($data[1])) {
-                echo "<form action=\"\" method=\"post\">";
-                foreach ($data[1] as $key => $value) {
-                    echo '<tr>';
-                    echo '<td>' . $value["bm_url"] . '</td>';
-                    echo '<td>' . $value["descripcion"] . '</td>';
-                    echo '<td><a href="' . DIRBASEURL . '/home/bookmarks/edit">Editar</td>';
-                    echo '<td> Editar </td>';
-                    echo '</tr>';
-                }
-            }
-
-            ?>
-        </table>
-        
-        <div id="buttons_admin">
-            <button type="submit" name="btn_uncheckAll">>Añadir un Bookmarks</button>
+            <div class="clearfix">
+                <a href="<?php echo DIRBASEURL . '/home/bookmarks'?>"><input type="button" name="btn_cancel" class="btn_cancel" value="Cancelar"></a>
+                <button type="submit" name="btn_signup" class="btn_signup">Agregar</button>
+            </div>
         </div>
-    </div>
+        
+        <div class="container"> 
+        </div>
     </form>
-<?php
-}
-?>
+
+    
+</form>
+</div>

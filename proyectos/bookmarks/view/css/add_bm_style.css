@@ -8,13 +8,13 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#signupForm {
-  background: #eae3ea;
+#addBmForm {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 2% 0%;
 }
-#signupForm form {
+#addBmForm form {
   width: 70%;
   margin-top: 2%;
   display: flex;
@@ -28,14 +28,14 @@ body {
   /* Float cancel and signup buttons and add an equal width */
   /* Add padding to container elements */
 }
-#signupForm form h2 {
+#addBmForm form h2 {
   margin: 0%;
   color: #056571;
 }
-#signupForm form input[type=text],
-#signupForm form input[type=password],
-#signupForm form input[type=url],
-#signupForm form textarea {
+#addBmForm form input[type=text],
+#addBmForm form input[type=password],
+#addBmForm form input[type=url],
+#addBmForm form textarea {
   width: 100%;
   padding: 5px;
   margin: 2px 0 22px 0;
@@ -43,18 +43,18 @@ body {
   border: none;
   background: #ffffff;
 }
-#signupForm form input[type=text]:focus,
-#signupForm form input[type=password]:focus,
-#signupForm form input[type=url]:focus,
-#signupForm form textarea:focus {
+#addBmForm form input[type=text]:focus,
+#addBmForm form input[type=password]:focus,
+#addBmForm form input[type=url]:focus,
+#addBmForm form textarea:focus {
   background-color: #b4dbc0;
   outline: none;
 }
-#signupForm form hr {
+#addBmForm form hr {
   border: 1px solid #f1f1f1;
   margin-bottom: 25px;
 }
-#signupForm form button {
+#addBmForm form button {
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -63,39 +63,39 @@ body {
   *width: 80%;
   opacity: 0.9;
 }
-#signupForm form button:hover {
+#addBmForm form button:hover {
   opacity: 1;
 }
-#signupForm form .btn_signup {
+#addBmForm form .btn_signup {
   padding: 14px 20px;
   background: linear-gradient(#77b55a, #72b352);
 }
-#signupForm form .btn_signup:hover {
+#addBmForm form .btn_signup:hover {
   background: linear-gradient(#72b352, #77b55a);
 }
-#signupForm form .btn_cancel {
+#addBmForm form .btn_cancel {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 14px 180px;
+  padding: 14px 100px;
   border: none;
   color: white;
   cursor: pointer;
   background: linear-gradient(#e4685d, #d0451b);
 }
-#signupForm form .btn_cancel:hover {
+#addBmForm form .btn_cancel:hover {
   background: linear-gradient(#d0451b #e4685d);
 }
-#signupForm form .btn_cancel,
-#signupForm form .btn_signup {
+#addBmForm form .btn_cancel,
+#addBmForm form .btn_signup {
   float: left;
   width: 40%;
 }
-#signupForm form .container {
+#addBmForm form .container {
   padding: 16px;
 }
-#signupForm form .clearfix {
+#addBmForm form .clearfix {
   display: flex;
   justify-content: space-around;
   align-items: center;
-}/*# sourceMappingURL=signup_style.css.map */
+}/*# sourceMappingURL=add_bm_style.css.map */

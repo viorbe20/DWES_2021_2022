@@ -25,8 +25,7 @@
                 <!--Icono usuario y nombre-->
                 <section>
                     <span id="img" class="material-symbols-outlined">
-                        account_circle_full
-                    </span>
+                        account_circle</span>
                     <div><?php echo strtoupper($_SESSION['user']['profile']) ?></div>
                 </section>
 

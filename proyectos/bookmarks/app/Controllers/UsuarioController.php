@@ -36,17 +36,19 @@ class UsuarioController extends BaseController
         // $this->renderHTML('../view/bookmarks_view.php', $data);
     }
 
-    public function addBookmarksAction()
+    public function addBookmarkAction()
     {
-        $data = array();
-        $bm = Bookmark::getInstancia();
-        $user = Usuario::getInstancia();
-        $user->setId($_SESSION['user']['id']);
-        $bm->setIdUsuario($_SESSION['user']['id']);
-        $userBookmarks = array();
-        $userBookmarks = $user->getUserAndBookmarks();
-        $data = $userBookmarks;
-        $this->renderHTML('../view/add_bm_view.php', $data);
+        if (isset($_POST['btn_signup'])) {
+            $bm = Bookmark::getInstancia();
+            $bm->setUrl($_POST['url']);
+            $bm->setDescripcion($_POST['description']);
+            $bm->setIdUsuario($_SESSION['user']['id']);
+            $bm->setEntity();
+            header('Location:' . DIRBASEURL . '/home/bookmarks/add');
+        } else {
+            $this->renderHTML('../view/add_bm_view.php');
+        }
+
     }
 
     public function getBookmarksAction()

@@ -41,7 +41,7 @@ if ($_SESSION['user']['profile'] == "user") {
             ?>
         </table>
         
-        <a href="' . DIRBASEURL . '/home/bookmarks/add">Añadir un Bookmark</a>
+        <a href= "<?php echo DIRBASEURL?>/home/bookmarks/add">Añadir un Bookmark</a>
     
     </div>
     </form>

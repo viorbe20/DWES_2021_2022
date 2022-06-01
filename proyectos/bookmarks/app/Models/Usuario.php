@@ -29,8 +29,6 @@ class Usuario extends DBAbstractModel
     private $email;
     private $perfil;
     private $bloqueado;
-    private $bm = array();
-    //add bookmark
 
     public function getUserAndBookmarks(){
         $result = array();
