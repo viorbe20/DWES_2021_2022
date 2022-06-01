@@ -32,8 +32,8 @@ if ($_SESSION['user']['profile'] == "user") {
                     echo '<tr>';
                     echo '<td>' . $value["bm_url"] . '</td>';
                     echo '<td>' . $value["descripcion"] . '</td>';
-                    echo '<td class="tdLink"><a href="' . DIRBASEURL . '/home/bookmarks/edit">Editar</a></td>';
-                    echo '<td class="tdLink"><a href="' . DIRBASEURL . '/home/bookmarks/delete">Eliminar</a></td>';
+                    echo '<td class="tdLink"><a href="' . DIRBASEURL . '/home/bookmarks/edit/'. $value['id'] .'">Editar</a></td>';
+                    echo '<td class="tdLink"><a href="' . DIRBASEURL . '/home/bookmarks/delete/'. $value['id'] .'">Eliminar</a></td>';
                     echo '</tr>';
                 }
             }

@@ -15,10 +15,10 @@ echo "<style>. $css .</style>";
             <hr>
 
             <label for="url"><b>Url</b></label>
-            <input type="url" value="https://moodle.iesgrancapitan.org/" name="url" required>
+            <input type="url" value="" name="url" placeholder="Escribe una url" required>
 
             <label for="description"><b>Descripción</b></label>
-            <textarea type="text" name="description" placeholder="Plataforma Moodle" required></textarea>
+            <textarea type="text" name="description" placeholder="Escribe una descripción del marcador" required></textarea>
 
             <div class="clearfix">
                 <a href="<?php echo DIRBASEURL . '/home/bookmarks'?>"><input type="button" name="btn_cancel" class="btn_cancel" value="Cancelar"></a>

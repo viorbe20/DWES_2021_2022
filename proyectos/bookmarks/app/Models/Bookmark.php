@@ -88,6 +88,15 @@ class Bookmark extends DBAbstractModel
         return $result;
     }
 
+    public function getById()
+    {
+        $this->query = "SELECT * FROM bookmarks WHERE id=:id";
+        $this->parametros['id'] = $this->id;
+        $this->get_results_from_query();
+        $result = $this->rows;
+        return $result;
+    }
+
 
     //Métodos que pide la clase para no dar error
     public function getEntity($id)

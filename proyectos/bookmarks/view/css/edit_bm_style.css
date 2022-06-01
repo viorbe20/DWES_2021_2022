@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+form {
+  background-color: pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form input {
+  margin: 0% 2%;
+}/*# sourceMappingURL=edit_bm_style.css.map */

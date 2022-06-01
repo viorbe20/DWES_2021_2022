@@ -67,7 +67,7 @@ $router->add(array(
 //Enrutamiento a la página donde el user edita sus bookmarks
 $router->add(array(
     'name'=>'editBookmarks',
-    'path'=>'/^\/home\/bookmarks\/edit$/',
+    'path'=>'/^\/home\/bookmarks\/edit\/\d{1,3}$/',
     'action'=>[UsuarioController::class, 'editBookmarkAction'],
     'auth'=>["admin", "user"]
 ));
@@ -75,7 +75,7 @@ $router->add(array(
 //Enrutamiento a la página donde el user edita sus bookmarks
 $router->add(array(
     'name'=>'deleteBookmarks',
-    'path'=>'/^\/home\/bookmarks\/delete$/',
+    'path'=>'/^\/home\/bookmarks\/delete\/\d{1,3}$/',
     'action'=>[UsuarioController::class, 'deleteBookmarkAction'],
     'auth'=>["admin", "user"]
 ));

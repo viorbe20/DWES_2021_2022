@@ -5,47 +5,30 @@
 
 require('../view/require/header_view.php');
 
-$css1 = file_get_contents('../view/css/bookmarks_style.css');
+$css1 = file_get_contents('../view/css/edit_bm_style.css');
 $css2 = file_get_contents('../view/css/header_style.css');
 $css = $css1 . $css2;
 
 echo "<style>. $css .</style>";
-if ($_SESSION['user']['profile'] == "user") {
-?>
-    <div class="table_container">
 
-        <h2>Mis Bookmarks</h2>
-
-        <table>
-            <tr>
-                <th>Url</th>
-                <th>Descripcióm</th>
-                <th>Editar</th>
-                <th>Contraseña</th>
-            </tr>
-
-
-            <?php
-            if (!empty($data[1])) {
-                echo "<form action=\"\" method=\"post\">";
-                foreach ($data[1] as $key => $value) {
-                    echo '<tr>';
-                    echo '<td>' . $value["bm_url"] . '</td>';
-                    echo '<td>' . $value["descripcion"] . '</td>';
-                    echo '<td><a href="' . DIRBASEURL . '/home/bookmarks/edit">Editar</td>';
-                    echo '<td> Editar </td>';
-                    echo '</tr>';
-                }
-            }
-
-            ?>
-        </table>
+?>        
+    <h2>Edita el marcador</h2>
+<form method="post">
+    <?php
+    foreach ($data[0] as $key => $value) {
+    ?>
+        <!--urldecode():Decodes any %## encoding in the given string. Plus symbols ('+') are decoded to a space character.-->
+        <!--current() - returns the value of the current element in an array. $data[0] in this case-->
+        <label>Url
+            <input class = "myInput" type="text" name="editUrl" value="<?php echo urldecode($value['bm_url'])?>">
+        </label>
+        <label>Descripción
+            <input class = "myInput" type="text" name="editDescription" value="<?php echo urldecode($value['descripcion'])?>">
+        </label>
+        <input class = "myButton" type="submit" value="Editar" name="btn_edit">
         
-        <div id="buttons_admin">
-            <button type="submit" name="btn_uncheckAll">>Añadir un Bookmarks</button>
-        </div>
-    </div>
-    </form>
-<?php
-}
-?>
+        <?php
+    }
+    ?>
+
+</form>
