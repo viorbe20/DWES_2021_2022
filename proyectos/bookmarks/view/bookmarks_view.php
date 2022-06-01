@@ -1,4 +1,5 @@
 <?php
+
 /**
  * $data [datosUsuario, array(tantos bookmarks como tenga)]
  */
@@ -10,41 +11,43 @@ $css2 = file_get_contents('../view/css/header_style.css');
 $css = $css1 . $css2;
 
 echo "<style>. $css .</style>";
-if ($_SESSION['user']['profile'] == "user") {
+
 ?>
-    <div class="table_container">
+<h2>Mis Bookmarks</h2>
+<form action="" method='get'>
 
-        <h2>Mis Bookmarks</h2>
+    <section>
+        <input class="myInput" type="text" name="inputWord" id="inputWord">
+        <input class="myButton" type="submit" name="search" value="Buscar">
+    </section>
+</form>
+<div class="table_container">
+    <table>
+        <tr>
+            <th>Url</th>
+            <th>Descripción</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
 
-        <table>
-            <tr>
-                <th>Url</th>
-                <th>Descripción</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
-            </tr>
 
-
-            <?php
-            if (!empty($data[1])) {
-                echo "<form action=\"\" method=\"post\">";
-                foreach ($data[1] as $key => $value) {
-                    echo '<tr>';
-                    echo '<td>' . $value["bm_url"] . '</td>';
-                    echo '<td>' . $value["descripcion"] . '</td>';
-                    echo '<td class="tdLink"><a href="' . DIRBASEURL . '/home/bookmarks/edit/'. $value['id'] .'">Editar</a></td>';
-                    echo '<td class="tdLink"><a href="' . DIRBASEURL . '/home/bookmarks/delete/'. $value['id'] .'">Eliminar</a></td>';
-                    echo '</tr>';
-                }
+        <?php
+        if (!empty($data[1])) {
+            echo "<form action=\"\" method=\"post\">";
+            foreach ($data[1] as $key => $value) {
+                echo '<tr>';
+                echo '<td>' . $value["bm_url"] . '</td>';
+                echo '<td>' . $value["descripcion"] . '</td>';
+                echo '<td class="tdLink"><a href="' . DIRBASEURL . '/home/bookmarks/edit/' . $value['id'] . '">Editar</a></td>';
+                echo '<td class="tdLink"><a href="' . DIRBASEURL . '/home/bookmarks/delete/' . $value['id'] . '">Eliminar</a></td>';
+                echo '</tr>';
             }
+        }
 
-            ?>
-        </table>
-        
-        <a href= "<?php echo DIRBASEURL?>/home/bookmarks/add">Añadir un Bookmark</a>
-    
-    </div>
-    </form>
-<?php
-}
-?>
+        ?>
+    </table>
+
+    <a href="<?php echo DIRBASEURL ?>/home/bookmarks/add">Añadir un Bookmark</a>
+
+</div>
+</form>

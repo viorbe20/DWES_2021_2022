@@ -97,6 +97,13 @@ class Bookmark extends DBAbstractModel
         return $result;
     }
 
+    public function getUrlByName()
+    {
+        $this->query = "SELECT * FROM bookmarks WHERE bm_url LIKE :bm_url";
+        $this->parametros['bm_url'] = $this->bm_url;
+        $this->get_results_from_query();
+        return $this->rows;
+    }
 
     //Métodos que pide la clase para no dar error
     public function getEntity($id)

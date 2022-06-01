@@ -12,6 +12,7 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 
 
@@ -20,9 +21,21 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 2%;
 
   h2 {
     color: #056571;
+  }
+
+  section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+    
+    input:nth-child(2){
+      margin-left: 2%;
+    }
   }
 
   table {

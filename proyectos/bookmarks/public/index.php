@@ -56,6 +56,13 @@ $router->add(array(
     'auth'=>["admin", "user"]
 ));
 
+$router->add(array(
+    'name'=>'bookmarks',
+    'path'=>'/^\/home\/bookmarks\?/',
+    'action'=>[UsuarioController::class, 'getBookmarksAction'],
+    'auth'=>["admin", "user"]
+));
+
 //Enrutamiento a la página donde el user crea sus bookmarks
 $router->add(array(
     'name'=>'addBookmarks',

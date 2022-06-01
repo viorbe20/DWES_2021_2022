@@ -10,6 +10,11 @@ require_once('..\app\Config\constantes.php');
 
 class UsuarioController extends BaseController
 {
+    public function searchBookmarkAction()
+    {
+
+    }
+
     public function deleteBookmarkAction($request)
     {
         if (isset($_POST['btn_delete'])) {
@@ -66,20 +71,28 @@ class UsuarioController extends BaseController
         } else {
             $this->renderHTML('../view/add_bm_view.php');
         }
-
     }
 
     public function getBookmarksAction()
     {
+
         $data = array();
         $bm = Bookmark::getInstancia();
         $user = Usuario::getInstancia();
-        $user->setId($_SESSION['user']['id']);
-        $bm->setIdUsuario($_SESSION['user']['id']);
-        $userBookmarks = array();
-        $userBookmarks = $user->getUserAndBookmarks();
-        $data = $userBookmarks;
-        $this->renderHTML('../view/bookmarks_view.php', $data);
+
+        if ((isset($_GET["search"])) && (!empty($_GET["inputWord"]))) {
+            $bm->setUrl($_GET["inputWord"]);
+            $result = $bm->getUrlByName();
+            array_push($data, "", $result);
+            $this->renderHTML('../view/bookmarks_view.php', $data);
+        } else {
+            $user->setId($_SESSION['user']['id']);
+            $bm->setIdUsuario($_SESSION['user']['id']);
+            $userBookmarks = array();
+            $userBookmarks = $user->getUserAndBookmarks();
+            $data = $userBookmarks;
+            $this->renderHTML('../view/bookmarks_view.php', $data);
+        }
     }
 
     public function signupAction()

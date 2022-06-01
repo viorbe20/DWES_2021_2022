@@ -12,6 +12,7 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 
 .table_container {
@@ -19,9 +20,19 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 2%;
 }
 .table_container h2 {
   color: #056571;
+}
+.table_container section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2%;
+}
+.table_container section input:nth-child(2) {
+  margin-left: 2%;
 }
 .table_container table {
   font-family: arial, sans-serif;
