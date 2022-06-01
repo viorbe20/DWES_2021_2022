@@ -6,9 +6,9 @@
         <form id="form-login" action="" method="post">
             <div>
                 <label>Iniciar sesión
-                    <input class="myInput" type="text" name="username" id="inputWord" placeholder="Nombre de usuario" value="admin">
+                    <input class="myInput" type="text" name="username" id="inputWord" placeholder="Nombre de usuario" value="or">
                 </label>
-                <input class="myInput" type="text" name="passwrd" id="inputWord" placeholder="Contraseña" value="admin">
+                <input class="myInput" type="text" name="passwrd" id="inputWord" placeholder="Contraseña" value="or">
                 <input class="myButton" type="submit" name="login" value="Entrar">
             </div>
             <div>

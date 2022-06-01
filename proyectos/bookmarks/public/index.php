@@ -11,7 +11,7 @@ use App\Controllers\AdminController;
 session_start();
 
 if (!isset($_SESSION['user']['profile'] )) {
-    $_SESSION['user']['profile'] = "guest"; 
+    $_SESSION['user']['profile'] = "guest";
 }
 
 $router = new Router();
@@ -52,7 +52,7 @@ $router->add(array(
 $router->add(array(
     'name'=>'bookmarks',
     'path'=>'/^\/home\/bookmarks$/',
-    'action'=>[UserController::class, 'getBookmarksAction'],
+    'action'=>[UsuarioController::class, 'getBookmarksAction'],
     'auth'=>["admin", "user"]
 ));
 

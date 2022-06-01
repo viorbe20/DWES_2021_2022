@@ -20,18 +20,13 @@ class HomeController extends BaseController
                 $user->setUser($_POST['username']);
                 $user->setPsw($_POST['passwrd']);
                 $result = $user->getByLogin();
-
+                
                 //Si hay coincidencia la devuelve
                 if (!empty($result)) {
                     
-                    //Cargamos usuarios bloqueados
-                    // $blockedUsers = array();
-                    // $user->setBloqueado(1);
-                    // $blockedUsers = $user->getBlockedUsers();
-                    // array_push($data, $blockedUsers);
-                    
                     foreach ($result as $value) {
                         $_SESSION['user']['profile'] = $value['perfil'];
+                        $_SESSION['user']['id'] = $value['id'];//establecemos el id al usuario de la sesión
                         
                         if ($_SESSION['user']['profile'] == "user") {
                             header('location:' . DIRBASEURL . '/home/bookmarks');

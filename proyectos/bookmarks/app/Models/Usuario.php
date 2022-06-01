@@ -32,6 +32,24 @@ class Usuario extends DBAbstractModel
     private $bm = array();
     //add bookmark
 
+    public function getUserAndBookmarks(){
+        $result = array();
+        //Get user by id
+        $this->query = "SELECT * FROM usuarios WHERE id=:id";
+        $this->parametros['id'] = $this->id;
+        $this->get_results_from_query();
+        array_push($result, $this->rows);
+
+        //Get bookmarks by userId
+        $this->query = "SELECT * FROM bookmarks WHERE id_usuario=:id_usuario";
+        //Añadimos el id del usuario
+        $this->parametros['id_usuario'] = $this->id;
+        $this->get_results_from_query();
+        array_push($result, $this->rows);
+        
+        return $result;
+    }
+
     public function setId($id)
     {
         $this->id = $id;
@@ -126,8 +144,6 @@ class Usuario extends DBAbstractModel
         $this->parametros['id'] = $this->id;
         $this->get_results_from_query();
     }
-
-
 
     public function getByLogin()
     {

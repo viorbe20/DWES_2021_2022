@@ -16,7 +16,7 @@ class AdminController extends BaseController
         $user->setBloqueado(1);
         $blockedUsers = $user->getBlockedUsers();
         array_push($data, $blockedUsers);
-        //var_dump($blockedUsers);
+
         if (isset($_POST['btn_unlock'])) {
             if (!empty($_POST["selected"])) {
                 foreach ($_POST["selected"] as $key => $value) {

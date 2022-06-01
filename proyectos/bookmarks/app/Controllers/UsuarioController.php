@@ -11,6 +11,19 @@ require_once('..\app\Config\constantes.php');
 class UsuarioController extends BaseController
 {
 
+    public function getBookmarksAction()
+    {
+        $data = array();
+        $bm = Bookmark::getInstancia();
+        $user = Usuario::getInstancia();
+        $user->setId($_SESSION['user']['id']);
+        $bm->setIdUsuario($_SESSION['user']['id']);
+        $userBookmarks = array();
+        $userBookmarks = $user->getUserAndBookmarks();
+        $data = $userBookmarks;
+        $this->renderHTML('../view/bookmarks_view.php', $data);
+    }
+
     public function signupAction()
     {
         $user = Usuario::getInstancia();
