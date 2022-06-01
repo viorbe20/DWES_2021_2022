@@ -6,8 +6,8 @@ $name = "";
 if ($_SESSION['user']['profile'] == "admin") {
 
 ?>
-    <div id="table_container">
-        
+    <div class="table_container">
+
         <h2>Usuarios bloqueados</h2>
 
         <table>
@@ -22,7 +22,7 @@ if ($_SESSION['user']['profile'] == "admin") {
 
             <?php
             if (!empty($data[0])) {
-                
+
                 foreach ($data[0] as $key => $value) {
                     echo '<tr>';
                     echo '<td>' . $value["nombre"] . '</td>';

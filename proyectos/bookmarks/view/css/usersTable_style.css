@@ -4,39 +4,39 @@
   --color1: #3c3c3c;
 }
 
-#table_container {
+.table_container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-#table_container h2 {
+.table_container h2 {
   color: var(--title);
 }
-#table_container table {
+.table_container table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 60%;
 }
-#table_container table tr th {
+.table_container table tr th {
   background-color: var(--color-form);
   color: var(--color1);
 }
-#table_container table tr td,
-#table_container table tr th {
+.table_container table tr td,
+.table_container table tr th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
 }
-#table_container table tr:nth-child(even) {
+.table_container table tr:nth-child(even) {
   background-color: #cfdfd4;
 }
-#table_container #buttons_admin {
+.table_container #buttons_admin {
   width: 60%;
   padding: 1%;
   display: flex;
   justify-content: flex-end;
 }
-#table_container #buttons_admin button:nth-child(1) {
+.table_container #buttons_admin button:nth-child(1) {
   margin-right: 1%;
 }/*# sourceMappingURL=usersTable_style.css.map */

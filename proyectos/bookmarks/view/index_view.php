@@ -2,6 +2,7 @@
 require('../view/require/header_view.php');
 require('../view/require/login_view.php');
 require('../view/require/admin_view.php');
+require('../view/require/user_view.php');
 $css = file_get_contents('../view/css/style.css');
 echo '<style>'. $css .'</style>';
 ?>

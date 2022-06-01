@@ -17,8 +17,7 @@
   *flex-direction: column;
   justify-content: center;
   align-items: center;
-  *border: 1px solid #ccc;
-  background-color: #cfdfd4;
+  background-color: #dbdbdb;
   color: #3c3c3c;
   /* Full-width input fields */
   /* Set a style for all buttons */
@@ -40,7 +39,7 @@
   margin: 2px 0 22px 0;
   display: inline-block;
   border: none;
-  background: #f1f1f1;
+  background: #ffffff;
 }
 #signupForm form input[type=text]:focus,
 #signupForm form input[type=password]:focus,
