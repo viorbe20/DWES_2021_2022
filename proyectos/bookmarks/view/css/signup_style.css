@@ -1,7 +1,11 @@
 * {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #signupForm {
@@ -14,7 +18,6 @@
   width: 70%;
   margin-top: 2%;
   display: flex;
-  *flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #dbdbdb;
@@ -24,7 +27,6 @@
   /* Extra styles for the cancel button */
   /* Float cancel and signup buttons and add an equal width */
   /* Add padding to container elements */
-  /* Change styles for cancel button and signup button on extra small screens */
 }
 #signupForm form h2 {
   margin: 0%;
@@ -72,7 +74,13 @@
   background: linear-gradient(#72b352, #77b55a);
 }
 #signupForm form .btn_cancel {
-  padding: 14px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 180px;
+  border: none;
+  color: white;
+  cursor: pointer;
   background: linear-gradient(#e4685d, #d0451b);
 }
 #signupForm form .btn_cancel:hover {
@@ -90,20 +98,4 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
-@media screen and (max-width: 300px) {
-  #signupForm form .btn_cancel,
-#signupForm form .btn_signup {
-    width: 100%;
-  }
-}
-#signupForm form textarea {
-  height: 100px;
-}
-#signupForm form #btn_addBookmark {
-  color: white;
-  background: linear-gradient(#056571, #677e81);
-}
-#signupForm form #btn_addBookmark:hover {
-  background: linear-gradient(#677e81, #056571);
 }/*# sourceMappingURL=signup_style.css.map */

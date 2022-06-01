@@ -4,7 +4,7 @@ require "../app/Config/constantes.php";
 
 //Enrutador
 use App\Core\Router;
-use App\Controllers\DefaultController;
+use App\Controllers\HomeController;
 use App\Controllers\UsuarioController;
 use App\Controllers\BookmarkController;
 
@@ -18,16 +18,16 @@ $router = new Router();
 
 //Enrutamiento a la página de inicio
 $router->add(array(
-    'name'=>'index',
-    'path'=>'/^\/bookmarks$/',
-    'action'=>[DefaultController::class, 'indexAction'],  
+    'name'=>'home',
+    'path'=>'/^\/home$/',
+    'action'=>[HomeController::class, 'indexAction'],  
     'auth'=>["guest"]
 ));
 
 //Enrutamiento logout
 $router->add(array(
     'name'=>'logout',
-    'path'=>'/^\/bookmarks\/logout$/',
+    'path'=>'/^\/home\/logout$/',
     'action'=>[UsuarioController::class, 'logoutAction'],
     'auth'=>["admin", "user"]
 ));
@@ -35,7 +35,7 @@ $router->add(array(
 //Enrutamiento a la página de registro de usuario
 $router->add(array(
     'name'=>'signup',
-    'path'=>'/^\/bookmarks\/signup$/',
+    'path'=>'/^\/home\/signup$/',
     'action'=>[UsuarioController::class, 'signupAction'],
     'auth'=>["admin", "guest"]
 ));
@@ -46,7 +46,7 @@ $route = $router->matchs($request);
 
 if ($route) {
     if (!in_array($_SESSION['user']['profile'] , $route['auth'])) {
-        header("location:" . DIRBASEURL . "/bookmarks");
+        header("location:" . DIRBASEURL . "/home");
     }else{
         $controllerName = $route['action'][0];
         $actionName = $route['action'][1];

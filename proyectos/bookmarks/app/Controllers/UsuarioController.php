@@ -33,12 +33,12 @@ class UsuarioController extends BaseController
             $bm->setIdUsuario($idUser);
             $bm->setEntity();
 
-            header('Location:' . DIRBASEURL . '/bookmarks');
+            header('Location:' . DIRBASEURL . '/home');
         } else if (isset($_POST['btn_cancel'])) {
-            header('Location:' . DIRBASEURL . '/bookmarks');
+            header('Location:' . DIRBASEURL . '/home');
         }
 
-        $this->renderHTML('../view/require/signup_view.php');
+        $this->renderHTML('../view/signup_view.php');
     }
 
     public function logoutAction()
@@ -46,6 +46,6 @@ class UsuarioController extends BaseController
         //Cierra sesión y envía a la página de inicio
         unset($_SESSION);
         session_destroy();
-        header('Location:' . DIRBASEURL . '/bookmarks');
+        header('Location:' . DIRBASEURL . '/home');
     }
 }

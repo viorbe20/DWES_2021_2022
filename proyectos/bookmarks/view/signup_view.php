@@ -1,7 +1,11 @@
 <?php
-$css = file_get_contents('../view/css/signup_style.css');
-echo "<style>. $css . </style>";
-$name = "";
+require('../view/require/header_view.php');
+
+$css1 = file_get_contents('../view/css/signup_style.css');
+$css2 = file_get_contents('../view/css/header_style.css');
+$css = $css1.$css2;
+
+echo "<style>. $css .</style>";
 ?>
 
 <div id="signupForm">
@@ -13,7 +17,7 @@ $name = "";
             <hr>
 
             <label for="name"><b>Nombre</b></label>
-            <input type="text" value="<?php echo $name?>" name="name" required>
+            <input type="text" value="Vir" name="name" required>
 
             <label for="lastname"><b>Apellido</b></label>
             <input type="text" value="Ordoño" name="lastname" required>
@@ -30,21 +34,10 @@ $name = "";
             <label for="psw-repeat"><b>Repite Contraseña</b></label>
             <input type="password" value="orbevi" name="psw-repeat" required>
 
-            <h2>Bookmarks</h2>
-            <hr>
-
-            <label for="name"><b>Url</b></label>
-            <input type="text" value="" name="url" required>
-
-            <label for="description"><b>Descripción</b></label>
-            <textarea type="text"  placeholder="Página web del instituto" name="description" required></textarea>
-            <div class="clearfix">
-                <button type="submit" name="btn_addBookmark" id="btn_addBookmark">Añadir bookmark</butt>
-            </div>
             <p>Con la creación del usuario acepto los <a href="#" style="color:dodgerblue">Términos y Condiciones</a>.</p>
 
             <div class="clearfix">
-                <button type="submit" name="btn_cancel" class="btn_cancel">Cancelar</button>
+                <a href="<?php echo DIRBASEURL . '/home' ?>"><input type="button" name="btn_cancel" class="btn_cancel" value="Cancelar"></a>
                 <button type="submit" name="btn_signup" class="btn_signup">Registrarse</button>
             </div>
         </div>

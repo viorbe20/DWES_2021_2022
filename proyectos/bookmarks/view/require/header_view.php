@@ -7,7 +7,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta name='author' content='Virginia Ordoño Bernier'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <title>Cabecera</title>
+    <title></title>
 </head>
 
 <body>
@@ -16,8 +16,8 @@
         <p>La página que estás viendo requiere para su funcionamiento el uso de JavaScript.
             Si lo has deshabilitado intencionadamente, por favor vuelve a activarlo.</p>
     </noscript>
+    
     <header>
-        
         <h2>Bookmarks</h2>
         <!--Muestra la información del perfil que está conectado-->
         <div id="auth">
@@ -34,8 +34,8 @@
                 <?php
                 if ($_SESSION['user']['profile'] != "guest") {
                 ?>
-                    <section> 
-                        <a id="icon-logout" href="<?php echo DIRBASEURL . '/bookmarks/logout' ?>"><span class="material-symbols-outlined">logout</span><label>Salir</label></a>
+                    <section>
+                        <a id="icon-logout" href="<?php echo DIRBASEURL . '/home/logout' ?>"><span class="material-symbols-outlined">logout</span><label>Salir</label></a>
                     </section>
                 <?php
                 }

@@ -12,7 +12,7 @@
                 <input class="myButton" type="submit" name="login" value="Entrar">
             </div>
             <div>
-            <a href='<?php echo DIRBASEURL ?>/bookmarks/signup'>Registrarse</a>
+            <a href='<?php echo DIRBASEURL ?>/home/signup'>Registrarse</a>
             </div>
 
 

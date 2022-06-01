@@ -6,7 +6,7 @@ use App\Models\Usuario;
 
 require_once('..\app\Config\constantes.php');
 
-class DefaultController extends BaseController
+class HomeController extends BaseController
 {
 
     public function indexAction()
