@@ -11,24 +11,35 @@ $css = $css1 . $css2;
 
 echo "<style>. $css .</style>";
 
-?>        
-    <h2>Edita el marcador</h2>
-<form method="post">
+?>   
+<div id="editForm">
     <?php
-    foreach ($data[0] as $key => $value) {
     ?>
-        <!--urldecode():Decodes any %## encoding in the given string. Plus symbols ('+') are decoded to a space character.-->
-        <!--current() - returns the value of the current element in an array. $data[0] in this case-->
-        <label>Url
-            <input class = "myInput" type="text" name="editUrl" value="<?php echo urldecode($value['bm_url'])?>">
-        </label>
-        <label>Descripción
-            <input class = "myInput" type="text" name="editDescription" value="<?php echo urldecode($value['descripcion'])?>">
-        </label>
-        <input class = "myButton" type="submit" value="Editar" name="btn_edit">
-        
+    <form action="" method="post">
+        <div class="container">
+        <h2>Edita el marcador</h2>
+            <hr>
+            <?php
+    foreach ($data[0] as $key => $value) {
+        ?>
+        <label><b>Url</b></label>
+        <input type="url" name="url" value="<?php echo urldecode($value['bm_url'])?>" required>
+        <label><b>Descripción</b></label>
+        <textarea type="text" name="description" required><?php echo urldecode($value['descripcion'])?></textarea>
         <?php
     }
     ?>
 
+            <div class="clearfix">
+                <a href="<?php echo DIRBASEURL . '/home/bookmarks' ?>"><input type="button" name="btn_cancel" class="btn_cancel" value="Cancelar"></a>
+                <button type="submit" name="btn_edit" class="btn_signup">Editar</button>
+            </div>
+        </div>
+        
+        <div class="container"> 
+        </div>
+    </form>
+
+    
 </form>
+</div>     
