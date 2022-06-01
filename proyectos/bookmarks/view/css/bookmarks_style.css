@@ -11,7 +11,7 @@
   align-items: center;
 }
 .table_container h2 {
-  color: var(--title);
+  color: #056571;
 }
 .table_container table {
   font-family: arial, sans-serif;
@@ -22,6 +22,24 @@
   background-color: var(--color-form);
   color: var(--color1);
 }
+.table_container table tr td a {
+  text-decoration: none;
+  color: var(--color1);
+  background: royalblue;
+  color: white;
+  padding: 8px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0% 10%;
+  font-weight: bold;
+  font-size: 13px;
+}
+.table_container table tr td a:hover {
+  background: rgb(192, 200, 226);
+  color: royalblue;
+  font-weight: bold;
+}
 .table_container table tr td,
 .table_container table tr th {
   border: 1px solid #dddddd;
@@ -31,34 +49,19 @@
 .table_container table tr:nth-child(even) {
   background-color: #cfdfd4;
 }
-.table_container #buttons_admin {
-  width: 60%;
-  padding: 1%;
-  display: flex;
-  justify-content: flex-end;
-}
-.table_container #buttons_admin button:nth-child(1) {
+.table_container a {
+  text-decoration: none;
   background: #66ab8c;
   color: white;
   font-weight: bold;
-  border: none;
-  padding: 8px;
-  margin-right: 250px;
+  padding: 8px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2% 10%;
 }
-.table_container #buttons_admin button:nth-child(1):hover {
+.table_container a:hover {
   background: #b4dbc0;
   color: #056571;
-  font-weight: bold;
-}
-.table_container #buttons_admin button:nth-child(2) {
-  background: royalblue;
-  color: white;
-  font-weight: bold;
-  border: none;
-  padding: 8px;
-}
-.table_container #buttons_admin button:nth-child(2):hover {
-  background: rgb(192, 200, 226);
-  color: royalblue;
   font-weight: bold;
 }/*# sourceMappingURL=bookmarks_style.css.map */

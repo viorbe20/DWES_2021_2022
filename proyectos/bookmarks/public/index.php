@@ -56,6 +56,30 @@ $router->add(array(
     'auth'=>["admin", "user"]
 ));
 
+//Enrutamiento a la página donde el user crea sus bookmarks
+$router->add(array(
+    'name'=>'newBookmarks',
+    'path'=>'/^\/home\/bookmarks\/add$/',
+    'action'=>[UsuarioController::class, 'addBookmarkAction'],
+    'auth'=>["admin", "user"]
+));
+
+//Enrutamiento a la página donde el user edita sus bookmarks
+$router->add(array(
+    'name'=>'editBookmarks',
+    'path'=>'/^\/home\/bookmarks\/edit$/',
+    'action'=>[UsuarioController::class, 'editBookmarkAction'],
+    'auth'=>["admin", "user"]
+));
+
+//Enrutamiento a la página donde el user edita sus bookmarks
+$router->add(array(
+    'name'=>'deleteBookmarks',
+    'path'=>'/^\/home\/bookmarks\/delete$/',
+    'action'=>[UsuarioController::class, 'deleteBookmarkAction'],
+    'auth'=>["admin", "user"]
+));
+
 //Petición y respuesta
 $request = str_replace(DIRBASEURL,'',$_SERVER['REQUEST_URI']);
 $route = $router->matchs($request);

@@ -19,9 +19,9 @@ if ($_SESSION['user']['profile'] == "user") {
         <table>
             <tr>
                 <th>Url</th>
-                <th>Descripción</th>
+                <th>Descripcióm</th>
                 <th>Editar</th>
-                <th>Eliminar</th>
+                <th>Contraseña</th>
             </tr>
 
 
@@ -32,8 +32,8 @@ if ($_SESSION['user']['profile'] == "user") {
                     echo '<tr>';
                     echo '<td>' . $value["bm_url"] . '</td>';
                     echo '<td>' . $value["descripcion"] . '</td>';
-                    echo '<td class="tdLink"><a href="' . DIRBASEURL . '/home/bookmarks/edit">Editar</a></td>';
-                    echo '<td class="tdLink"><a href="' . DIRBASEURL . '/home/bookmarks/delete">Eliminar</a></td>';
+                    echo '<td><a href="' . DIRBASEURL . '/home/bookmarks/edit">Editar</td>';
+                    echo '<td> Editar </td>';
                     echo '</tr>';
                 }
             }
@@ -41,8 +41,9 @@ if ($_SESSION['user']['profile'] == "user") {
             ?>
         </table>
         
-        <a href="' . DIRBASEURL . '/home/bookmarks/add">Añadir un Bookmark</a>
-    
+        <div id="buttons_admin">
+            <button type="submit" name="btn_uncheckAll">>Añadir un Bookmarks</button>
+        </div>
     </div>
     </form>
 <?php
