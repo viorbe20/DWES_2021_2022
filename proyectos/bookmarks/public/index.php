@@ -6,7 +6,7 @@ require "../app/Config/constantes.php";
 use App\Core\Router;
 use App\Controllers\HomeController;
 use App\Controllers\UsuarioController;
-use App\Controllers\BookmarkController;
+use App\Controllers\AdminController;
 
 session_start();
 
@@ -38,6 +38,22 @@ $router->add(array(
     'path'=>'/^\/home\/signup$/',
     'action'=>[UsuarioController::class, 'signupAction'],
     'auth'=>["admin", "guest"]
+));
+
+//Enrutamiento a la página donde el admin gestiona los usuarios
+$router->add(array(
+    'name'=>'users',
+    'path'=>'/^\/home\/users$/',
+    'action'=>[AdminController::class, 'getUsersAction'],
+    'auth'=>["admin"]
+));
+
+//Enrutamiento a la página donde el user gestiona sus bookmarks
+$router->add(array(
+    'name'=>'bookmarks',
+    'path'=>'/^\/home\/bookmarks$/',
+    'action'=>[UserController::class, 'getBookmarksAction'],
+    'auth'=>["admin", "user"]
 ));
 
 //Petición y respuesta

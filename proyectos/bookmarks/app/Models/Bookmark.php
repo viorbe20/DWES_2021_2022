@@ -70,6 +70,15 @@ class Bookmark extends DBAbstractModel
         return $this->id_usuario;
     }
 
+    
+    public function getAll()
+    {
+        $this->query = "SELECT * FROM bookmarks";
+        $this->get_results_from_query();
+        $result = $this->rows;
+        return $result;
+    }
+
     public function getByUserId()
     {
         $this->query = "SELECT * FROM bookmarks WHERE id_usuario=:id_usuario";

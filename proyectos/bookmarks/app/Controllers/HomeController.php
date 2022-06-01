@@ -25,14 +25,21 @@ class HomeController extends BaseController
                 if (!empty($result)) {
                     
                     //Cargamos usuarios bloqueados
-                    $blockedUsers = array();
-                    $user->setBloqueado(1);
-                    $blockedUsers = $user->getBlockedUsers();
-                    array_push($data, $blockedUsers);
+                    // $blockedUsers = array();
+                    // $user->setBloqueado(1);
+                    // $blockedUsers = $user->getBlockedUsers();
+                    // array_push($data, $blockedUsers);
                     
                     foreach ($result as $value) {
                         $_SESSION['user']['profile'] = $value['perfil'];
-                        $this->renderHTML('../view/index_view.php', $data);
+                        
+                        if ($_SESSION['user']['profile'] == "user") {
+                            header('location:' . DIRBASEURL . '/home/bookmarks');
+                        } 
+                        
+                        if ($_SESSION['user']['profile'] == "admin"){
+                            header('location:' . DIRBASEURL . '/home/users');
+                        }                        
                     }
                 } else {
                     //Si los datos no coinciden, sigue como invitado
