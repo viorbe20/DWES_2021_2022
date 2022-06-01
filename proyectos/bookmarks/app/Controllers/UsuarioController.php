@@ -28,11 +28,11 @@ class UsuarioController extends BaseController
         if (isset($_POST['btn_edit'])) {
             $rest = explode("/", $request);
             $id = end($rest);
-            // $bm = Bookmark::getInstancia();
-            // $bm->setUrl($_POST['url']);
-            // $bm->setDescripcion($_POST['description']);
-            // $bm->setIdUsuario($_SESSION['user']['id']);
-            // $bm->setEntity();
+            $bm = Bookmark::getInstancia();
+            $bm->setUrl($_POST['url']);
+            $bm->setDescripcion($_POST['description']);
+            $bm->setIdUsuario($id);
+            $bm->setEntity();
             header('Location:' . DIRBASEURL . '/home/bookmarks');
         } else {
             $rest = explode("/", $request);
