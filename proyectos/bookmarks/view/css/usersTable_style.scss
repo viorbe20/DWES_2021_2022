@@ -1,0 +1,39 @@
+:root {
+  --color-form: #a9b7c0;
+  --title: #056571;
+  --color1: #3c3c3c;
+}
+#table_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    color: var(--title);
+  }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 60%;
+
+    tr {
+      th {
+        background-color: var(--color-form);
+        color: var(--color1);
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+    }
+
+    tr:nth-child(even) {
+      background-color: #cfdfd4;
+    }
+  }
+}

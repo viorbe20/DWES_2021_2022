@@ -110,6 +110,16 @@ class Usuario extends DBAbstractModel
         return $result;
     }
 
+    public function getBlockedUsers()
+    {
+        $this->query = "SELECT * FROM usuarios WHERE bloqueado=:bloqueado";
+        $this->parametros['bloqueado'] = $this->bloqueado;
+        $this->get_results_from_query();
+        $result = $this->rows;
+        return $result;
+    }
+
+
     public function getByLogin()
     {
         $this->query = "SELECT * FROM usuarios WHERE user=:user AND psw=:psw";

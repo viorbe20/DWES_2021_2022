@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\Usuario;
 use App\Models\Bookmark;
 
@@ -9,12 +10,21 @@ require_once('..\app\Config\constantes.php');
 
 class UsuarioController extends BaseController
 {
+    // public function blockedUsersAction()
+    // {
+    //     $user = Usuario::getInstancia();
+    //     $blockedUsers = array();
+    //     $user->setBloqueado(1);
+    //     $blockedUsers = $user->getBlockedUsers();
+    //     return $blockedUsers;
+    // }
+
     public function signupAction()
     {
         $user = Usuario::getInstancia();
         $bm = Bookmark::getInstancia();
-    
-        if (isset($_POST['btn_signup'])){
+
+        if (isset($_POST['btn_signup'])) {
             //Creamos el usuario
             $user->setNombre($_POST['name']);
             $user->setUser($_POST['username']);
@@ -32,7 +42,7 @@ class UsuarioController extends BaseController
             $bm->setEntity();
 
             header('Location:' . DIRBASEURL . '/bookmarks');
-        } else if (isset($_POST['btn_cancel'])){
+        } else if (isset($_POST['btn_cancel'])) {
             header('Location:' . DIRBASEURL . '/bookmarks');
         }
 

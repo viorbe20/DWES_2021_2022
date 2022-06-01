@@ -23,9 +23,16 @@ class DefaultController extends BaseController
 
                 //Si hay coincidencia la devuelve
                 if (!empty($result)) {
+                    
+                    //Cargamos usuarios bloqueados
+                    $blockedUsers = array();
+                    $user->setBloqueado(1);
+                    $blockedUsers = $user->getBlockedUsers();
+                    array_push($data, $blockedUsers);
+                    
                     foreach ($result as $value) {
                         $_SESSION['user']['profile'] = $value['perfil'];
-                        $this->renderHTML('../view/index_view.php');
+                        $this->renderHTML('../view/index_view.php', $data);
                     }
                 } else {
                     //Si los datos no coinciden, sigue como invitado
