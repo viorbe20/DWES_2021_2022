@@ -24,14 +24,16 @@ if ($_SESSION['user']['profile'] == "admin") {
 
             <?php
             if (!empty($data[0])) {
-
+                echo "<form action=\"\" method=\"post\">";
                 foreach ($data[0] as $key => $value) {
                     echo '<tr>';
                     echo '<td>' . $value["nombre"] . '</td>';
                     echo '<td>' . $value["user"] . '</td>';
                     echo '<td>' . $value["psw"] . '</td>';
                     echo '<td>' . $value["email"] . '</td>';
-                    echo '<td><input type="checkbox" id="' . $value["id"] . '" name="' . $value["id"] . '" value="blockedUsers"></td>';
+                    //Desmarca todos los checkbox
+                    isset($_POST['btn_uncheckAll']) ? $checked = "": $checked = "checked";
+                    echo '<td><input type="checkbox" id="' . $value["id"] . '" name="' . $value["id"] . '" value="blockedUsers"'. $checked .'></td>';
                     echo '</tr>';
                 }
             }
@@ -39,10 +41,10 @@ if ($_SESSION['user']['profile'] == "admin") {
             ?>
         </table>
         <div id="buttons_admin">
-            <button type="submit" name="btn_unblock">Desbloquear seleccionados</button>
-            <button type="submit" name="btn_unblockAll">Desbloquear todos</button>
+            <button type="submit" name="btn_uncheckAll">Desmarcar todos</button>
         </div>
     </div>
+    </form>
 <?php
 }
 ?>

@@ -8,12 +8,15 @@ require_once('..\app\Config\constantes.php');
 
 class AdminController extends BaseController
 {
-    public function getUsersAction(){
+    public function getUsersAction()
+    {
+        $data = array();
         $user = Usuario::getInstancia();
-        $user->getAll();
-        $allUsers = array();
-        $allUsers = $user;
-        var_dump($allUsers);
-        $this->renderHTML('../view/users_view.php');
+        $blockedUsers = array();
+        $user->setBloqueado(1);
+        $blockedUsers = $user->getBlockedUsers();
+        array_push($data, $blockedUsers);
+        //var_dump($blockedUsers);
+        $this->renderHTML('../view/users_view.php', $data);
     }
 }
