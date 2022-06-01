@@ -41,6 +41,7 @@ if ($_SESSION['user']['profile'] == "admin") {
             ?>
         </table>
         <div id="buttons_admin">
+            <button type="submit" name="btn_unlock" id="btn_unlock">Desbloquear</button>
             <button type="submit" name="btn_uncheckAll">Desmarcar todos</button>
         </div>
     </div>
