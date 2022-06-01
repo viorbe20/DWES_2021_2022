@@ -36,4 +36,16 @@
       background-color: #cfdfd4;
     }
   }
+
+  #buttons_admin{
+    width: 60%;
+    padding: 1%;
+    display: flex;
+    justify-content: flex-end;
+
+    button:nth-child(1){
+      margin-right: 1%;
+    }
+
+  }
 }

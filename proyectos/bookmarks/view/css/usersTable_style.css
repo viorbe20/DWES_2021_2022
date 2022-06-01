@@ -30,4 +30,13 @@
 }
 #table_container table tr:nth-child(even) {
   background-color: #cfdfd4;
+}
+#table_container #buttons_admin {
+  width: 60%;
+  padding: 1%;
+  display: flex;
+  justify-content: flex-end;
+}
+#table_container #buttons_admin button:nth-child(1) {
+  margin-right: 1%;
 }/*# sourceMappingURL=usersTable_style.css.map */
