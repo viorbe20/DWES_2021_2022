@@ -62,7 +62,7 @@ include("require/view_auth.php");
 
         <?php
         //Vista capitales con perfil invitado
-        if (($_SESSION['user']["username"] == "guest")) {
+        if (($_SESSION['user']["profile"] == "guest")) {
             if (!empty($data[1])) {
                 //Muestra los registros de la bd
                 echo "<br>
