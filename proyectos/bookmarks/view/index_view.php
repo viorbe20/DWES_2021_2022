@@ -4,8 +4,8 @@ require('../view/require/login_view.php');
 
 $css1 = file_get_contents('../view/css/style.css');
 $css2 = file_get_contents('../view/css/header_style.css');
-$css = $css1.$css2;
-echo '<style>'. $css .'</style>';
+$css = $css1 . $css2;
+echo '<style>' . $css . '</style>';
 ?>
 
 <!DOCTYPE html>
@@ -26,5 +26,4 @@ echo '<style>'. $css .'</style>';
             Si lo has deshabilitado intencionadamente, por favor vuelve a activarlo.</p>
     </noscript>
 </body>
-
 </html>
