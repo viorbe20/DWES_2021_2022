@@ -3,15 +3,28 @@
  * $data [datosUsuario, array(tantos bookmarks como tenga)]
  */
 
+use App\Models\Bookmark;
+
 require('../view/require/header_view.php');
 
 $css1 = file_get_contents('../view/css/delete_bm_style.css');
 $css2 = file_get_contents('../view/css/header_style.css');
 $css = $css1 . $css2;
-
 echo "<style>. $css .</style>";
 
-?>   
+$bm = Bookmark::getInstancia();
+echo($_SESSION['user']['id']);
+$bm = Bookmark::getInstancia();
+$bmId = 9;
+$bm->setId($bmId);
+foreach ($bm->getUserIdByBookmarkId() as $key => $value) {
+    //echo('<br>' . $_SESSION['user']['id']) ;
+    $userId = $value['id_usuario'];
+}
+
+echo($userId) ;
+?>
+
 <div id="deleteForm">
     <?php
     ?>

@@ -5,11 +5,20 @@ use App\Models\Usuario;
 use App\Models\Bookmark;
 
 $bm = Bookmark::getInstancia();
-$bm->setUrl("url");
-$bm->setDescripcion('des');
-$bm->setIdUsuario(3);
-$bm->setEntity();
-var_dump($bm);
+$bm->setId(9);
+//getUserIdByBookmarkId
+//$userId = $bm->getUserIdByBookmarkId();
+foreach ($bm->getUserIdByBookmarkId() as $key => $value) {
+    # code...
+    var_dump($value['id_usuario']);
+}
+//echo('<br>' . $_SESSION['user']['id']) ;
+// if (($_SESSION['user']['id']) == $userId) {
+//     $bm->deletebyId();
+// header('Location:' . DIRBASEURL . '/home/bookmarks');
+// } else {
+// header('Location:' . DIRBASEURL . '/home/bookmarks');
+// }
 
 
 

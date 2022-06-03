@@ -10,21 +10,25 @@ require_once('..\app\Config\constantes.php');
 
 class UsuarioController extends BaseController
 {
-    public function searchBookmarkAction()
-    {
-
-    }
-
     public function deleteBookmarkAction($request)
     {
+        $bm = Bookmark::getInstancia();
+        $rest = explode("/", $request);
+        $bmId = end($rest); //obtiene id del Bookmark de la url
+        $bm->setId($bmId);
+        foreach ($bm->getUserIdByBookmarkId() as $key => $value) {
+            $userId = $value['id_usuario']; //obtiene id:usuario del bookmark
+        }
+
         if (isset($_POST['btn_delete'])) {
-            $rest = explode("/", $request);
-            $id = end($rest);
-            $bm = Bookmark::getInstancia();
-            $bm->setId($id);
-            $bm->deletebyId();
-            header('Location:' . DIRBASEURL . '/home/bookmarks');
-        } else {
+            //Solo permite que elimine el usuario en concreto de esa sesión
+            if ($userId == ($_SESSION['user']['id'])) {
+                $bm->deleteById($bmId);
+                header('Location:' . DIRBASEURL . '/home/bookmarks');
+            } else {
+                header('Location:' . DIRBASEURL . '/home/bookmarks');
+            }
+        } else { //delete por defecto
             $rest = explode("/", $request);
             $id = end($rest);
             $bm = Bookmark::getInstancia();
