@@ -70,7 +70,7 @@ class Bookmark extends DBAbstractModel
         return $this->id_usuario;
     }
 
-    
+
     public function getAll()
     {
         $this->query = "SELECT * FROM bookmarks";
@@ -139,6 +139,11 @@ class Bookmark extends DBAbstractModel
     }
     public function editEntity()
     {
+        $this->query = "UPDATE bookmarks SET bm_url=:bm_url, descripcion=:descripcion WHERE id=:id";
+        $this->parametros['bm_url'] = $this->bm_url;
+        $this->parametros['descripcion'] = $this->descripcion;
+        $this->parametros['id'] = $this->id;
+        $this->get_results_from_query();
     }
     public function set()
     {

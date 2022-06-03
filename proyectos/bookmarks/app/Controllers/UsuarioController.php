@@ -21,7 +21,7 @@ class UsuarioController extends BaseController
         }
 
         if (isset($_POST['btn_delete'])) {
-            //Solo permite que elimine el usuario en concreto de esa sesión
+            //Seguridad. Solo el usuario de esa sesión puede eliminar
             if ($userId == ($_SESSION['user']['id'])) {
                 $bm->deleteById($bmId);
                 header('Location:' . DIRBASEURL . '/home/bookmarks');
@@ -42,15 +42,24 @@ class UsuarioController extends BaseController
 
     public function editBookmarkAction($request)
     {
+        $bm = Bookmark::getInstancia();
+        $rest = explode("/", $request);
+        $bmId = end($rest); //obtiene id del Bookmark de la url
+        $bm->setId($bmId);
+        foreach ($bm->getUserIdByBookmarkId() as $key => $value) {
+            $userId = $value['id_usuario']; //obtiene id:usuario del bookmark
+        }
         if (isset($_POST['btn_edit'])) {
-            $rest = explode("/", $request);
-            $id = end($rest);
-            $bm = Bookmark::getInstancia();
-            $bm->setUrl($_POST['url']);
-            $bm->setDescripcion($_POST['description']);
-            $bm->setIdUsuario($id);
-            $bm->setEntity();
-            header('Location:' . DIRBASEURL . '/home/bookmarks');
+            //Seguridad. Solo el usuario de esa sesión puede editar
+            if ($userId == ($_SESSION['user']['id'])) {
+                $bm->setUrl($_POST['url']);
+                $bm->setDescripcion($_POST['description']);
+                $bm->setIdUsuario($userId);
+                $bm->editEntity();
+                header('Location:' . DIRBASEURL . '/home/bookmarks');
+            } else {
+                header('Location:' . DIRBASEURL . '/home/bookmarks');
+            }
         } else {
             $rest = explode("/", $request);
             $id = end($rest);
