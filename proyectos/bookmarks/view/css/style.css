@@ -49,4 +49,15 @@ body {
 }
 #loginForm form div:nth-child(2) a:hover {
   background: linear-gradient(#677e81, #056571);
+}
+
+#blocked {
+  color: #9f6000;
+  background-color: #feefb3;
+  text-align: center;
+  padding: 1% 0%;
+  margin: 2% 35%;
+}
+#blocked label {
+  font-weight: bolder;
 }/*# sourceMappingURL=style.css.map */

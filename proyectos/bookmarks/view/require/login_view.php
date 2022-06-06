@@ -14,8 +14,6 @@
             <div>
             <a href='<?php echo DIRBASEURL ?>/home/signup'>Registrarse</a>
             </div>
-
-
         </form>
     <?php
     }
