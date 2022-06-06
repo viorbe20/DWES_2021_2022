@@ -24,7 +24,6 @@ echo "<style>. $css .</style>";
 <div class="table_container">
     <table>
         <tr>
-            <th>Url</th>
             <th>Descripción</th>
             <th>Editar</th>
             <th>Eliminar</th>
@@ -36,10 +35,10 @@ echo "<style>. $css .</style>";
             echo "<form action=\"\" method=\"post\">";
             foreach ($data[1] as $key => $value) {
                 echo '<tr>';
-                echo '<td>' . $value["bm_url"] . '</td>';
-                echo '<td>' . $value["descripcion"] . '</td>';
-                echo '<td class="tdLink"><a href="' . DIRBASEURL . '/home/bookmarks/edit/' . $value['id'] . '">Editar</a></td>';
-                echo '<td class="tdLink"><a href="' . DIRBASEURL . '/home/bookmarks/delete/' . $value['id'] . '">Eliminar</a></td>';
+                //echo '<td>' . $value["descripcion"] . '</td>';
+                echo '<td><a id="description" target="_blank" href=" '. $value['bm_url'] .'">'. $value["descripcion"] .'</a></td>';
+                echo '<td><a href="' . DIRBASEURL . '/home/bookmarks/edit/' . $value['id'] . '">Editar</a></td>';
+                echo '<td><a href="' . DIRBASEURL . '/home/bookmarks/delete/' . $value['id'] . '">Eliminar</a></td>';
                 echo '</tr>';
             }
         }

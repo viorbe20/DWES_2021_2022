@@ -43,12 +43,12 @@ body {
   background-color: var(--color-form);
   color: var(--color1);
 }
-.table_container table tr td a {
+.table_container table tr td a:not(a[id=description]) {
   text-decoration: none;
   color: var(--color1);
   background: royalblue;
   color: white;
-  padding: 8px 0px;
+  padding: 8px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,7 +56,7 @@ body {
   font-weight: bold;
   font-size: 13px;
 }
-.table_container table tr td a:hover {
+.table_container table tr td a:not(a[id=description]):hover {
   background: rgb(192, 200, 226);
   color: royalblue;
   font-weight: bold;
@@ -70,7 +70,7 @@ body {
 .table_container table tr:nth-child(even) {
   background-color: #cfdfd4;
 }
-.table_container a {
+.table_container a:not(a[id=description]) {
   text-decoration: none;
   background: #66ab8c;
   color: white;
@@ -81,7 +81,7 @@ body {
   align-items: center;
   margin: 2% 10%;
 }
-.table_container a:hover {
+.table_container a:not(a[id=description]):hover {
   background: #b4dbc0;
   color: #056571;
   font-weight: bold;
