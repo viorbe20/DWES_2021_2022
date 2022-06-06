@@ -36,6 +36,7 @@ class HomeController extends BaseController
                         foreach ($result as $value) {
                             $_SESSION['user']['profile'] = $value['perfil'];
                             $_SESSION['user']['id'] = $value['id']; //establecemos el id al usuario de la sesión
+                            $_SESSION['user']['name'] = $value['nombre']; //establecemos el nombre al usuario de la sesión
 
                             if ($_SESSION['user']['profile'] == "user") {
                                 header('location:' . DIRBASEURL . '/home/bookmarks');

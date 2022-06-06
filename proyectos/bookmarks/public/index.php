@@ -12,6 +12,7 @@ session_start();
 
 if (!isset($_SESSION['user']['profile'] )) {
     $_SESSION['user']['profile'] = "guest";
+    $_SESSION['user']['name'] = "guest";
 }
 
 $router = new Router();

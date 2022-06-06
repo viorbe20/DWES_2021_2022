@@ -26,7 +26,7 @@
                 <section>
                     <span id="img" class="material-symbols-outlined">
                         account_circle</span>
-                    <div><?php echo strtoupper($_SESSION['user']['profile']) ?></div>
+                    <div><?php echo strtoupper($_SESSION['user']['name']) ?></div>
                 </section>
 
                 <!--Icono de salir-->
