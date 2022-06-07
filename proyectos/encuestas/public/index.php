@@ -42,9 +42,30 @@ $router->add(array(
 ));
 
 $router->add(array(
+    'name'=>'managequestions',
+    'path'=>'/^\/home\/managequestions$/',
+    'action'=>[AdminController::class, 'managequestionsAction'],
+    'auth'=>["admin"]
+));
+
+$router->add(array(
+    'name'=>'addquestion',
+    'path'=>'/^\/home\/managequestions\/addquestion$/',
+    'action'=>[AdminController::class, 'addquestionAction'],
+    'auth'=>["admin"]
+));
+
+$router->add(array(
     'name'=>'managesurveys',
     'path'=>'/^\/home\/managesurveys$/',
-    'action'=>[AdminController::class, 'adminAction'],
+    'action'=>[AdminController::class, 'managesurveysAction'],
+    'auth'=>["admin"]
+));
+
+$router->add(array(
+    'name'=>'managesusers',
+    'path'=>'/^\/home\/manageusers$/',
+    'action'=>[AdminController::class, 'manageusersAction'],
     'auth'=>["admin"]
 ));
 

@@ -1,6 +1,5 @@
 <?php
 namespace App\Models;
-
 abstract class DBAbstractModel
 {
     private static $db_host = DBHOST;

@@ -3,15 +3,64 @@
 namespace App\Controllers;
 
 use App\Models\Usuario;
+use App\Models\Pregunta;
+use App\Models\Opcion;
 
 require_once('..\app\Config\constantes.php');
 
 class AdminController extends BaseController
 {
-    public function adminAction(){
-        $data = array();
-        $this->renderHTML('../view/admin_view.php', $data);  
+
+    public function addquestionAction()
+    {
+
+        $p = Pregunta::getInstancia();
+
+        if ((isset($_POST['btn_create'])) && (!empty($_POST['description']))) {
+            //Añade pregunta
+            $inputNum =  $_POST['numAnswers'];
+            $data = array();
+            $p->setDescripcion($_POST['description']);
+            $p->setEntity();
+            $description = $p->getDescripcion();
+            array_push($data, $inputNum);
+            array_push($data, $description);
+            $this->renderHTML('../view/addquestion_view.php', $data);
+        }else if (isset($_POST['btn_add'])) {
+            $p = Pregunta::getInstancia();
+            for ($i = 1; $i < 11; $i++) {
+                if (isset($_POST['option'.$i])) {
+                    $idQuestion = $p->lastInsert();
+                    echo($idQuestion);
+                }
+            }
+            $this->renderHTML('../view/managequestion_view.php');
+        } else if (isset($_POST['btn_cancel'])) {
+            $this->renderHTML('../view/managequestion_view.php');
+        } else {
+            $this->renderHTML('../view/addquestion_view.php');
+        }
     }
+
+    public function managequestionsAction()
+    {
+        $data = array();
+        $this->renderHTML('../view/managequestions_view.php', $data);
+    }
+
+    public function managesurveysAction()
+    {
+        $data = array();
+        $this->renderHTML('../view/managesurveys_view.php', $data);
+    }
+
+    public function manageusersAction()
+    {
+        $data = array();
+        $this->renderHTML('../view/manageusers_view.php', $data);
+    }
+
+
     // public function getUsersAction()
     // {
     //     $data = array();
