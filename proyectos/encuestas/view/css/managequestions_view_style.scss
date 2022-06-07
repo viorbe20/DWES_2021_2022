@@ -1,3 +1,9 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 ul {
   list-style-type: none;
   margin: 0;
@@ -24,14 +30,28 @@ ul {
   }
 }
 
-#mq_container{
+#mq_container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 2% 0%;
 
-  .myInput{
+  .myInput {
     width: 350px;
     height: 30px;
+  }
+}
+
+#showFour {
+  *background-color: #175f8b;
+  width: 60%;
+  margin: 2% 0%;
+  
+  .question4{
+    text-align: center;
+    background-color: #a9b7c0;
+    padding: 2%;
+    width: 100%;
+    
   }
 }

@@ -63,8 +63,22 @@ class Pregunta extends DBAbstractModel
         return $result;
     }
 
+    public function getAll()
+    {
+        $this->query = "SELECT * FROM preguntas";
+        $this->get_results_from_query();
+        $result = $this->rows;
+        return $result;
+    }
 
-
+    public function getOnlyFour()
+    {
+        $this->query = "SELECT * FROM preguntas";
+        $this->get_results_from_query();
+        //Muestra los 4 últimos registros
+        $last = array_slice(array_reverse($this->rows), 0, 4);
+        return $last;
+    }
     // public function getUserAndBookmarks()
     // {
     //     $result = array();
@@ -84,13 +98,7 @@ class Pregunta extends DBAbstractModel
     //     return $result;
     // }
 
-    // public function getAll()
-    // {
-    //     $this->query = "SELECT * FROM usuarios";
-    //     $this->get_results_from_query();
-    //     $result = $this->rows;
-    //     return $result;
-    // }
+
 
 
     // public function unblockUser()

@@ -44,7 +44,12 @@ class AdminController extends BaseController
 
     public function managequestionsAction()
     {
+        $p = Pregunta::getInstancia();
+        $four = $p->getOnlyFour();
         $data = array();
+        array_push($data, $four);
+        //Carga todas las preguntas
+
         $this->renderHTML('../view/managequestions_view.php', $data);
     }
 
