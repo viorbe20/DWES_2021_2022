@@ -79,6 +79,22 @@ class Pregunta extends DBAbstractModel
         $last = array_slice(array_reverse($this->rows), 0, 4);
         return $last;
     }
+
+    public function getByDescription($descripcion)
+    {   $descripcion = "%" . $descripcion ."%";
+        $this->query = "SELECT descripcion FROM preguntas WHERE descripcion LIKE :descripcion";
+        $this->parametros['descripcion'] = $this->descripcion;
+        $this->get_results_from_query();
+        return $this->rows;
+    }
+
+    public function getByName()
+    {
+        $this->query = "SELECT descripcion FROM preguntas WHERE descripcion LIKE :descripcion";
+        $this->parametros['descripcion'] = $this->descripcion;
+        $this->get_results_from_query();
+        return $this->rows;
+    }
     // public function getUserAndBookmarks()
     // {
     //     $result = array();

@@ -49,13 +49,6 @@ $router->add(array(
 ));
 
 $router->add(array(
-    'name'=>'addquestion',
-    'path'=>'/^\/home\/managequestions\/addquestion$/',
-    'action'=>[AdminController::class, 'addquestionAction'],
-    'auth'=>["admin"]
-));
-
-$router->add(array(
     'name'=>'managesurveys',
     'path'=>'/^\/home\/managesurveys$/',
     'action'=>[AdminController::class, 'managesurveysAction'],

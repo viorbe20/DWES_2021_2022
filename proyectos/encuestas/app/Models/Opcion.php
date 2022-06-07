@@ -65,7 +65,38 @@ class Opcion extends DBAbstractModel
         $this->get_results_from_query();
     }
 
+    public function getAll()
+    {
+        $this->query = "SELECT * FROM opciones";
+        $this->get_results_from_query();
+        $result = $this->rows;
+        return $result;
+    }
 
+    public function getByDescription($opcion)
+    {   $opcion = "%" . $opcion . "%";
+        $this->query = "SELECT * FROM opciones WHERE opcion LIKE :opcion";
+        $this->parametros['opcion'] = $this->opcion;
+        $this->get_results_from_query();
+        return $this->rows;
+    }
+
+    public function getByName()
+    {
+        $this->query = "SELECT * FROM opciones WHERE opcion LIKE :opcion";
+        $this->parametros['opcion'] = $this->opcion;
+        $this->get_results_from_query();
+        return $this->rows;
+    }
+
+    public function getById()
+    {
+        $this->query = "SELECT id_pregunta FROM opciones WHERE id=:id";
+        $this->parametros['id'] = $this->id;
+        $this->get_results_from_query();
+        $result = $this->rows;
+        return $result;
+    }
 
     // public function getUserAndBookmarks()
     // {

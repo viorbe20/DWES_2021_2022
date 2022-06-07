@@ -11,13 +11,13 @@ require_once('..\app\Config\constantes.php');
 class AdminController extends BaseController
 {
 
-    public function addquestionAction()
+    public function managequestionsAction()
     {
 
         $p = Pregunta::getInstancia();
 
         if ((isset($_POST['btn_create'])) && (!empty($_POST['description']))) {
-            //Añade pregunta
+            //Crea número de respuesta seleccionadas
             $inputNum =  $_POST['numAnswers'];
             $data = array();
             $p->setDescripcion($_POST['description']);
@@ -25,38 +25,50 @@ class AdminController extends BaseController
             $description = $p->getDescripcion();
             array_push($data, $inputNum);
             array_push($data, $description);
-            $this->renderHTML('../view/addquestion_view.php', $data);
-        }else if (isset($_POST['btn_add'])) {
+            $this->renderHTML('../view/managequestions_view.php', $data);
+            //Añade pregunta a la base de datos
+        } else if (isset($_POST['btn_add'])) {
             $p = Pregunta::getInstancia();
             for ($i = 1; $i < 11; $i++) {
-                if (isset($_POST['option'.$i])) {
+                if (isset($_POST['option' . $i])) {
                     $idQuestion = $p->lastInsert();
-                    echo($idQuestion);
+                    echo ($idQuestion);
                 }
             }
-            $this->renderHTML('../view/managequestion_view.php');
+            $this->renderHTML('../view/managequestions_view.php');
         } else if (isset($_POST['btn_cancel'])) {
-            $this->renderHTML('../view/managequestion_view.php');
+            $data = array();
+            $this->renderHTML('../view/managequestions_view.php', $data);
         } else {
-            $this->renderHTML('../view/addquestion_view.php');
+            $this->renderHTML('../view/managequestions_view.php');
         }
-    }
-
-    public function managequestionsAction()
-    {
-        $p = Pregunta::getInstancia();
-        $four = $p->getOnlyFour();
-        $data = array();
-        array_push($data, $four);
-        //Carga todas las preguntas
-
-        $this->renderHTML('../view/managequestions_view.php', $data);
     }
 
     public function managesurveysAction()
     {
         $data = array();
-        $this->renderHTML('../view/managesurveys_view.php', $data);
+        $p = Pregunta::getInstancia();
+
+        if (isset($_POST['btn_search'])) {
+            if (empty($_POST['input_search'])) {
+                $four = $p->getOnlyFour();
+                array_push($data, $four);
+                //Carga 4  preguntas
+                $this->renderHTML('../view/managesurveys_view.php', $data);
+            } else {
+                $result = array();
+                //$result = $p->getByDescription($_POST['input_search']);
+                //array_push($data, $result);
+                array_push($data, $p->getByName($_POST["input_search"]));
+            $this->renderHTML('../view/managesurveys_view.php', $data);
+            }
+        } else {
+            $four = $p->getOnlyFour();
+            array_push($data, $four);
+            //Carga 4  preguntas
+            $this->renderHTML('../view/managesurveys_view.php', $data);
+        }
+ 
     }
 
     public function manageusersAction()
@@ -64,28 +76,4 @@ class AdminController extends BaseController
         $data = array();
         $this->renderHTML('../view/manageusers_view.php', $data);
     }
-
-
-    // public function getUsersAction()
-    // {
-    //     $data = array();
-    //     $user = Usuario::getInstancia();
-    //     $blockedUsers = array();
-    //     $user->setBloqueado(1);
-    //     $blockedUsers = $user->getBlockedUsers();
-    //     array_push($data, $blockedUsers);
-
-    //     if (isset($_POST['btn_unlock'])) {
-    //         if (!empty($_POST["selected"])) {
-    //             foreach ($_POST["selected"] as $key => $value) {
-    //                 $user->setId($value);
-    //                 $user->setBloqueado(0);
-    //                 $user->unblockUser();
-    //             }
-    //             header('location:' . DIRBASEURL . '/home/users');
-    //         }
-    //     } else {
-    //         $this->renderHTML('../view/users_view.php', $data);
-    //     }
-    // }
 }
