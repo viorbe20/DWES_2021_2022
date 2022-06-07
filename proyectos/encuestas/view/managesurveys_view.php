@@ -32,48 +32,42 @@ echo "<style>. $css . </style>";
             <?php
 
             ?>
+
+
+
+            <div class="table_container">
+
+                <h2>Selecciona preguntas</h2>
+
+                <table>
+                    <tr>
+                        <th>Pregunta</th>
+                        <th>Encuesta</th>
+                        <th>Agregar</th>
+                    </tr>
+
+
+                    <?php
+                    if (!empty($data[0])) {
+
+                        foreach ($data[0] as $key => $value) {
+                            echo '<tr>';
+                            echo '<td>' . $value["descripcion"] . '</td>';
+                            echo '<td><select>';
+                            foreach ($data[1] as $v) {
+                                echo '<option>' . $v['descripcion'] . '</option>';
+                            }
+                            echo '</select></td>';
+                            echo '<td><input type="button" value="Agregar" name="add"' . $value["descripcion"] . '></td>';
+                            echo '</tr>';
+                        }
+                    }
+
+                    ?>
+                </table>
+            </div>
+
         </form>
-
-
-        <div class="table_container">
-
-<h2>Selecciona preguntas</h2>
-
-<table>
-    <tr>
-        <th>Pregunta</th>
-        <th>Seleccionar</th>
-        <th>Encuesta</th>
-        <th>Agregar</th>
-    </tr>
-
-
-    <?php
-    if (!empty($data[0])) {
-
-        foreach ($data[0] as $key => $value) {
-            echo '<tr>';
-            echo '<td>' . $value["descripcion"] . '</td>';
-            echo '<td><input type="checkbox" id="' . $value["id"] . '" name="' . $value["id"] . '" value="blockedUsers"></td>';
-            echo '<td>
-            <select>
-            <option>i</option>
-            <option>i</option>
-            </select>
-            </td>';
-            echo '<td><input type="button" value="Agregar"></td>';
-            echo '</tr>';
-
-        }
-    }
-
-    ?>
-</table>
-<div id="buttons_admin">
-    <button type="submit" name="btn_unblock">Desbloquear seleccionados</button>
-    <button type="submit" name="btn_unblockAll">Desbloquear todos</button>
-</div>
-</div>
     </main>
 
 </body>

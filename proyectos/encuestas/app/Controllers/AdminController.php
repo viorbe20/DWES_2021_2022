@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Usuario;
 use App\Models\Pregunta;
+use App\Models\Encuesta;
 use App\Models\Opcion;
 
 require_once('..\app\Config\constantes.php');
@@ -48,6 +49,7 @@ class AdminController extends BaseController
     {
         $data = array();
         $p = Pregunta::getInstancia();
+        $e = Encuesta::getInstancia();
 
         if (isset($_POST['btn_search'])) {
             if (empty($_POST['input_search'])) {
@@ -63,9 +65,9 @@ class AdminController extends BaseController
             $this->renderHTML('../view/managesurveys_view.php', $data);
             }
         } else {
-            $four = $p->getOnlyFour();
-            array_push($data, $four);
-            //Carga 4  preguntas
+            
+            //$data[0]4 pregutnas, [1]las encuestas
+            array_push($data, $p->getOnlyFour(), $e->getAll());
             $this->renderHTML('../view/managesurveys_view.php', $data);
         }
  
