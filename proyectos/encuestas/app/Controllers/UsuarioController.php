@@ -9,6 +9,9 @@ require_once('..\app\Config\constantes.php');
 
 class UsuarioController extends BaseController
 {
+    public function userAction(){
+        $this->renderHTML('../view/user_view.php');
+    }
 
     public function signupAction()
     {

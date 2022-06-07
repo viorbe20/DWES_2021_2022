@@ -1,5 +1,9 @@
 <?php
-$css = file_get_contents('../view/css/usersTable_style.css');
+require('../view/require/header_view.php');
+
+$css1 = file_get_contents('../view/css/style.css');
+$css2 = file_get_contents('../view/css/header_style.css');
+$css = $css1 . $css2;
 echo "<style>. $css . </style>";
 $name = "";
 //$data: contiene usuarios bloqueados

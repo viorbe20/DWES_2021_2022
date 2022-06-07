@@ -41,6 +41,21 @@ $router->add(array(
     'auth'=>["admin", "guest"]
 ));
 
+$router->add(array(
+    'name'=>'managesurveys',
+    'path'=>'/^\/home\/managesurveys$/',
+    'action'=>[AdminController::class, 'adminAction'],
+    'auth'=>["admin"]
+));
+
+$router->add(array(
+    'name'=>'showsurveys',
+    'path'=>'/^\/home\/showsurveys$/',
+    'action'=>[UsuarioController::class, 'userAction'],
+    'auth'=>["admin", "user"]
+));
+
+
 //Enrutamiento a la página donde el admin gestiona los usuarios
 // $router->add(array(
 //     'name'=>'users',

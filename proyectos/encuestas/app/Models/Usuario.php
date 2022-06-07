@@ -91,6 +91,17 @@ class Usuario extends DBAbstractModel
 
         $this->get_results_from_query();
     }
+
+        public function getByLogin()
+    {
+        $this->query = "SELECT * FROM usuarios WHERE usuario=:usuario AND psw=:psw";
+        $this->parametros['usuario'] = $this->usuario;
+        $this->parametros['psw'] = $this->psw;
+        $this->get_results_from_query();
+        $result = $this->rows;
+        return $result;
+    }
+
     // public function getUserAndBookmarks()
     // {
     //     $result = array();
@@ -127,15 +138,6 @@ class Usuario extends DBAbstractModel
     //     $this->get_results_from_query();
     // }
 
-    // public function getByLogin()
-    // {
-    //     $this->query = "SELECT * FROM usuarios WHERE user=:user AND psw=:psw";
-    //     $this->parametros['user'] = $this->user;
-    //     $this->parametros['psw'] = $this->psw;
-    //     $this->get_results_from_query();
-    //     $result = $this->rows;
-    //     return $result;
-    // }
 
     // public function getById()
     // {

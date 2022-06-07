@@ -18,33 +18,23 @@ class HomeController extends BaseController
 
             if ((!empty($_POST['username']) || (!empty($_POST['psswrd'])))) {
                 $user = Usuario::getInstancia();
-                $user->setUser($_POST['username']);
+                $user->setUsuario($_POST['username']);
                 $user->setPsw($_POST['passwrd']);
                 $result = $user->getByLogin();
 
                 //Si hay coincidencia la devuelve
                 if (!empty($result)) {
+                    foreach ($result as $value) {
+                        $_SESSION['user']['profile'] = $value['perfil'];
+                        $_SESSION['user']['id'] = $value['id']; //establecemos el id al usuario de la sesión
+                        $_SESSION['user']['name'] = $value['nombre']; //establecemos el nombre al usuario de la sesión
 
-                    //Comprueba que no esté bloqueado
-                    if ($result[0]['bloqueado'] == 1) {
-                        $this->renderHTML('../view/index_view.php');
-                        echo ('<div id="blocked">
-                        <label>Usuario bloqueado</label>
-                        <p>Necesitas permisos del administrador</p>
-                        <div>');
-                    } else {
-                        foreach ($result as $value) {
-                            $_SESSION['user']['profile'] = $value['perfil'];
-                            $_SESSION['user']['id'] = $value['id']; //establecemos el id al usuario de la sesión
-                            $_SESSION['user']['name'] = $value['nombre']; //establecemos el nombre al usuario de la sesión
+                        if ($_SESSION['user']['profile'] == "user") {
+                            header('location:' . DIRBASEURL . '/home/showsurveys');
+                        }
 
-                            if ($_SESSION['user']['profile'] == "user") {
-                                header('location:' . DIRBASEURL . '/home/bookmarks');
-                            }
-
-                            if ($_SESSION['user']['profile'] == "admin") {
-                                header('location:' . DIRBASEURL . '/home/users');
-                            }
+                        if ($_SESSION['user']['profile'] == "admin") {
+                            header('location:' . DIRBASEURL . '/home/managesurveys');
                         }
                     }
                 } else {
