@@ -26,4 +26,21 @@ echo '<style>' . $css . '</style>';
             Si lo has deshabilitado intencionadamente, por favor vuelve a activarlo.</p>
     </noscript>
 </body>
+<?php
+//var_dump($data);
+// $urls = array();
+// foreach ($data as $key => $v1) {
+//     foreach ($v1 as $key => $v2) {
+//         //Recorremos links para ver si existe
+//         array_push($urls, $v2['bm_url']);        
+//     }
+// }
+// $result = array_count_values($urls);
+// var_dump($result);
+// //arsort($result);
+
+// foreach ($result as $k => $v) {
+//     echo('<br>'.$k) ;
+// }
+?>
 </html>

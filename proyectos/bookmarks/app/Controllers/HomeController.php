@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Bookmark;
 use App\Models\Usuario;
 
 require_once('..\app\Config\constantes.php');
@@ -54,8 +55,12 @@ class HomeController extends BaseController
                 //}
             }
         } else {
-            //Renderiza página inicio con los datos  
-            $this->renderHTML('../view/index_view.php');
+            //Renderiza página inicio con los datos
+            $data = array();
+            $bm = Bookmark::getInstancia();
+            $result = $bm->getAll();  
+            array_push($data, $result);
+            $this->renderHTML('../view/index_view.php', $data);
         }
     }
 }
