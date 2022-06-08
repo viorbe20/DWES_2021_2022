@@ -4,7 +4,7 @@ namespace App\Models;
 
 require_once("DBAbstractModel.php");
 
-class REP extends DBAbstractModel
+class Respuesta extends DBAbstractModel
 {
     /*CONSTRUCCIÓN DEL MODELO SINGLETON*/
     private static $instancia;
@@ -23,8 +23,8 @@ class REP extends DBAbstractModel
     }
 
     private $id;
-    private $id_pregunta;
-    private $id_encuesta;
+    private $id_encuesta_pregunta;
+    private $valor;
 
     public function setId($id)
     {
@@ -36,43 +36,34 @@ class REP extends DBAbstractModel
         return $this->id;
     }
 
-    public function setIdPregunta($id_pregunta)
+    public function setIdEncuestaPregunta($id_encuesta_pregunta)
     {
-        $this->id_pregunta = $id_pregunta;
+        $this->id_encuesta_pregunta = $id_encuesta_pregunta;
     }
 
-    public function getIdPregunta()
+    public function getIdEncuestaPregunta()
     {
-        return $this->id_pregunta;
+        return $this->id_encuesta_pregunta;
+    }
+    public function setValor($valor)
+    {
+        $this->valor = $valor;
     }
 
-    public function setIdEncuesta($id_encuesta)
+    public function getValor()
     {
-        $this->id_encuesta = $id_encuesta;
-    }
-
-    public function getIdEncuesta()
-    {
-        return $this->id_encuesta;
+        return $this->valor;
     }
 
     public function setEntity()
     {
-        $this->query = "INSERT INTO r_encuestas_preguntas (id_pregunta, id_encuesta)
-                VALUES(:id_pregunta, :id_encuesta)";
-        $this->parametros['id_pregunta'] = $this->id_pregunta;
-        $this->parametros['id_encuesta'] = $this->id_encuesta;
+        $this->query = "INSERT INTO respuestas (id_encuesta_pregunta, valor)
+                VALUES(:id_encuesta_pregunta, :valor)";
+        $this->parametros['id_encuesta_pregunta'] = $this->id_encuesta_pregunta;
+        $this->parametros['valor'] = $this->valor;
         $this->get_results_from_query();
     }
 
-    public function getAll()
-    {
-        $this->query = "SELECT * FROM r_encuestas_preguntas";
-        $this->get_results_from_query();
-        $result = $this->rows;
-        return $result;
-    }
-  
     public function getEntity($id)
     {
     }

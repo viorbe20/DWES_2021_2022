@@ -14,19 +14,6 @@ echo "<style>. $css . </style>";
 //     var_dump($data);
 // }
 
-// if (isset($_POST['btn_add'])) {
-//     var_dump($_POST['selected']);
-//     foreach ($_POST['selected'] as $value) {
-//         $partes = explode(" ", $value);
-//         $idPregunta = $partes[0]; 
-//         $idEncuesta = $partes[1]; // piece2
-//     echo "idP ->" . $idPregunta; // piece1
-//     echo "idE ->" . $idEncuesta; // piece2
-//     }
-// }
-
-
-
 ?>
 <html>
 <nav>

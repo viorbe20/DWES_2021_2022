@@ -7,6 +7,8 @@ use App\Models\Pregunta;
 use App\Models\Encuesta;
 use App\Models\Opcion;
 use App\Models\REP;
+use App\Models\Respuesta;
+
 
 require_once('..\app\Config\constantes.php');
 
@@ -69,7 +71,7 @@ class AdminController extends BaseController
         } elseif (isset($_POST['btn_add'])) {
             $rep = REP::getInstancia();
 
-            //Recoge las preguntas y encuestas seleccionadas
+            //Inserta r_encuestas_preguntas
             foreach ($_POST['selected'] as $value) {
                 $partes = explode(" ", $value);
                 $idPregunta = $partes[0];
@@ -78,8 +80,32 @@ class AdminController extends BaseController
                 $rep->setIdEncuesta($idEncuesta);
                 $rep->setEntity();
             }
-            $this->renderHTML('../view/managesurveys_view.php', $data);
 
+            //Inserta respuestas
+            $respuestas = array();
+            $repAll = $rep->getAll();
+            for ($i = 0; $i < count($repAll); $i++) {
+                $respuestas[$i] = array(
+                    "id_REP" => $repAll[$i]['id'],
+                    "id_pregunta" => $repAll[$i]['id_pregunta'],
+                );
+            }
+
+            $r = Respuesta::getInstancia();
+            $o = Opcion::getInstancia();
+
+            for ($i = 0; $i < count($respuestas); $i++) {
+                //Establece id enc pre 
+                $r->setIdEncuestaPregunta($respuestas[$i]['id_REP']);
+                $o->setIdPregunta($respuestas[$i]['id_pregunta']);
+                $a_idOpciones = $o->getIdByIdPregunta();
+
+                foreach ($a_idOpciones as $key => $value) {
+                    $r->setValor($value["id"]);
+                    $r->setEntity();
+                }
+            }
+            $this->renderHTML('../view/managesurveys_view.php', $data);
         } else {
             $this->renderHTML('../view/managesurveys_view.php', $data);
         }
