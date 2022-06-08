@@ -78,33 +78,33 @@ ul li a {
 .table_container table tr:nth-child(even) {
   background-color: #cfdfd4;
 }
-.table_container #buttons_admin {
+.table_container #buttonBox {
   width: 60%;
   padding: 1%;
   display: flex;
   justify-content: flex-end;
-}
-.table_container #buttons_admin button:nth-child(1) {
   background: #66ab8c;
+}
+.table_container #buttonBox button:nth-child(1) {
   color: white;
   font-weight: bold;
   border: none;
   padding: 8px;
   margin-right: 250px;
 }
-.table_container #buttons_admin button:nth-child(1):hover {
+.table_container #buttonBox button:nth-child(1):hover {
   background: #b4dbc0;
   color: #056571;
   font-weight: bold;
 }
-.table_container #buttons_admin button:nth-child(2) {
+.table_container #buttonBox button:nth-child(2) {
   background: royalblue;
   color: white;
   font-weight: bold;
   border: none;
   padding: 8px;
 }
-.table_container #buttons_admin button:nth-child(2):hover {
+.table_container #buttonBox button:nth-child(2):hover {
   background: rgb(192, 200, 226);
   color: royalblue;
   font-weight: bold;

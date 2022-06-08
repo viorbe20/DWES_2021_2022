@@ -8,9 +8,13 @@ use App\Models\Opcion;
 $p = Pregunta::getInstancia();
 $o = Opcion::getInstancia();
 
-//$o->setId(3);
-//$o>getByDescription($opcion);
-$p->setDescripcion("frencuencia");
-var_dump($p->getByDescription());
+
+$p->setDescripcion('Pregunta de prueba');
+$p->setEntity();
+$o->setOpcion('Con frecuencia');
+$idPregunta = $p->lastInsert();
+$o->setIdPregunta($idPregunta);
+$o->setEntity();
+
 
 ?>

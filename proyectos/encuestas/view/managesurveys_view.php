@@ -50,15 +50,15 @@ echo "<style>. $css . </style>";
                     <?php
                     if (!empty($data[0])) {
 
-                        foreach ($data[0] as $key => $value) {
+                        foreach ($data[0] as $key => $preg) {
                             echo '<tr>';
-                            echo '<td>' . $value["descripcion"] . '</td>';
+                            echo '<td>' . $preg["descripcion"] . '</td>';
                             echo '<td><select>';
-                            foreach ($data[1] as $v) {
-                                echo '<option>' . $v['descripcion'] . '</option>';
+                            foreach ($data[1] as $encu) {
+                                echo '<option value="'. $preg["id"] .'-'. $encu["id"] .'">' . $encu['descripcion'] . '</option>';
                             }
                             echo '</select></td>';
-                            echo '<td><input type="button" value="Agregar" name="add"' . $value["descripcion"] . '></td>';
+                            echo '<td><input type="checkbox" value="Agregar" name="add[]"></td>';
                             echo '</tr>';
                         }
                     }
@@ -66,7 +66,9 @@ echo "<style>. $css . </style>";
                     ?>
                 </table>
             </div>
-
+            <div id="buttonBox">
+                <input class="myButton" type="submit" name="btn_add" value="Agregar"> 
+            </div>
         </form>
     </main>
 

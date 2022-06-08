@@ -89,14 +89,14 @@ ul {
     }
   }
 
-  #buttons_admin {
+  #buttonBox {
     width: 60%;
     padding: 1%;
     display: flex;
     justify-content: flex-end;
 
+    background: #66ab8c;
     button:nth-child(1) {
-      background: #66ab8c;
       color: white;
       font-weight: bold;
       border: none;
