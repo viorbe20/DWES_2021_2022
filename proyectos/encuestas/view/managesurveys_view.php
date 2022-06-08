@@ -9,11 +9,23 @@ echo "<style>. $css . </style>";
 //$data[0]-> 4 enunciado
 //$data[1]-> todos los enunciados
 //$data[2]-> checked
-//$data[3]-> 
-if (!empty($data)) {
-    # code...
-    var_dump($data);
-}
+// if (!empty($data)) {
+//     # code...
+//     var_dump($data);
+// }
+
+// if (isset($_POST['btn_add'])) {
+//     var_dump($_POST['selected']);
+//     foreach ($_POST['selected'] as $value) {
+//         $partes = explode(" ", $value);
+//         $idPregunta = $partes[0]; 
+//         $idEncuesta = $partes[1]; // piece2
+//     echo "idP ->" . $idPregunta; // piece1
+//     echo "idE ->" . $idEncuesta; // piece2
+//     }
+// }
+
+
 
 ?>
 <html>
@@ -66,9 +78,7 @@ if (!empty($data)) {
                                 echo '<option value="' . $preg["id"] . '-' . $encu["id"] . '">' . $encu['descripcion'] . '</option>';
                             }
                             echo '</select></td>';
-                            $checked = "checked";
-
-                            echo '<td><input type="checkbox" value="Agregar" name="add[]" ' . $data[2] . '></td>';
+                            echo '<td><input type="checkbox" value="'. $preg["id"] ." ". $encu["id"] .'" name="selected[]" ' . $data[2] . '></td>';
                             echo '</tr>';
                         }
                     }

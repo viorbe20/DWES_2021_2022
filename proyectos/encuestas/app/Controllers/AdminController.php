@@ -6,6 +6,7 @@ use App\Models\Usuario;
 use App\Models\Pregunta;
 use App\Models\Encuesta;
 use App\Models\Opcion;
+use App\Models\REP;
 
 require_once('..\app\Config\constantes.php');
 
@@ -57,6 +58,7 @@ class AdminController extends BaseController
         $data = array();
         $p = Pregunta::getInstancia();
         $e = Encuesta::getInstancia();
+
         array_push($data, $p->getOnlyFour(), $e->getAll(), "checked");
 
         if (isset($_POST['btn_search'])) {
@@ -64,6 +66,20 @@ class AdminController extends BaseController
         } elseif (isset($_POST['btn_unmarkAll'])) {
             $data[2] = "";
             $this->renderHTML('../view/managesurveys_view.php', $data);
+        } elseif (isset($_POST['btn_add'])) {
+            $rep = REP::getInstancia();
+
+            //Recoge las preguntas y encuestas seleccionadas
+            foreach ($_POST['selected'] as $value) {
+                $partes = explode(" ", $value);
+                $idPregunta = $partes[0];
+                $rep->setIdPregunta($idPregunta);
+                $idEncuesta = $partes[1];
+                $rep->setIdEncuesta($idEncuesta);
+                $rep->setEntity();
+            }
+            $this->renderHTML('../view/managesurveys_view.php', $data);
+
         } else {
             $this->renderHTML('../view/managesurveys_view.php', $data);
         }
