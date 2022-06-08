@@ -15,15 +15,14 @@ class AdminController extends BaseController
     public function managequestionsAction()
     {
 
-        
+        $data = array();
+
         if ((isset($_POST['btn_create'])) && (!empty($_POST['description']))) {
-            
+
             //Crea número de respuesta seleccionadas
             $inputNum =  $_POST['numAnswers'];
-            $data = array();
             $p = Pregunta::getInstancia();
             $p->setDescripcion($_POST['description']);
-            //$p->setEntity();
             $description = $p->getDescripcion();
             array_push($data, $inputNum);
             array_push($data, $description);
@@ -58,28 +57,14 @@ class AdminController extends BaseController
         $data = array();
         $p = Pregunta::getInstancia();
         $e = Encuesta::getInstancia();
+        array_push($data, $p->getOnlyFour(), $e->getAll(), "checked");
 
         if (isset($_POST['btn_search'])) {
-            if (empty($_POST['input_search'])) {
-                $four = $p->getOnlyFour();
-                array_push($data, $four);
-                //Carga 4  preguntas
-                $this->renderHTML('../view/managesurveys_view.php', $data);
-            } else {
-                $result = array();
-                //$result = $p->getByDescription($_POST['input_search']);
-                //array_push($data, $result);
-                array_push($data, $p->getByName($_POST["input_search"]));
-                $this->renderHTML('../view/managesurveys_view.php', $data);
-            }
-        } else if (isset($_POST['btn_add'])) {
-            echo ('<br>');
-            var_dump($_POST['add[]']);
+            $this->renderHTML('../view/managesurveys_view.php', $data);
+        } elseif (isset($_POST['btn_unmarkAll'])) {
+            $data[2] = "";
             $this->renderHTML('../view/managesurveys_view.php', $data);
         } else {
-
-            //$data[0]4 pregutnas, [1]las encuestas
-            array_push($data, $p->getOnlyFour(), $e->getAll());
             $this->renderHTML('../view/managesurveys_view.php', $data);
         }
     }

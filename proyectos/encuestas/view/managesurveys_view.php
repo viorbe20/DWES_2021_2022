@@ -6,6 +6,14 @@ $css2 = file_get_contents('../view/css/header_style.css');
 $css3 = file_get_contents('../view/css/managesurveys_view_style.css');
 $css = $css1 . $css2 . $css3;
 echo "<style>. $css . </style>";
+//$data[0]-> 4 enunciado
+//$data[1]-> todos los enunciados
+//$data[2]-> checked
+//$data[3]-> 
+if (!empty($data)) {
+    # code...
+    var_dump($data);
+}
 
 ?>
 <html>
@@ -55,10 +63,12 @@ echo "<style>. $css . </style>";
                             echo '<td>' . $preg["descripcion"] . '</td>';
                             echo '<td><select>';
                             foreach ($data[1] as $encu) {
-                                echo '<option value="'. $preg["id"] .'-'. $encu["id"] .'">' . $encu['descripcion'] . '</option>';
+                                echo '<option value="' . $preg["id"] . '-' . $encu["id"] . '">' . $encu['descripcion'] . '</option>';
                             }
                             echo '</select></td>';
-                            echo '<td><input type="checkbox" value="Agregar" name="add[]"></td>';
+                            $checked = "checked";
+
+                            echo '<td><input type="checkbox" value="Agregar" name="add[]" ' . $data[2] . '></td>';
                             echo '</tr>';
                         }
                     }
@@ -67,7 +77,11 @@ echo "<style>. $css . </style>";
                 </table>
             </div>
             <div id="buttonBox">
-                <input class="myButton" type="submit" name="btn_add" value="Agregar"> 
+
+                <input class="myButton" type="submit" name="btn_add" value="Agregar">
+                <input class="myButton" type="submit" name="btn_unmarkAll" value="Desmarcar">
+                <input class="myButton" type="submit" name="btn_markAll" value="Marcar">
+
             </div>
         </form>
     </main>
