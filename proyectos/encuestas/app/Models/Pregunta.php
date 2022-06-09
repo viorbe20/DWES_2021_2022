@@ -95,6 +95,15 @@ class Pregunta extends DBAbstractModel
         $this->get_results_from_query();
         return $this->rows;
     }
+
+    public function getDescripcionById()
+    {
+        $this->query = "SELECT descripcion FROM preguntas WHERE id=:id";
+        $this->parametros['id'] = $this->id;
+        $this->get_results_from_query();
+        $result = $this->rows;
+        return $result;
+    }
     // public function getUserAndBookmarks()
     // {
     //     $result = array();

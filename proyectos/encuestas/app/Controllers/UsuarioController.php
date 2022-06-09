@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Encuesta;
 use App\Models\Pregunta;
+use App\Models\REP;
 use App\Models\Usuario;
 
 
@@ -15,16 +16,26 @@ class UsuarioController extends BaseController
     public function answerSurveyAction($request){
         $data = array();
         $e = Encuesta::getInstancia();
+        $rep = REP::getInstancia();
+        $p = Pregunta::getInstancia();
+        
         $parts=explode("=", $request);
         $idEncuesta = end($parts);
         $e->setId($idEncuesta);
-        $data = array(
-            "descripcion" => $e->getById()[0]['descripcion']
-        );
+        $descripcionEncuesta = $e->getById()[0]['descripcion'];
+        $rep->setIdEncuesta($e->getId());
+        $a_idPreguntas = $rep->getIdPreguntaByIdEncuesta();
+        for ($i=0; $i < count($a_idPreguntas); $i++) { 
+            $p->setId($a_idPreguntas[$i]);
+            $description = $p->getDescripcionById()[0];
+            $data[$i] =  ["descripcion" => $descripcionEncuesta, "preguntas" =>  $a_idPreguntas[$i], $description];
+        }
+
         // $data = array(
         //     "descripcion" => $e->getById()[0]['descripcion'],
         //     "preguntas" => array(
         //         "id_pregunta" => ''
+        //          "descripcion" => ''
         //         "opciones"=> array(
         //             "id_opcion" => int
         //             "opcion" => string

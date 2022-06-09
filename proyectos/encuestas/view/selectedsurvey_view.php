@@ -8,7 +8,7 @@ $css = $css1 . $css2 . $css3;
 echo "<style>. $css . </style>";
 $tituloEncuesta = $data['descripcion'];
 ?>
-<pre><?php var_dump($data['descripcion'])?><pre>
+<pre><?php var_dump($data)?><pre>
 <html>
 
 <body>
