@@ -80,10 +80,10 @@ class Pregunta extends DBAbstractModel
         return $last;
     }
 
-    public function getByDescription($descripcion)
-    {   $descripcion = "%" . $descripcion ."%";
+    public function getByDescription($string)
+    {   
         $this->query = "SELECT descripcion FROM preguntas WHERE descripcion LIKE :descripcion";
-        $this->parametros['descripcion'] = $this->descripcion;
+        $this->parametros['descripcion'] = '%'.$string.'%';
         $this->get_results_from_query();
         return $this->rows;
     }

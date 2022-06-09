@@ -1,0 +1,73 @@
+
+#mq_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2% 0%;
+}
+
+#addQuestionForm {
+  background: var(--color8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+
+  form {
+    background: #a9b7c0;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 0% 2%;
+
+    label {
+      margin: 1% 0% 0.1% 0%;
+    }
+
+    input {
+      margin: 1% 0%;
+      padding: 1% 0%;
+    }
+
+    .buttons {
+      margin: 2% 0%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      button {
+        background-color: #04aa6d;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        *width: 80%;
+        opacity: 0.9;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      /* Extra styles for the cancel button */
+      .btn_cancel {
+        padding: 14px 20px;
+        background-color: #f44336;
+      }
+
+      /* Float cancel and signup buttons and add an equal width */
+      .btn_cancel,
+      .btn_add {
+        float: left;
+        width: 40%;
+      }
+      /* Add padding to container elements */
+      .container {
+        padding: 16px;
+      }
+    }
+  } //form
+}

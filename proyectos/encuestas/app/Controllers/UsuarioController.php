@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Encuesta;
 use App\Models\Usuario;
 
 
@@ -10,7 +11,22 @@ require_once('..\app\Config\constantes.php');
 class UsuarioController extends BaseController
 {
     public function userAction(){
-        $this->renderHTML('../view/managequestions_view.php');
+
+        if (isset($_POST['btn_showSurvey'])) {
+            //$this->renderHTML('../view/selectedsurvey_view.php');
+            $data = array();
+            $e = Encuesta::getInstancia();
+            $selectedSurvey = $_POST['surveys'];
+            array_push($data, $selectedSurvey);
+            $this->renderHTML('../view/selectedsurvey_view.php', $data);
+
+        } else {
+            $data = array();
+            $e = Encuesta::getInstancia();
+            array_push($data, $e->getAll());
+            $this->renderHTML('../view/showsurveys_view.php', $data);
+        }
+        
     }
 
     public function signupAction()
@@ -40,105 +56,4 @@ class UsuarioController extends BaseController
         session_destroy();
         header('Location:' . DIRBASEURL . '/home');
     }
-
-    // public function deleteBookmarkAction($request)
-    // {
-    //     $bm = Bookmark::getInstancia();
-    //     $rest = explode("/", $request);
-    //     $bmId = end($rest); //obtiene id del Bookmark de la url
-    //     $bm->setId($bmId);
-    //     foreach ($bm->getUserIdByBookmarkId() as $key => $value) {
-    //         $userId = $value['id_usuario']; //obtiene id:usuario del bookmark
-    //     }
-
-    //     if (isset($_POST['btn_delete'])) {
-    //         //Seguridad. Solo el usuario de esa sesión puede eliminar
-    //         if ($userId == ($_SESSION['user']['id'])) {
-    //             $bm->deleteById($bmId);
-    //             header('Location:' . DIRBASEURL . '/home/bookmarks');
-    //         } else {
-    //             header('Location:' . DIRBASEURL . '/home/bookmarks');
-    //         }
-    //     } else { //delete por defecto
-    //         $rest = explode("/", $request);
-    //         $id = end($rest);
-    //         $bm = Bookmark::getInstancia();
-    //         $bm->setId($id);
-    //         $result = $bm->getById();
-    //         $data = array();
-    //         array_push($data, $result);
-    //         $this->renderHTML('../view/delete_bm_view.php', $data);
-    //     }
-    // }
-
-    // public function editBookmarkAction($request)
-    // {
-    //     $bm = Bookmark::getInstancia();
-    //     $rest = explode("/", $request);
-    //     $bmId = end($rest); //obtiene id del Bookmark de la url
-    //     $bm->setId($bmId);
-    //     foreach ($bm->getUserIdByBookmarkId() as $key => $value) {
-    //         $userId = $value['id_usuario']; //obtiene id:usuario del bookmark
-    //     }
-    //     if (isset($_POST['btn_edit'])) {
-    //         //Seguridad. Solo el usuario de esa sesión puede editar
-    //         if ($userId == ($_SESSION['user']['id'])) {
-    //             $bm->setUrl($_POST['url']);
-    //             $bm->setDescripcion($_POST['description']);
-    //             $bm->setIdUsuario($userId);
-    //             $bm->editEntity();
-    //             header('Location:' . DIRBASEURL . '/home/bookmarks');
-    //         } else {
-    //             header('Location:' . DIRBASEURL . '/home/bookmarks');
-    //         }
-    //     } else {
-    //         $rest = explode("/", $request);
-    //         $id = end($rest);
-    //         $bm = Bookmark::getInstancia();
-    //         $bm->setId($id);
-    //         $result = $bm->getById();
-    //         $data = array();
-    //         array_push($data, $result);
-    //         $this->renderHTML('../view/edit_bm_view.php', $data);
-    //     }
-    // }
-
-    // public function addBookmarkAction()
-    // {
-    //     if (isset($_POST['btn_signup'])) {
-    //         $bm = Bookmark::getInstancia();
-    //         $bm->setUrl($_POST['url']);
-    //         $bm->setDescripcion($_POST['description']);
-    //         $bm->setIdUsuario($_SESSION['user']['id']);
-    //         $bm->setEntity();
-    //         header('Location:' . DIRBASEURL . '/home/bookmarks/add');
-    //     } else {
-    //         $this->renderHTML('../view/add_bm_view.php');
-    //     }
-    // }
-
-    // public function getBookmarksAction()
-    // {
-
-    //     $data = array();
-    //     $bm = Bookmark::getInstancia();
-    //     $user = Usuario::getInstancia();
-
-    //     if ((isset($_GET["search"])) && (!empty($_GET["inputWord"]))) {
-    //         $bm->setUrl($_GET["inputWord"]);
-    //         $result = $bm->getUrlByName();
-    //         array_push($data, "", $result);
-    //         $this->renderHTML('../view/bookmarks_view.php', $data);
-    //     } else {
-    //         $user->setId($_SESSION['user']['id']);
-    //         $bm->setIdUsuario($_SESSION['user']['id']);
-    //         $userBookmarks = array();
-    //         $userBookmarks = $user->getUserAndBookmarks();
-    //         $data = $userBookmarks;
-    //         $this->renderHTML('../view/bookmarks_view.php', $data);
-    //     }
-    // }
-
-
-
 }
