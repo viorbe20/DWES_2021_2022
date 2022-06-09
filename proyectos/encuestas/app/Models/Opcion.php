@@ -108,6 +108,14 @@ class Opcion extends DBAbstractModel
         return $result;
     }
 
+    public function getAllByIdPregunta()
+    {
+        $this->query = "SELECT * FROM opciones WHERE id_pregunta=:id_pregunta";
+        $this->parametros['id_pregunta'] = $this->id_pregunta;
+        $this->get_results_from_query();
+        return $this->rows;
+    }
+
 
     // public function getUserAndBookmarks()
     // {
