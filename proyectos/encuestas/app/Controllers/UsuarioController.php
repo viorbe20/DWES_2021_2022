@@ -22,7 +22,6 @@ class UsuarioController extends BaseController
         $rep = REP::getInstancia();
         $p = Pregunta::getInstancia();
         $o = Opcion::getInstancia();
-        $r = Respuesta::getInstancia();
 
         $parts = explode("=", $request);
         $idEncuesta = end($parts);
@@ -43,7 +42,6 @@ class UsuarioController extends BaseController
         //Saca los campos de opciones y lo meto en el array for ($i=0; $i < count($a_idPreguntas); $i++) { 
         for ($i = 0; $i < count($a_idPreguntas); $i++) {
             $o->setIdPregunta($a_idPreguntas[$i]['id_pregunta']);
-            //var_dump($o->getAllByIdPregunta()[$i]);
             $data[1]["preguntas"][$i]['opciones'] = ["id" => $o->getAllByIdPregunta()[$i]['id'], "opcion" => $o->getAllByIdPregunta()[$i]['opcion']];
         }
         $this->renderHTML("../view/selectedsurvey_view.php", $data);
