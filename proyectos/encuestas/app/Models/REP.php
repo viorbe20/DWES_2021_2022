@@ -72,6 +72,16 @@ class REP extends DBAbstractModel
         $result = $this->rows;
         return $result;
     }
+
+    public function getIdPreguntaByIdEncuesta()
+    {
+        $this->query = "SELECT id_pregunta FROM r_encuestas_preguntas WHERE id_encuesta=:id_encuesta";
+        $this->parametros['id_encuesta'] = $this->id_encuesta;
+        $this->get_results_from_query();
+        $result = $this->rows;
+        return $result;
+    }
+
   
     public function getEntity($id)
     {

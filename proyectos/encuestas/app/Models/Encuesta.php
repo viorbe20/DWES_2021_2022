@@ -82,56 +82,6 @@ class Encuesta extends DBAbstractModel
         return $result;
     }
 
-
-    // public function getByDescription($descripcion)
-    // {   $descripcion = "%" . $descripcion ."%";
-    //     $this->query = "SELECT descripcion FROM preguntas WHERE descripcion LIKE :descripcion";
-    //     $this->parametros['descripcion'] = $this->descripcion;
-    //     $this->get_results_from_query();
-    //     return $this->rows;
-    // }
-
-    // public function getByName()
-    // {
-    //     $this->query = "SELECT descripcion FROM preguntas WHERE descripcion LIKE :descripcion";
-    //     $this->parametros['descripcion'] = $this->descripcion;
-    //     $this->get_results_from_query();
-    //     return $this->rows;
-    // }
-    // public function getUserAndBookmarks()
-    // {
-    //     $result = array();
-    //     //Get user by id
-    //     $this->query = "SELECT * FROM usuarios WHERE id=:id";
-    //     $this->parametros['id'] = $this->id;
-    //     $this->get_results_from_query();
-    //     array_push($result, $this->rows);
-
-    //     //Get bookmarks by userId
-    //     $this->query = "SELECT * FROM bookmarks WHERE id_usuario=:id_usuario";
-    //     //Añadimos el id del usuario
-    //     $this->parametros['id_usuario'] = $this->id;
-    //     $this->get_results_from_query();
-    //     array_push($result, $this->rows);
-
-    //     return $result;
-    // }
-
-
-
-
-    // public function unblockUser()
-    // {
-    //     $this->query = "UPDATE usuarios SET bloqueado=:bloqueado WHERE id=:id";
-    //     $this->parametros['bloqueado'] = $this->bloqueado;
-    //     $this->parametros['id'] = $this->id;
-    //     $this->get_results_from_query();
-    // }
-
-
-
-
-
     public function getEntity($id)
     {
     }

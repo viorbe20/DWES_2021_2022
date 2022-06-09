@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Encuesta;
+use App\Models\Pregunta;
 use App\Models\Usuario;
 
 
@@ -10,18 +11,39 @@ require_once('..\app\Config\constantes.php');
 
 class UsuarioController extends BaseController
 {
+
+    public function answerSurveyAction($request){
+        $data = array();
+        $e = Encuesta::getInstancia();
+        $parts=explode("=", $request);
+        $idEncuesta = end($parts);
+        $e->setId($idEncuesta);
+        $data = array(
+            "descripcion" => $e->getById()[0]['descripcion']
+        );
+        // $data = array(
+        //     "descripcion" => $e->getById()[0]['descripcion'],
+        //     "preguntas" => array(
+        //         "id_pregunta" => ''
+        //         "opciones"=> array(
+        //             "id_opcion" => int
+        //             "opcion" => string
+        //         )
+        //     )
+        // );
+        $this->renderHTML("../view/selectedsurvey_view.php", $data);
+    }
+    
     public function userAction(){
+        
+        $data = array();
 
         if (isset($_POST['btn_showSurvey'])) {
-            //$this->renderHTML('../view/selectedsurvey_view.php');
-            $data = array();
-            $e = Encuesta::getInstancia();
             $selectedSurvey = $_POST['surveys'];
             array_push($data, $selectedSurvey);
-            $this->renderHTML('../view/selectedsurvey_view.php', $data);
+            $this->renderHTML("../view/selectedsurvey_view.php", $data);
 
         } else {
-            $data = array();
             $e = Encuesta::getInstancia();
             array_push($data, $e->getAll());
             $this->renderHTML('../view/showsurveys_view.php', $data);

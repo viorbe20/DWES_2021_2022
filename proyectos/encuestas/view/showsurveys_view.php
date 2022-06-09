@@ -7,7 +7,7 @@ $css3 = file_get_contents('../view/css/showsurveys_view_style.css');
 $css = $css1 . $css2 . $css3;
 echo "<style>. $css . </style>";
 
-var_dump($data);
+
 
 ?>
 <html>
@@ -16,7 +16,7 @@ var_dump($data);
 
 
     <div id="addQuestionForm">
-        <form action="" method="post">
+        <form action="showsurveys/selectedsurvey" method="get">
 
             <h3>Selecciona la encuesta</h3>
             <hr>
@@ -35,7 +35,7 @@ var_dump($data);
 
 
             <div class="buttons">
-                <button type="submit" name="btn_showSurvey" class="btn_showSurvey">Mostrar</button>
+                <button type="submit" name="" class="btn_showSurvey">Mostrar</button>
             </div>
 
         </form>

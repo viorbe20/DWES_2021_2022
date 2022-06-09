@@ -69,53 +69,15 @@ $router->add(array(
     'auth'=>["admin", "user"]
 ));
 
+$router->add(array(
+    'name'=>'selectedsurvey',
+    'path'=>'/^\/home\/showsurveys\/selectedsurvey\?surveys=\d{1,3}$/',
+    'action'=>[UsuarioController::class, 'answerSurveyAction'],
+    'auth'=>["admin", "user"]
+));
+//'path'=>'/^\/home\/selectedsurvey\/\d{1,3}$/',
 
-//Enrutamiento a la página donde el admin gestiona los usuarios
-// $router->add(array(
-//     'name'=>'users',
-//     'path'=>'/^\/home\/users$/',
-//     'action'=>[AdminController::class, 'getUsersAction'],
-//     'auth'=>["admin"]
-// ));
-
-//Enrutamiento a la página donde el user gestiona sus bookmarks
-// $router->add(array(
-//     'name'=>'bookmarks',
-//     'path'=>'/^\/home\/bookmarks$/',
-//     'action'=>[UsuarioController::class, 'getBookmarksAction'],
-//     'auth'=>["admin", "user"]
-// ));
-
-// $router->add(array(
-//     'name'=>'bookmarks',
-//     'path'=>'/^\/home\/bookmarks\?/',
-//     'action'=>[UsuarioController::class, 'getBookmarksAction'],
-//     'auth'=>["admin", "user"]
-// ));
-
-//Enrutamiento a la página donde el user crea sus bookmarks
-// $router->add(array(
-//     'name'=>'addBookmarks',
-//     'path'=>'/^\/home\/bookmarks\/add$/',
-//     'action'=>[UsuarioController::class, 'addBookmarkAction'],
-//     'auth'=>["admin", "user"]
-// ));
-
-//Enrutamiento a la página donde el user edita sus bookmarks
-// $router->add(array(
-//     'name'=>'editBookmarks',
-//     'path'=>'/^\/home\/bookmarks\/edit\/\d{1,3}$/',
-//     'action'=>[UsuarioController::class, 'editBookmarkAction'],
-//     'auth'=>["admin", "user"]
-// ));
-
-//Enrutamiento a la página donde el user edita sus bookmarks
-// $router->add(array(
-//     'name'=>'deleteBookmarks',
-//     'path'=>'/^\/home\/bookmarks\/delete\/\d{1,3}$/',
-//     'action'=>[UsuarioController::class, 'deleteBookmarkAction'],
-//     'auth'=>["admin", "user"]
-// ));
+//'path'=>'/^\/home\/bookmarks\/edit\/\d{1,3}$/',
 
 //Petición y respuesta
 $request = str_replace(DIRBASEURL,'',$_SERVER['REQUEST_URI']);
