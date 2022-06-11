@@ -42,23 +42,16 @@ $router->add(array(
 ));
 
 $router->add(array(
-    'name'=>'managequestions',
-    'path'=>'/^\/home\/managequestions$/',
-    'action'=>[AdminController::class, 'managequestionsAction'],
+    'name'=>'createquestions',
+    'path'=>'/^\/home\/createquestions$/',
+    'action'=>[AdminController::class, 'createquestionsAction'],
     'auth'=>["admin"]
 ));
 
 $router->add(array(
-    'name'=>'managesurveys',
-    'path'=>'/^\/home\/managesurveys$/',
-    'action'=>[AdminController::class, 'managesurveysAction'],
-    'auth'=>["admin"]
-));
-
-$router->add(array(
-    'name'=>'managesusers',
-    'path'=>'/^\/home\/manageusers$/',
-    'action'=>[AdminController::class, 'manageusersAction'],
+    'name'=>'createsurvey',
+    'path'=>'/^\/home\/createsurvey$/',
+    'action'=>[AdminController::class, 'createsurveyAction'],
     'auth'=>["admin"]
 ));
 
@@ -66,6 +59,13 @@ $router->add(array(
     'name'=>'showsurveys',
     'path'=>'/^\/home\/showsurveys$/',
     'action'=>[UsuarioController::class, 'userAction'],
+    'auth'=>["admin", "user"]
+));
+
+$router->add(array(
+    'name'=>'addquestions',
+    'path'=>'/^\/home\/showsurveys\/createsurvey\/addquestions$/',
+    'action'=>[UsuarioController::class, 'addQuestionsAction'],
     'auth'=>["admin", "user"]
 ));
 

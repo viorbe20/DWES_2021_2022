@@ -34,7 +34,7 @@ class HomeController extends BaseController
                         }
 
                         if ($_SESSION['user']['profile'] == "admin") {
-                            header('location:' . DIRBASEURL . '/home/managequestions');
+                            header('location:' . DIRBASEURL . '/home/createquestions');
                         }
                     }
                 } else {

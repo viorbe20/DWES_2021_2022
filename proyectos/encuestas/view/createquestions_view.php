@@ -3,7 +3,7 @@ require('../view/require/header_view.php');
 
 $css1 = file_get_contents('../view/css/style.css');
 $css2 = file_get_contents('../view/css/header_style.css');
-$css3 = file_get_contents('../view/css/managequestions_view_style.css');
+$css3 = file_get_contents('../view/css/createquestions_view_style.css');
 $css = $css1 . $css2 . $css3;
 echo "<style>. $css . </style>";
 //$data[0]=> número de inputs que hay que crear para las opciones
@@ -15,13 +15,10 @@ $readonly;
 <nav>
     <ul>
         <li>
-            <a href="<?php echo DIRBASEURL ?>/home/managequestions">Preguntas</a>
+            <a href="<?php echo DIRBASEURL ?>/home/createquestions">Preguntas</a>
         </li>
         <li>
-            <a href="<?php echo DIRBASEURL ?>/home/managesurveys">Encuestas</a>
-        </li>
-        <li>
-            <a href="<?php echo DIRBASEURL ?>/home/manageusers">Usuarios</a>
+            <a href="<?php echo DIRBASEURL ?>/home/createsurvey">Encuestas</a>
         </li>
     </ul>
 </nav>
