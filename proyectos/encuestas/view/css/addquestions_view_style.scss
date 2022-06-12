@@ -1,0 +1,40 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    *overflow: hidden;
+    background-color: #a9b7c0;
+    display: flex;
+  
+    li {
+      padding: 1%;
+      background-color: #175f8b;
+  
+      &:hover {
+        background-color: white;
+        a {
+          color: #175f8b;
+        }
+      }
+  
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+
+  h3{
+    background-color: #a9b7c0;
+    width: 100%;
+    color: #175f8b;
+    text-align: center;
+    padding: 1% 0%;
+  }
+#mq_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2% 0%;
+  }

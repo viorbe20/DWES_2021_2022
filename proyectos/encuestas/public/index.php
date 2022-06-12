@@ -64,21 +64,18 @@ $router->add(array(
 
 $router->add(array(
     'name'=>'addquestions',
-    'path'=>'/^\/home\/showsurveys\/createsurvey\/addquestions$/',
-    'action'=>[UsuarioController::class, 'addQuestionsAction'],
+    'path'=>'/^\/home\/createsurvey\/addquestions\/\d{1,3}$/',
+    'action'=>[AdminController::class, 'addQuestionsAction'],
     'auth'=>["admin", "user"]
 ));
+//home/createsurvey/addquestions/46
 
 $router->add(array(
     'name'=>'selectedsurvey',
     'path'=>'/^\/home\/showsurveys\/selectedsurvey\?surveys=\d{1,3}$/',
     'action'=>[UsuarioController::class, 'answerSurveyAction'],
-    'auth'=>["admin", "user"]
+    'auth'=>["admin"]
 ));
-//'path'=>'/^\/home\/selectedsurvey\/\d{1,3}$/',
-
-//'path'=>'/^\/home\/bookmarks\/edit\/\d{1,3}$/',
-
 //Petición y respuesta
 $request = str_replace(DIRBASEURL,'',$_SERVER['REQUEST_URI']);
 $route = $router->matchs($request);
