@@ -58,7 +58,7 @@ $router->add(array(
 $router->add(array(
     'name'=>'showsurveys',
     'path'=>'/^\/home\/showsurveys$/',
-    'action'=>[UsuarioController::class, 'userAction'],
+    'action'=>[UsuarioController::class, 'showSurveysAction'],
     'auth'=>["admin", "user"]
 ));
 
@@ -68,13 +68,12 @@ $router->add(array(
     'action'=>[AdminController::class, 'addQuestionsAction'],
     'auth'=>["admin", "user"]
 ));
-//home/createsurvey/addquestions/46
 
 $router->add(array(
     'name'=>'selectedsurvey',
-    'path'=>'/^\/home\/showsurveys\/selectedsurvey\?surveys=\d{1,3}$/',
+    'path'=>'/^\/home\/showsurveys\/selectedsurvey\/\d{1,3}$/',
     'action'=>[UsuarioController::class, 'answerSurveyAction'],
-    'auth'=>["admin"]
+    'auth'=>["admin", "user"]
 ));
 //Petición y respuesta
 $request = str_replace(DIRBASEURL,'',$_SERVER['REQUEST_URI']);

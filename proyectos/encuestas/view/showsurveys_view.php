@@ -8,7 +8,6 @@ $css = $css1 . $css2 . $css3;
 echo "<style>. $css . </style>";
 
 
-
 ?>
 <html>
 
@@ -16,7 +15,7 @@ echo "<style>. $css . </style>";
 
 
     <div id="addQuestionForm">
-        <form action="showsurveys/selectedsurvey" method="get">
+        <form action="" method="post">
 
             <h3>Selecciona la encuesta</h3>
             <hr>
@@ -31,11 +30,8 @@ echo "<style>. $css . </style>";
                     ?>
                 </select>
             </div>
-
-
-
             <div class="buttons">
-                <button type="submit" name="" class="btn_showSurvey">Mostrar</button>
+                <button type="submit" name="btn_showSurvey" class="btn_showSurvey">Mostrar</button>
             </div>
 
         </form>

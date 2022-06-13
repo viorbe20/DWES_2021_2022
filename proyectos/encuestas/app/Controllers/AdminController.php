@@ -55,7 +55,6 @@ class AdminController extends BaseController
             $e->setId($e->lastInsert());
             $data[0]= $e->getId();
             header('location:' . DIRBASEURL . '/home/createsurvey/addquestions/' . $data[0]);
-            //$this->renderHTML('../view/addquestions_view.php', $data);
         } else {
 
             $this->renderHTML('../view/createsurvey_view.php');
