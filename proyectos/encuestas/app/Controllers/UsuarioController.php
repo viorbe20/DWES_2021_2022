@@ -42,8 +42,11 @@ class UsuarioController extends BaseController
 
         //Saca los campos de opciones y lo meto en el array for ($i=0; $i < count($a_idPreguntas); $i++) { 
         for ($i = 0; $i < count($a_idPreguntas); $i++) {
+            echo ('<br>');
             $o->setIdPregunta($a_idPreguntas[$i]['id_pregunta']);
-            $data[1]["preguntas"][$i]['opciones'] = ["id" => $o->getAllByIdPregunta()[$i]['id'], "opcion" => $o->getAllByIdPregunta()[$i]['opcion']];
+            foreach ($o->getAllByIdPregunta() as $key => $value) {
+                $data[1]["preguntas"][$i]["opciones"][$key] = ["id" => $value['id'], "opcion" => $value['opcion']];
+            }
         }
         $this->renderHTML("../view/selectedsurvey_view.php", $data);
     }

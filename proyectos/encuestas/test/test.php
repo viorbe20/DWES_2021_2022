@@ -34,12 +34,8 @@ for ($i=0; $i < count($a_idPreguntas); $i++) {
     for ($i=0; $i < count($a_idPreguntas); $i++) { 
         echo('<br>') ;
         $o->setIdPregunta($a_idPreguntas[$i]['id_pregunta']);
-        //var_dump($o->getAllByIdPregunta()[$i]);
         foreach ($o->getAllByIdPregunta() as $key => $value) {
-           //var_dump($value['opcion']);
-           echo('opciones'.'<br>') ;
               $data[1]["preguntas"][$i]["opciones"][$key] = ["id"=>$value['id'], "opcion"=>$value['opcion']];
-           //var_dump($data[1]["preguntas"]['opciones'] = ["id"=>$value['id'], "opcion"=>$value['opcion']]);
         }
     } 
 var_dump($data);

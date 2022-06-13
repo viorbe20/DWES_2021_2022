@@ -22,21 +22,16 @@ $tituloEncuesta = $data[0]['descripcion'];
                 //var_dump($preguntas);
                 $idPregunta = $preguntas['id'];
                 $descripcionPregunta = $preguntas['descripcion'];
-                echo '<h4>'. $descripcionPregunta .'</h4>';
-                // foreach ($preguntas as $value) {
-                //     var_dump($value);
-                // }
-                // for ($i=0; $i < count($preguntas); $i++) { 
-                //     var_dump($preguntas['opciones']['id']);
-                // }
-                foreach ($preguntas['opciones'] as $key => $value) {
-                    $idOpcion = $preguntas['opciones']['id'];
-                    $enunciadoOpcion = $preguntas['opciones']['opcion'];
-                    echo '<label>'. $enunciadoOpcion .' <input type="radio" value="'. $idOpcion .'" name="'. $idPregunta .'"></label>';
-                }
-                
+                echo '<h4>' . $descripcionPregunta . '</h4>';
 
-                
+                foreach ($preguntas['opciones'] as $value) {
+                    $enunciadoOpcion = $value['opcion'];
+                    $idOpcion = $value['id'];
+                    echo '<label>' . $enunciadoOpcion . ' <input type="radio" value="' . $idOpcion . '" name="' . $idPregunta . '"></label>';
+                }
+
+
+
             }
             ?>
 
