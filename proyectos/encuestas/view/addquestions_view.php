@@ -13,7 +13,7 @@ echo "<style>. $css . </style>";
 // 
 // if (!empty($data)) {
 //     # code...
-//     var_dump($data);
+//     var_dump( $data);
 // }
 
 ?>
@@ -32,18 +32,39 @@ echo "<style>. $css . </style>";
 <body>
     <main id="mq_container">
         <h3><?php
-        echo $data[1]?></h3>
+            echo $data[1] ?></h3>
 
         <form action="" method="post">
             <input type="text" name="btn_search" placeholder="Busca una pregunta">
             <input type="button" value="Buscar">
 
             <?php
-            //Muestra 4 preguntas
-foreach ($data[2] as $key => $value) {
-    var_dump($value['id']);
-}
             ?>
+            <div class="table_container">
+                <table>
+                    <tr>
+                        <th>Enunciado</th>
+                        <th>Añadir</th>
+                    </tr>
+
+
+                    <?php
+                    //Muestra 4 preguntas
+                    echo "<form action=\"\" method=\"post\">";
+                    foreach ($data[2] as $key => $value) {
+                        echo '<tr>';
+                        echo '<td>' . $value['descripcion'] . '</td>';
+                        echo '<td><input type="checkbox" name="selectedQuestions[]" value="' . $value['id'] . '"></td>';
+                        echo '</tr>';
+                    }
+
+
+                    ?>
+                </table>
+
+                <button type="submit" name="addQuestion">Añadir</button>
+
+            </div>
         </form>
     </main>
 

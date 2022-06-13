@@ -16,6 +16,8 @@ class AdminController extends BaseController
 {
     public function addQuestionsAction($request)
     {
+
+
         $data = array();
         $p = Pregunta::getInstancia();
         $e = Encuesta::getInstancia();
@@ -30,56 +32,14 @@ class AdminController extends BaseController
         $data[2] = $p->getOnlyFour();
         $this->renderHTML('../view/addquestions_view.php', $data);
 
-
-        // array_push($data, $p->getOnlyFour(), $e->getAll(), "checked");
-
-        // if (isset($_POST['btn_search'])) {
-        //     $this->renderHTML('../view/createsurvey_view.php', $data);
-        // } elseif (isset($_POST['btn_unmarkAll'])) {
-        //     $data[2] = "";
-        //     $this->renderHTML('../view/createsurvey_view.php', $data);
-        // } elseif (isset($_POST['btn_add'])) {
-        //     $rep = REP::getInstancia();
-
-        //     //Inserta r_encuestas_preguntas
-        //     foreach ($_POST['selected'] as $value) {
-        //         $partes = explode(" ", $value);
-        //         $idPregunta = $partes[0];
-        //         $rep->setIdPregunta($idPregunta);
-        //         $idEncuesta = $partes[1];
-        //         $rep->setIdEncuesta($idEncuesta);
-        //         $rep->setEntity();
-        //     }
-
-        //     //Inserta respuestas
-        //     $respuestas = array();
-        //     $repAll = $rep->getAll();
-        //     for ($i = 0; $i < count($repAll); $i++) {
-        //         $respuestas[$i] = array(
-        //             "id_REP" => $repAll[$i]['id'],
-        //             "id_pregunta" => $repAll[$i]['id_pregunta'],
-        //         );
-        //     }
-
-        //     $r = Respuesta::getInstancia();
-        //     $o = Opcion::getInstancia();
-
-        //     for ($i = 0; $i < count($respuestas); $i++) {
-        //         //Establece id enc pre 
-        //         $r->setIdEncuestaPregunta($respuestas[$i]['id_REP']);
-        //         $o->setIdPregunta($respuestas[$i]['id_pregunta']);
-        //         $a_idOpciones = $o->getIdByIdPregunta();
-
-        //         foreach ($a_idOpciones as $key => $value) {
-        //             $r->setValor($value["id"]);
-        //             $r->setEntity();
-        //         }
-        //     }
-        //     $this->renderHTML('../view/createsurvey_view.php', $data);
-        // } else {
-        //     $data[2] = $p->getOnlyFour();
-        //     $this->renderHTML('../view/createsurvey_view.php', $data);
-        // }
+        if (isset($_POST["addQuestion"])) { //Añade a rep
+            $rep = REP::getInstancia();
+            foreach($_POST['selectedQuestions'] as $idPregunta) {
+                $rep->setIdEncuesta($idEncuesta);
+                $rep->setIdPregunta($idPregunta);
+                $rep->setEntity();
+            }
+        }
     }
 
     public function createsurveyAction()
