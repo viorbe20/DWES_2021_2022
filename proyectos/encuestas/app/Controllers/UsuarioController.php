@@ -17,38 +17,35 @@ class UsuarioController extends BaseController
 
     public function answerSurveyAction($request)
     {
+
         $data = array();
+        $e = Encuesta::getInstancia();
+        $rep = REP::getInstancia();
+        $p = Pregunta::getInstancia();
+        $o = Opcion::getInstancia();
 
+        $parts = explode("/", $request);
+        $idEncuesta = end($parts);
+        $e->setId($idEncuesta);
+
+        //Guarda nombre encuesta
+        $descripcionEncuesta = $e->getById()[0]['descripcion'];
+        $data[0] = ["descripcion" => $descripcionEncuesta];
+        $rep->setIdEncuesta($e->getId());
+        $a_idPreguntas = $rep->getIdPreguntaByIdEncuesta();
+
+        //Recorre array de ids preguntas para meter toda la info de preguntas en el array
+        for ($i = 0; $i < count($a_idPreguntas); $i++) {
+            $p->setId($a_idPreguntas[$i]['id_pregunta']);
+            $data[1]["preguntas"][$i] = ["id" => $a_idPreguntas[$i]['id_pregunta'], "descripcion" => $p->getDescripcionById()[0]['descripcion'], "opciones" => array()];
+        }
+
+        //Saca los campos de opciones y lo meto en el array for ($i=0; $i < count($a_idPreguntas); $i++) { 
+        for ($i = 0; $i < count($a_idPreguntas); $i++) {
+            $o->setIdPregunta($a_idPreguntas[$i]['id_pregunta']);
+            $data[1]["preguntas"][$i]['opciones'] = ["id" => $o->getAllByIdPregunta()[$i]['id'], "opcion" => $o->getAllByIdPregunta()[$i]['opcion']];
+        }
         $this->renderHTML("../view/selectedsurvey_view.php", $data);
-
-        // $data = array();
-        // $e = Encuesta::getInstancia();
-        // $rep = REP::getInstancia();
-        // $p = Pregunta::getInstancia();
-        // $o = Opcion::getInstancia();
-
-        // $parts = explode("=", $request);
-        // $idEncuesta = end($parts);
-        // $e->setId($idEncuesta);
-
-        // //Guarda nombre encuesta
-        // $descripcionEncuesta = $e->getById()[0]['descripcion'];
-        // $data[0] = ["descripcion" => $descripcionEncuesta];
-        // $rep->setIdEncuesta($e->getId());
-        // $a_idPreguntas = $rep->getIdPreguntaByIdEncuesta();
-
-        // //Recorre array de ids preguntas para meter toda la info de preguntas en el array
-        // for ($i = 0; $i < count($a_idPreguntas); $i++) {
-        //     $p->setId($a_idPreguntas[$i]['id_pregunta']);
-        //     $data[1]["preguntas"][$i] = ["id" => $a_idPreguntas[$i]['id_pregunta'], "descripcion" => $p->getDescripcionById()[0]['descripcion'], "opciones" => array()];
-        // }
-
-        // //Saca los campos de opciones y lo meto en el array for ($i=0; $i < count($a_idPreguntas); $i++) { 
-        // for ($i = 0; $i < count($a_idPreguntas); $i++) {
-        //     $o->setIdPregunta($a_idPreguntas[$i]['id_pregunta']);
-        //     $data[1]["preguntas"][$i]['opciones'] = ["id" => $o->getAllByIdPregunta()[$i]['id'], "opcion" => $o->getAllByIdPregunta()[$i]['opcion']];
-        // }
-        // $this->renderHTML("../view/selectedsurvey_view.php", $data);
     }
 
     public function showSurveysAction()
