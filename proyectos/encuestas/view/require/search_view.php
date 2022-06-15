@@ -6,8 +6,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <div id="searchBox">
-    <input type="text" class="searchInput" placeholder="Introduce tu búsqueda">
-    <button type="submit" name="search" class="searchButton">
+    <input type="text" class="searchInput" name="searchInput" placeholder="Introduce tu búsqueda">
+    <button type="submit" name="searchButton" class="searchButton">
         <i class="fa fa-search"></i>
     </button>
 </div>
