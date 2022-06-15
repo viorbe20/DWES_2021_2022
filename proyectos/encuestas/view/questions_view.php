@@ -22,7 +22,7 @@ $readonly;
             </div>
 
             <?php
-            if (isset($_POST['showQuestions'])) {
+            if (isset($_POST['showQuestions']) || isset($_POST['checkAll']) || isset($_POST['uncheckAll'])) {
                 //Carga vista input búsqueda 
                 require('../view/require/search_view.php');
 
