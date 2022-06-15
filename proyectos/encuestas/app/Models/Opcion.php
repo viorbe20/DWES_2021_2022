@@ -98,6 +98,15 @@ class Opcion extends DBAbstractModel
         return $result;
     }
 
+    public function getOptionById()
+    {
+        $this->query = "SELECT opcion FROM opciones WHERE id=:id";
+        $this->parametros['id'] = $this->id;
+        $this->get_results_from_query();
+        $result = $this->rows;
+        return $result;
+    }
+
     
     public function getIdByIdPregunta()
     {
@@ -115,54 +124,6 @@ class Opcion extends DBAbstractModel
         $this->get_results_from_query();
         return $this->rows;
     }
-
-
-    // public function getUserAndBookmarks()
-    // {
-    //     $result = array();
-    //     //Get user by id
-    //     $this->query = "SELECT * FROM usuarios WHERE id=:id";
-    //     $this->parametros['id'] = $this->id;
-    //     $this->get_results_from_query();
-    //     array_push($result, $this->rows);
-
-    //     //Get bookmarks by userId
-    //     $this->query = "SELECT * FROM bookmarks WHERE id_usuario=:id_usuario";
-    //     //Añadimos el id del usuario
-    //     $this->parametros['id_usuario'] = $this->id;
-    //     $this->get_results_from_query();
-    //     array_push($result, $this->rows);
-
-    //     return $result;
-    // }
-
-    // public function getAll()
-    // {
-    //     $this->query = "SELECT * FROM usuarios";
-    //     $this->get_results_from_query();
-    //     $result = $this->rows;
-    //     return $result;
-    // }
-
-
-    // public function unblockUser()
-    // {
-    //     $this->query = "UPDATE usuarios SET bloqueado=:bloqueado WHERE id=:id";
-    //     $this->parametros['bloqueado'] = $this->bloqueado;
-    //     $this->parametros['id'] = $this->id;
-    //     $this->get_results_from_query();
-    // }
-
-
-    // public function getById()
-    // {
-    //     $this->query = "SELECT * FROM usuarios WHERE id=:id";
-    //     $this->parametros['id'] = $this->id;
-    //     $this->get_results_from_query();
-    //     $result = $this->rows;
-    //     return $result;
-    // }
-
 
     public function getEntity($id)
     {

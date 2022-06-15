@@ -7,7 +7,10 @@ $css3 = file_get_contents('../view/css/selectedsurvey_view_style.css');
 $css = $css1 . $css2 . $css3;
 echo "<style>. $css . </style>";
 $tituloEncuesta = $data[0]['descripcion'];
-
+if (isset($_POST['btn_send'])) {
+    $respuestas = $_POST['radio'];
+    var_dump($respuestas);
+}
 ?>
 <html>
 
@@ -27,7 +30,7 @@ $tituloEncuesta = $data[0]['descripcion'];
                 foreach ($preguntas['opciones'] as $value) {
                     $enunciadoOpcion = $value['opcion'];
                     $idOpcion = $value['id'];
-                    echo '<label>' . $enunciadoOpcion . ' <input type="radio" value="' . $idOpcion . '" name="' . $idPregunta . '"></label>';
+                    echo '<label>' . $enunciadoOpcion . ' <input type="radio" value="' . $idPregunta .'-'. $idOpcion . '" name="' . $idPregunta .'-'. $idOpcion . '"></label>';
                 }
 
 
@@ -36,8 +39,8 @@ $tituloEncuesta = $data[0]['descripcion'];
             ?>
 
             <div class="buttons">
-                <button type="submit" name="btn_cancel" class="btn_cancel">Terminar</button>
-                <button type="submit" name="btn_add" class="btn_add">Añadir</button>
+                <button type="submit" name="btn_cancel" class="btn_cancel">Cancelar</button>
+                <button type="submit" name="btn_send" class="btn_add">Enviar</button>
             </div>
 
         </form>

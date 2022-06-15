@@ -8,7 +8,6 @@ require_once('..\app\Config\constantes.php');
 
 class HomeController extends BaseController
 {
-
     public function indexAction()
     {
         //$data = array();
@@ -34,7 +33,7 @@ class HomeController extends BaseController
                         }
 
                         if ($_SESSION['user']['profile'] == "admin") {
-                            header('location:' . DIRBASEURL . '/home/createquestions');
+                            header('location:' . DIRBASEURL . '/home/questions');
                         }
                     }
                 } else {

@@ -16,8 +16,6 @@ class AdminController extends BaseController
 {
     public function addQuestionsAction($request)
     {
-
-
         $data = array();
         $p = Pregunta::getInstancia();
         $e = Encuesta::getInstancia();
@@ -30,7 +28,7 @@ class AdminController extends BaseController
         $data[0] = $idEncuesta;
         $data[1] = $descripcion[0]['descripcion'];
         $data[2] = $p->getOnlyFour();
-        $this->renderHTML('../view/addquestions_view.php', $data);
+        $this->renderHTML('../view/questions_view.php', $data);
 
         if (isset($_POST["addQuestion"])) { //Añade a rep
             $rep = REP::getInstancia();
@@ -54,13 +52,14 @@ class AdminController extends BaseController
             $e->setEntity();
             $e->setId($e->lastInsert());
             $data[0]= $e->getId();
-            header('location:' . DIRBASEURL . '/home/createsurvey/addquestions/' . $data[0]);
+            //header('location:' . DIRBASEURL . '/home/surveys/addquestions/' . $data[0]);
         } else {
 
-            $this->renderHTML('../view/createsurvey_view.php');
+            $this->renderHTML('../view/surveys_view.php');
         }
     }
-    public function createquestionsAction()
+
+    public function questionsAction()
     {
 
         $data = array();
@@ -74,7 +73,7 @@ class AdminController extends BaseController
             $description = $p->getDescripcion();
             array_push($data, $inputNum);
             array_push($data, $description);
-            $this->renderHTML('../view/createquestions_view.php', $data);
+            $this->renderHTML('../view/questions_view.php', $data);
 
             //Añade pregunta a la base de datos
         } else if (isset($_POST['btn_add'])) {
@@ -91,16 +90,12 @@ class AdminController extends BaseController
                     $o->setEntity();
                 }
             }
-            $this->renderHTML('../view/createquestions_view.php');
+            $this->renderHTML('../view/questions_view.php');
         } else if (isset($_POST['btn_cancel'])) {
             $data = array();
-            $this->renderHTML('../view/createquestions_view.php', $data);
+            $this->renderHTML('../view/questions_view.php', $data);
         } else {
-            $this->renderHTML('../view/createquestions_view.php');
+            $this->renderHTML('../view/questions_view.php');
         }
     }
-
-
-
-
 }

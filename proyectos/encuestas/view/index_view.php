@@ -2,9 +2,7 @@
 require('../view/require/header_view.php');
 require('../view/require/login_view.php');
 
-$css1 = file_get_contents('../view/css/style.css');
-$css2 = file_get_contents('../view/css/header_style.css');
-$css = $css1 . $css2;
+$css = file_get_contents('../view/css/style.css');
 echo '<style>' . $css . '</style>';
 ?>
 

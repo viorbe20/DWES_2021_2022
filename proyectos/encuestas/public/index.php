@@ -43,8 +43,8 @@ $router->add(array(
 
 $router->add(array(
     'name'=>'createquestions',
-    'path'=>'/^\/home\/createquestions$/',
-    'action'=>[AdminController::class, 'createquestionsAction'],
+    'path'=>'/^\/home\/questions$/',
+    'action'=>[AdminController::class, 'questionsAction'],
     'auth'=>["admin"]
 ));
 
