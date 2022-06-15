@@ -4,58 +4,44 @@ require "../app/Config/constantes.php";
 
 //Enrutador
 use App\Core\Router;
-use App\Controllers\DefaultController;
+use App\Controllers\AuthController;
 use App\Controllers\UserController;
 
 session_start();
 
 if (!isset($_SESSION['user']['profile'] )) {
-    $_SESSION['user']['profile'] = "guest"; 
+    $_SESSION['user']['profile'] = "guest";
+    $_SESSION['user']['name'] = "guest";
 }
 
 $router = new Router();
 
 //Enrutamiento a la página de inicio
 $router->add(array(
-    'name'=>'index',
-    'path'=>'/^\/index$/',
-    'action'=>[DefaultController::class, 'indexAction'],  
+    'name'=>'home',
+    'path'=>'/^\/home$/',
+    'action'=>[AuthController::class, 'indexAction'],  
     'auth'=>["admin", "guest"]
 ));
 
-// //Enrutamiento logout
+//Enrutamiento logout
 $router->add(array(
     'name'=>'logout',
-    'path'=>'/^\/index\/logout$/',
-    'action'=>[UserController::class, 'logoutAction'],
-    'auth'=>["admin"]
+    'path'=>'/^\/home\/logout$/',
+    'action'=>[AuthController::class, 'logoutAction'],
+    'auth'=>["admin", "user"]
 ));
 
 //Enrutamiento a la página de registro de usuario
 $router->add(array(
     'name'=>'signup',
-    'path'=>'/^\/index\/signup$/',
+    'path'=>'/^\/home\/signup$/',
     'action'=>[UserController::class, 'signupAction'],
     'auth'=>["admin", "guest"]
 ));
 
-// //Enrutamiento a página para editar palabra
-// $router->add(array(
-//     'name'=>'editWord',
-//     'path'=>'/^\/wordsearch\/edit\/\d{1,3}\/\w{1,}$/',
-//     'action'=>[WordController::class, 'editWordAction'],
-//     'auth'=>["admin"]
-// ));
-
-// //Enrutamiento a página para eliminar palabra
-// $router->add(array(
-//     'name'=>'deleteWord',
-//     'path'=>'/^\/wordsearch\/delete\/\d{1,3}\/\w{1,}$/',
-//     'action'=>[WordController::class, 'deleteWordAction'],
-//     'auth'=>["admin"]
-// ));
-
-
+//Add
+//'path'=>'/^\/home\/createsurvey\/addquestions\/\d{1,3}$/',
 
 //Petición y respuesta
 $request = str_replace(DIRBASEURL,'',$_SERVER['REQUEST_URI']);

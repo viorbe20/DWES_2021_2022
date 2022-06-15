@@ -11,11 +11,6 @@
 </head>
 
 <body>
-    <noscript>
-        <p>Bienvenido a Mi Sitio</p>
-        <p>La página que estás viendo requiere para su funcionamiento el uso de JavaScript.
-            Si lo has deshabilitado intencionadamente, por favor vuelve a activarlo.</p>
-    </noscript>
     <header>
         <h2>Ejercicio Php</h2>
         <!--Muestra la información del perfil que está conectado-->
@@ -24,21 +19,19 @@
                 <!--Icono usuario y nombre-->
                 <section>
                     <span id="img" class="material-symbols-outlined">
-                        account_circle_full
+                        account_circle
                     </span>
                     <div><?php echo strtoupper($_SESSION['user']['profile']) ?></div>
                 </section>
 
                 <!--Icono de salir-->
                 <?php
-                //if ($_SESSION['user']['profile'] != "guest") {
                 ?>
                     <section> 
                         <a id="icon-logout" href="<?php echo DIRBASEURL . '/index/logout' ?>"><span class="material-symbols-outlined">logout</span><label>Salir</label></a>
                     </section>
                 <?php
 
-                //}
                 ?>
             </div>
             <div>

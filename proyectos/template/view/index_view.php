@@ -2,6 +2,8 @@
 require('../view/require/header_view.php');
 require('../view/require/login_view.php');
 $css = file_get_contents('../view/css/style.css');
+echo '<style>'. $css .'</style>';
+
 ?>
 
 <!DOCTYPE html>
@@ -16,14 +18,9 @@ $css = file_get_contents('../view/css/style.css');
 </head>
 
 <body>
-    <noscript>
-        <p>Bienvenido a Mi Sitio</p>
-        <p>La página que estás viendo requiere para su funcionamiento el uso de JavaScript.
-            Si lo has deshabilitado intencionadamente, por favor vuelve a activarlo.</p>
-    </noscript>
-    <style>
-        <?php echo $css?>
-    </style>
+    <main>
+        Hola esto es un main
+    </main>
 </body>
 
 </html>

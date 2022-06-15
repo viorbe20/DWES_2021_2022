@@ -6,7 +6,7 @@ use App\Models\User;
 
 require_once('..\app\Config\constantes.php');
 
-class DefaultController extends BaseController
+class AuthController extends BaseController
 {
     //Método que carga la página de inicio
     public function indexAction()
@@ -38,5 +38,13 @@ class DefaultController extends BaseController
             //Renderiza página inicio con los datos  
             $this->renderHTML('../view/index_view.php', $data);
         }
+    }
+
+    public function logoutAction()
+    {
+        //Cierra sesión y envía a la página de inicio
+        unset($_SESSION);
+        session_destroy();
+        header('Location:' . DIRBASEURL . '/home');
     }
 }

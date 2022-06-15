@@ -1,14 +1,14 @@
 :root {
-  --color1: #3c3c3c;
+  --letraGris: #3c3c3c;
   --title: #056571;
   --negro: #192231;
   --color-form: #a9b7c0;
+  --rojo: #f53240;
+  --colorFondo: #eae3ea;
   --color3: #945d60;
   --color4: #b56357;
   --color5: #af473c;
-  --color6: #f53240;
   --color7: #b4dbc0;
-  --color8: #eae3ea;
   --color9: #a7b3a5;
   --color10: #cdcdcd;
   --color11: #fff7c0;
@@ -25,8 +25,8 @@
 body {
   margin: 0px;
   padding: 0px;
-  background-color: var(--color8);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--colorFondo);
+  font-family: "Roboto";
 }
 
 header {
@@ -44,7 +44,7 @@ header #auth {
 header #auth div:nth-child(1) {
   display: flex;
   justify-content: center;
-  color: var(--color1);
+  color: var(--letraGris);
 }
 header #auth div:nth-child(1) section:nth-child(1) {
   display: flex;
@@ -79,17 +79,23 @@ header #auth div:nth-child(1) section:nth-child(2) a:hover label {
   font-weight: bold;
 }
 header #auth div:nth-child(1) section:nth-child(2) a span {
-  color: var(--color1);
+  color: var(--letraGris);
 }
 header #auth div:nth-child(1) section:nth-child(2) a label {
-  color: var(--color1);
+  color: var(--letraGris);
 }
 header #auth div:nth-child(2) {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--color1);
+  color: var(--letraGris);
   font-size: 12px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #loginForm {
