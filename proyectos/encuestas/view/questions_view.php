@@ -5,8 +5,9 @@ require('../view/require/nav_view.php');
 $css = file_get_contents('../view/css/style.css');
 
 echo "<style>. $css . </style>";
-//$data[0]=> número de inputs que hay que crear para las opciones
-//$data[1]=> enunciado de la pregunta
+//$data[0]=> $data[0] = array($p->getOnlyFour());
+//$data[1]=> p->getDescripcionById()
+//var_dump($data[0]);
 $description;
 $readonly;
 ?>
@@ -15,14 +16,58 @@ $readonly;
 <body>
     <main>
         <form action="" method="post">
-            <div>
+            <div id="botonesQuestion">
                 <input type="submit" value="Mostrar Preguntas" name="showQuestions">
                 <input type="submit" value="Crear pregunta" name="addQuestion">
             </div>
 
             <?php
             if (isset($_POST['showQuestions'])) {
+                //Carga vista input búsqueda 
                 require('../view/require/search_view.php');
+
+                //Muestra 4 preguntas
+            ?>
+                <div id="table_container">
+                    <table>
+                        <tr>
+                            <th>Pregunta</th>
+                            <th>Seleccionar</th>
+                        </tr>
+
+                        <?php
+                        foreach ($data[0] as $key => $value) {
+
+                            foreach ($value as $question) {
+                                echo '<tr>';
+                                echo '<td>' . $question['descripcion'] . '</td>';
+                                
+
+                                // //Desmarca todos los checkbox
+                                if (isset($_POST['uncheckAll'])) {
+                                    $checked = "";
+                                } elseif (isset($_POST['checkAll'])) {
+                                    $checked = "checked";
+                                } else {
+                                    $checked = "checked";
+                                }
+
+                                echo '<td><input type="checkbox" id="' . $question['id'] . '" name="selected[]" value="' . $question['id'] . '"' . $checked . '></td>';
+                                //echo '<td><input type="checkbox" id="' . $value['id']  . '" name="selected[]" value="' . $value['id']  . '"' . $checked . '></td>';
+                                echo '</tr>';
+                            }
+                        }
+
+
+
+                        ?>
+                    </table>
+                    <div id="buttonsBox">
+                        <button type="submit" name="checkAll">Marcar</button>
+                        <button type="submit" name="uncheckAll">Desmarcar</button>
+                    </div>
+                </div>
+            <?php
             } elseif (isset($_POST['addQuestion'])) {
             ?>
                 <div id="addQuestionForm">

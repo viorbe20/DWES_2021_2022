@@ -25,12 +25,66 @@
   box-sizing: border-box;
 }
 
+form{
+  width: 100%;
+  padding: 0% 20%;
+}
+
+#botonesQuestion{ //questions_view botones superiores
+margin: 2% 0%;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+#botonesQuestion > input[type=submit]:nth-child(1){
+  margin: 2%;
+
+}
+/////////////////////////////////////////INPUT BUSQUEDA
+#table_container {
+  margin: 4% 0%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  
+  table {
+    background-color: #c7d8c6;
+    *background-color: pink;
+    margin: 0.5%;
+    width: 100%;
+
+    tr {
+      th {
+        background-color: #056571;
+        color: white;
+        font-weight: bold;
+        padding: 2%;
+      }
+      td {
+        padding: 2%;
+        text-align: center;
+        a {
+          text-decoration-line: none;
+          color: black;
+        }
+      }
+    }
+
+    input[type=submit]{
+      margin-top: 2px;
+    }
+  }
+}
 /////////////////////////////////////////INPUT BUSQUEDA
 #searchBox{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2%;
+  margin-top: 6%;
   margin-bottom: 2%;
 
 }

@@ -22,11 +22,61 @@
   box-sizing: border-box;
 }
 
+form {
+  width: 100%;
+  padding: 0% 20%;
+}
+
+#botonesQuestion {
+  margin: 2% 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#botonesQuestion > input[type=submit]:nth-child(1) {
+  margin: 2%;
+}
+
+#table_container {
+  margin: 4% 0%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+#table_container table {
+  background-color: #c7d8c6;
+  *background-color: pink;
+  margin: 0.5%;
+  width: 100%;
+}
+#table_container table tr th {
+  background-color: #056571;
+  color: white;
+  font-weight: bold;
+  padding: 2%;
+}
+#table_container table tr td {
+  padding: 2%;
+  text-align: center;
+}
+#table_container table tr td a {
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+  color: black;
+}
+#table_container table input[type=submit] {
+  margin-top: 2px;
+}
+
 #searchBox {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2%;
+  margin-top: 6%;
   margin-bottom: 2%;
 }
 

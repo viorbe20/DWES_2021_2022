@@ -48,33 +48,33 @@ $router->add(array(
     'auth'=>["admin"]
 ));
 
-$router->add(array(
-    'name'=>'createsurvey',
-    'path'=>'/^\/home\/createsurvey$/',
-    'action'=>[AdminController::class, 'createsurveyAction'],
-    'auth'=>["admin"]
-));
+// $router->add(array(
+//     'name'=>'createsurvey',
+//     'path'=>'/^\/home\/createsurvey$/',
+//     'action'=>[AdminController::class, 'createsurveyAction'],
+//     'auth'=>["admin"]
+// ));
 
-$router->add(array(
-    'name'=>'showsurveys',
-    'path'=>'/^\/home\/showsurveys$/',
-    'action'=>[UsuarioController::class, 'showSurveysAction'],
-    'auth'=>["admin", "user"]
-));
+// $router->add(array(
+//     'name'=>'showsurveys',
+//     'path'=>'/^\/home\/showsurveys$/',
+//     'action'=>[UsuarioController::class, 'showSurveysAction'],
+//     'auth'=>["admin", "user"]
+// ));
 
-$router->add(array(
-    'name'=>'addquestions',
-    'path'=>'/^\/home\/createsurvey\/addquestions\/\d{1,3}$/',
-    'action'=>[AdminController::class, 'addQuestionsAction'],
-    'auth'=>["admin", "user"]
-));
+// $router->add(array(
+//     'name'=>'addquestions',
+//     'path'=>'/^\/home\/createsurvey\/addquestions\/\d{1,3}$/',
+//     'action'=>[AdminController::class, 'addQuestionsAction'],
+//     'auth'=>["admin", "user"]
+// ));
 
-$router->add(array(
-    'name'=>'selectedsurvey',
-    'path'=>'/^\/home\/showsurveys\/selectedsurvey\/\d{1,3}$/',
-    'action'=>[UsuarioController::class, 'answerSurveyAction'],
-    'auth'=>["admin", "user"]
-));
+// $router->add(array(
+//     'name'=>'selectedsurvey',
+//     'path'=>'/^\/home\/showsurveys\/selectedsurvey\/\d{1,3}$/',
+//     'action'=>[UsuarioController::class, 'answerSurveyAction'],
+//     'auth'=>["admin", "user"]
+// ));
 //Petición y respuesta
 $request = str_replace(DIRBASEURL,'',$_SERVER['REQUEST_URI']);
 $route = $router->matchs($request);
