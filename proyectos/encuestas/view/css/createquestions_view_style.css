@@ -1,0 +1,87 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  *overflow: hidden;
+  background-color: #a9b7c0;
+  display: flex;
+}
+ul li {
+  padding: 1%;
+  background-color: #175f8b;
+}
+ul li:hover {
+  background-color: white;
+}
+ul li:hover a {
+  color: #175f8b;
+}
+ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+#mq_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2% 0%;
+}
+
+#addQuestionForm {
+  background: var(--color8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+}
+#addQuestionForm form {
+  background: #a9b7c0;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  padding: 0% 2%;
+}
+#addQuestionForm form label {
+  margin: 1% 0% 0.1% 0%;
+}
+#addQuestionForm form input {
+  margin: 1% 0%;
+  padding: 1% 0%;
+}
+#addQuestionForm form .buttons {
+  margin: 2% 0%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* Extra styles for the cancel button */
+  /* Float cancel and signup buttons and add an equal width */
+  /* Add padding to container elements */
+}
+#addQuestionForm form .buttons button {
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  *width: 80%;
+  opacity: 0.9;
+}
+#addQuestionForm form .buttons button:hover {
+  opacity: 1;
+}
+#addQuestionForm form .buttons .btn_cancel {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+#addQuestionForm form .buttons .btn_cancel,
+#addQuestionForm form .buttons .btn_add {
+  float: left;
+  width: 40%;
+}
+#addQuestionForm form .buttons .container {
+  padding: 16px;
+}/*# sourceMappingURL=createquestions_view_style.css.map */

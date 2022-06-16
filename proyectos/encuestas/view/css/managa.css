@@ -1,0 +1,52 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  *overflow: hidden;
+  background-color: #a9b7c0;
+  display: flex;
+}
+ul li {
+  padding: 1%;
+  background-color: #175f8b;
+}
+ul li:hover {
+  background-color: white;
+}
+ul li:hover a {
+  color: #175f8b;
+}
+ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+#mq_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2% 0%;
+}
+#mq_container .myInput {
+  width: 350px;
+  height: 30px;
+}
+
+#showFour {
+  *background-color: #175f8b;
+  width: 60%;
+  margin: 2% 0%;
+}
+#showFour .question4 {
+  text-align: center;
+  background-color: #a9b7c0;
+  padding: 2%;
+  width: 100%;
+}/*# sourceMappingURL=managa.css.map */

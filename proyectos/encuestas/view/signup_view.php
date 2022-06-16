@@ -1,3 +1,13 @@
+<?php
+require('../view/require/header_view.php');
+
+$css1 = file_get_contents('../view/css/signup_style.css');
+$css2 = file_get_contents('../view/css/header_style.css');
+$css = $css1.$css2;
+
+echo "<style>. $css .</style>";
+?>
+
 <div id="signupForm">
     <?php
     ?>
